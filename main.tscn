@@ -1,0 +1,8 @@
+[gd_scene load_steps=2 format=3 uid="uid://cj4j0saa5edb7"]
+
+[ext_resource type="PackedScene" uid="uid://b3nl17e08ollp" path="res://clickable_area.tscn" id="1_hyfkh"]
+
+[node name="Main" type="Node"]
+
+[node name="ClickableArea" parent="." instance=ExtResource("1_hyfkh")]
+scale = Vector2(3.08, 1)
