@@ -13,11 +13,20 @@ config_version=5
 config/name="PointNClick"
 run/main_scene="res://main.tscn"
 config/features=PackedStringArray("4.0", "Forward Plus")
-config/icon="res://icon.svg"
+config/icon="res://Assets/icon.svg"
 
 [display]
 
 window/size/viewport_width=1920
 window/size/viewport_height=1080
-window/size/initial_position=Vector2i(0, 500)
-window/stretch/mode="canvas_items"
+
+[input]
+
+mouse_left={
+"deadzone": 0.5,
+"events": []
+}
+mouse_right={
+"deadzone": 0.5,
+"events": []
+}

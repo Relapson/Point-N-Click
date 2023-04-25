@@ -5,4 +5,4 @@
 [node name="Main" type="Node"]
 
 [node name="ClickableArea" parent="." instance=ExtResource("1_hyfkh")]
-scale = Vector2(3.08, 1)
+scale = Vector2(7.13474, 1.27285)

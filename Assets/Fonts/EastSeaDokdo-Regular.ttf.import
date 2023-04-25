@@ -3,12 +3,12 @@
 importer="font_data_dynamic"
 type="FontFile"
 uid="uid://oqud717w80kb"
-path="res://.godot/imported/EastSeaDokdo-Regular.ttf-49ed05ed7aa0b9d13e4da6d9419a96e6.fontdata"
+path="res://.godot/imported/EastSeaDokdo-Regular.ttf-3e03e4faceb801916ac747c6de3fde61.fontdata"
 
 [deps]
 
-source_file="res://EastSeaDokdo-Regular.ttf"
-dest_files=["res://.godot/imported/EastSeaDokdo-Regular.ttf-49ed05ed7aa0b9d13e4da6d9419a96e6.fontdata"]
+source_file="res://Assets/Fonts/EastSeaDokdo-Regular.ttf"
+dest_files=["res://.godot/imported/EastSeaDokdo-Regular.ttf-3e03e4faceb801916ac747c6de3fde61.fontdata"]
 
 [params]
 
