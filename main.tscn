@@ -1,8 +1,8 @@
 [gd_scene load_steps=2 format=3 uid="uid://cj4j0saa5edb7"]
 
-[ext_resource type="PackedScene" uid="uid://b3nl17e08ollp" path="res://clickable_area.tscn" id="1_hyfkh"]
+[ext_resource type="PackedScene" uid="uid://b38h7cepxykak" path="res://Characters/Player.tscn" id="1_ge7eo"]
 
 [node name="Main" type="Node"]
 
-[node name="ClickableArea" parent="." instance=ExtResource("1_hyfkh")]
-scale = Vector2(7.13474, 1.27285)
+[node name="Player" parent="." instance=ExtResource("1_ge7eo")]
+scale = Vector2(0.5, 0.5)
