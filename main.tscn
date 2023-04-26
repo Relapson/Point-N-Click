@@ -1,12 +1,17 @@
 [gd_scene load_steps=3 format=3 uid="uid://cj4j0saa5edb7"]
 
-[ext_resource type="Script" path="res://MainScene.gd" id="1_6nden"]
 [ext_resource type="PackedScene" uid="uid://b38h7cepxykak" path="res://Characters/Player.tscn" id="1_ge7eo"]
 
+[sub_resource type="NavigationPolygon" id="NavigationPolygon_0s3fd"]
+vertices = PackedVector2Array(1228, 821, 1691, 838, 1304, 1041, 899, 843, 378, 1011, 77, 824, 262, 695, 929, 409, 186, 484, 1256, 644, 1553, 689, 1712, 343, 1778, 519)
+polygons = Array[PackedInt32Array]([PackedInt32Array(0, 1, 2, 3), PackedInt32Array(3, 4, 5, 6, 7), PackedInt32Array(6, 8, 7), PackedInt32Array(0, 3, 7, 9), PackedInt32Array(10, 9, 7, 11, 12)])
+outlines = Array[PackedVector2Array]([PackedVector2Array(186, 484, 929, 409, 1712, 343, 1778, 519, 1553, 689, 1256, 644, 1228, 821, 1691, 838, 1304, 1041, 899, 843, 378, 1011, 77, 824, 262, 695)])
+
 [node name="MainScene" type="Node"]
-script = ExtResource("1_6nden")
 
 [node name="NavigationRegion2D" type="NavigationRegion2D" parent="."]
+navigation_polygon = SubResource("NavigationPolygon_0s3fd")
 
 [node name="Player" parent="." instance=ExtResource("1_ge7eo")]
+position = Vector2(562, 261)
 scale = Vector2(0.5, 0.5)

@@ -17,3 +17,5 @@ shape = SubResource("RectangleShape2D_5vaji")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 texture = ExtResource("1_77i3w")
+
+[node name="NavigationAgent2D" type="NavigationAgent2D" parent="."]
