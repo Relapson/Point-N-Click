@@ -13,5 +13,5 @@ outlines = Array[PackedVector2Array]([PackedVector2Array(186, 484, 929, 409, 171
 navigation_polygon = SubResource("NavigationPolygon_0s3fd")
 
 [node name="Player" parent="." instance=ExtResource("1_ge7eo")]
-position = Vector2(562, 261)
+position = Vector2(746, 584)
 scale = Vector2(0.5, 0.5)
