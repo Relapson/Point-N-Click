@@ -1,0 +1,22 @@
+[gd_scene load_steps=3 format=3 uid="uid://bjng1m2u6rpc2"]
+
+[ext_resource type="Script" path="res://Control/leave_area_hotspot.gd" id="1_taqcs"]
+[ext_resource type="FontFile" uid="uid://oqud717w80kb" path="res://Assets/Fonts/EastSeaDokdo-Regular.ttf" id="2_4f7dp"]
+
+[node name="LeaveAreaHotspot" type="Area2D"]
+script = ExtResource("1_taqcs")
+metadata/_edit_group_ = true
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="."]
+polygon = PackedVector2Array(676, 366, 690, 781, 1164, 801, 1107, 339)
+
+[node name="RoomName" type="Label" parent="."]
+offset_left = 822.0
+offset_top = 505.0
+offset_right = 995.0
+offset_bottom = 609.0
+theme_override_fonts/font = ExtResource("2_4f7dp")
+theme_override_font_sizes/font_size = 100
+text = "Lorem"
+
+[connection signal="input_event" from="." to="." method="_on_input_event"]
