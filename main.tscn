@@ -21,7 +21,7 @@ position = Vector2(746, 584)
 scale = Vector2(0.5, 0.5)
 
 [node name="LeaveAreaHotspot" parent="." instance=ExtResource("2_mbrql")]
-position = Vector2(-516, -364)
+position = Vector2(-510, -292)
 next_room = ExtResource("3_ajpyp")
 room_name = "ding"
 
@@ -29,7 +29,7 @@ room_name = "ding"
 polygon = PackedVector2Array(713, 515, 705, 849, 1164, 801, 1087, 509)
 
 [node name="LeaveAreaHotspot2" parent="." instance=ExtResource("2_mbrql")]
-position = Vector2(550, -456)
+position = Vector2(568, -394)
 next_room = ExtResource("4_krcuc")
 room_name = "dong"
 

@@ -18,3 +18,7 @@ func _on_input_event(_viewport, _event, _shape_idx):
 	if Input.is_action_just_pressed("mouse_right") and showing:
 		$RoomName.hide()
 		showing = false
+
+func _on_player_body_entered(body):
+	print(body)
+	# switch the scene here

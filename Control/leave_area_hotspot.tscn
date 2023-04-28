@@ -19,4 +19,5 @@ theme_override_fonts/font = ExtResource("2_4f7dp")
 theme_override_font_sizes/font_size = 100
 text = "Lorem"
 
+[connection signal="body_entered" from="." to="." method="_on_player_body_entered"]
 [connection signal="input_event" from="." to="." method="_on_input_event"]
