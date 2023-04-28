@@ -37,7 +37,7 @@ room_name = "dong"
 polygon = PackedVector2Array(771, 589, 647, 843, 1164, 801, 1071, 587, 916, 485)
 
 [node name="ClickableArea" parent="." instance=ExtResource("5_0lot3")]
-position = Vector2(1562, 471)
+position = Vector2(1545, 449)
 
 [node name="CollisionShape2D" parent="ClickableArea" index="0"]
 polygon = PackedVector2Array(-58, 22, -153, 109, -43, 183, 30, 92)

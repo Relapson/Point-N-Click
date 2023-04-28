@@ -9,15 +9,17 @@ var showing = false
 func _ready():
 	$RoomName.set_text(next_room.resource_path)
 	$RoomName.hide()
+	# print(is_connected("input_event", _on_input_event)) debug print
 
-func _on_input_event(_viewport, _event, _shape_idx):
-	if Input.is_action_just_pressed("mouse_left") and not showing:
-		$RoomName.show()
-		showing = true
-		
-	if Input.is_action_just_pressed("mouse_right") and showing:
-		$RoomName.hide()
-		showing = false
+# change the room to the 'next_room'
+func change_room():
+	pass
+
+func _on_input_event(_viewport, event, _shape_idx):
+	# check for doubleclick for instant scene transition
+	if event is InputEventMouseButton:
+		if event.double_click:
+			print("INSTANT") # switch to scene here
 
 func _on_player_body_entered(body):
 	print(body)
