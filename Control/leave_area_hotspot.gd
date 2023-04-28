@@ -1,11 +1,13 @@
 extends Area2D
 
+# TODO: extends clickable area vielleicht?
+
 @export var next_room: PackedScene
 @export var room_name: String = ""
 var showing = false
 
 func _ready():
-	$RoomName.set_text(room_name)
+	$RoomName.set_text(next_room.resource_path)
 	$RoomName.hide()
 
 func _on_input_event(_viewport, _event, _shape_idx):
