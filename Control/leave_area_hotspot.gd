@@ -1,14 +1,13 @@
 extends Area2D
 
 # TODO: extends clickable area vielleicht?
-
-@export var next_room: PackedScene
+@export var next_room: PackedScene # ERROR: nicht die packed scene, sondern den pfad dazu referenzieren
 @export var room_name: String = ""
 var showing = false
 # area left variable einführen, damit spieler durch die selbe stelle den bereich verlassen/betreten kann
 
 func _ready():
-	$RoomName.set_text(next_room.resource_path)
+	$RoomName.set_text(room_name)
 	$RoomName.hide()
 	# print(is_connected("input_event", _on_input_event)) debug print
 

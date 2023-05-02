@@ -1,9 +1,9 @@
 [gd_scene load_steps=6 format=3 uid="uid://b7giusivf3uo6"]
 
 [ext_resource type="PackedScene" uid="uid://b38h7cepxykak" path="res://Characters/Player.tscn" id="1_twlcm"]
-[ext_resource type="PackedScene" uid="uid://wprlbke24xqr" path="res://Control/clickable_area.tscn" id="2_yuyfd"]
-[ext_resource type="PackedScene" uid="uid://bjng1m2u6rpc2" path="res://Control/leave_area_hotspot.tscn" id="3_anxc2"]
-[ext_resource type="PackedScene" uid="uid://cj4j0saa5edb7" path="res://main.tscn" id="4_s2ot4"]
+[ext_resource type="Script" path="res://Control/ClickableArea.gd" id="2_da2sr"]
+[ext_resource type="FontFile" uid="uid://oqud717w80kb" path="res://Assets/Fonts/EastSeaDokdo-Regular.ttf" id="3_2qtwx"]
+[ext_resource type="Script" path="res://Control/leave_area_hotspot.gd" id="4_lydxb"]
 
 [sub_resource type="NavigationPolygon" id="NavigationPolygon_eb2dj"]
 vertices = PackedVector2Array(244, 628, 919, 498, 1749, 658, 1813, 847, 718, 941, 240, 786)
@@ -19,19 +19,43 @@ navigation_polygon = SubResource("NavigationPolygon_eb2dj")
 position = Vector2(943, 686)
 scale = Vector2(0.5, 0.5)
 
-[node name="ClickableArea" parent="." instance=ExtResource("2_yuyfd")]
+[node name="ClickableArea" type="Area2D" parent="."]
 position = Vector2(1462, 650)
+script = ExtResource("2_da2sr")
+item_name = "dings"
+metadata/_edit_group_ = true
 
-[node name="CollisionShape2D" parent="ClickableArea" index="0"]
+[node name="CollisionShape2D" type="CollisionPolygon2D" parent="ClickableArea"]
+modulate = Color(0, 1, 1, 1)
 polygon = PackedVector2Array(-39, 40, -139, 170, 265, 163, 226, -115)
 
-[node name="LeaveAreaHotspot" parent="." instance=ExtResource("3_anxc2")]
-position = Vector2(-10, -225)
-next_room = ExtResource("4_s2ot4")
-room_name = "Room1"
+[node name="Description" type="Label" parent="ClickableArea"]
+offset_top = -0.5
+offset_right = 185.0
+offset_bottom = 51.5
+theme_override_fonts/font = ExtResource("3_2qtwx")
+theme_override_font_sizes/font_size = 50
+text = "Lorem Ipsum"
 
-[node name="CollisionPolygon2D" parent="LeaveAreaHotspot" index="0"]
+[node name="LeaveAreaHotspot" type="Area2D" parent="."]
+position = Vector2(-10, -225)
+script = ExtResource("4_lydxb")
+room_name = "Room1"
+metadata/_edit_group_ = true
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="LeaveAreaHotspot"]
 polygon = PackedVector2Array(810, 349, 690, 781, 1166, 771, 1082, 623)
 
-[editable path="ClickableArea"]
-[editable path="LeaveAreaHotspot"]
+[node name="RoomName" type="Label" parent="LeaveAreaHotspot"]
+offset_left = 822.0
+offset_top = 505.0
+offset_right = 995.0
+offset_bottom = 609.0
+theme_override_fonts/font = ExtResource("3_2qtwx")
+theme_override_font_sizes/font_size = 100
+text = "Lorem"
+
+[connection signal="mouse_entered" from="ClickableArea" to="ClickableArea" method="_on_mouse_entered" flags=18]
+[connection signal="mouse_exited" from="ClickableArea" to="ClickableArea" method="_on_mouse_exited" flags=18]
+[connection signal="body_entered" from="LeaveAreaHotspot" to="LeaveAreaHotspot" method="_on_player_body_entered" flags=18]
+[connection signal="input_event" from="LeaveAreaHotspot" to="LeaveAreaHotspot" method="_on_input_event" flags=18]

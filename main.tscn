@@ -1,9 +1,10 @@
-[gd_scene load_steps=6 format=3 uid="uid://cj4j0saa5edb7"]
+[gd_scene load_steps=7 format=3 uid="uid://cj4j0saa5edb7"]
 
 [ext_resource type="PackedScene" uid="uid://b38h7cepxykak" path="res://Characters/Player.tscn" id="1_ge7eo"]
-[ext_resource type="PackedScene" uid="uid://bjng1m2u6rpc2" path="res://Control/leave_area_hotspot.tscn" id="2_mbrql"]
+[ext_resource type="Script" path="res://Control/leave_area_hotspot.gd" id="2_8e1dm"]
 [ext_resource type="PackedScene" uid="uid://b7giusivf3uo6" path="res://scene_2.tscn" id="3_ajpyp"]
-[ext_resource type="PackedScene" uid="uid://wprlbke24xqr" path="res://Control/clickable_area.tscn" id="5_0lot3"]
+[ext_resource type="FontFile" uid="uid://oqud717w80kb" path="res://Assets/Fonts/EastSeaDokdo-Regular.ttf" id="4_0ibop"]
+[ext_resource type="Script" path="res://Control/ClickableArea.gd" id="5_efs5a"]
 
 [sub_resource type="NavigationPolygon" id="NavigationPolygon_0s3fd"]
 vertices = PackedVector2Array(1228, 821, 1691, 838, 1304, 1041, 899, 843, 378, 1011, 77, 824, 262, 695, 929, 409, 186, 484, 1256, 644, 1553, 689, 1712, 343, 1778, 519)
@@ -19,28 +20,64 @@ navigation_polygon = SubResource("NavigationPolygon_0s3fd")
 position = Vector2(746, 584)
 scale = Vector2(0.5, 0.5)
 
-[node name="LeaveAreaHotspot" parent="." instance=ExtResource("2_mbrql")]
+[node name="LeaveAreaHotspot" type="Area2D" parent="."]
 position = Vector2(-510, -292)
+script = ExtResource("2_8e1dm")
 next_room = ExtResource("3_ajpyp")
 room_name = "ding"
+metadata/_edit_group_ = true
 
-[node name="CollisionPolygon2D" parent="LeaveAreaHotspot" index="0"]
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="LeaveAreaHotspot"]
 polygon = PackedVector2Array(713, 515, 705, 849, 1164, 801, 1087, 509)
 
-[node name="LeaveAreaHotspot2" parent="." instance=ExtResource("2_mbrql")]
-position = Vector2(568, -394)
-next_room = null
-room_name = "dong"
+[node name="RoomName" type="Label" parent="LeaveAreaHotspot"]
+offset_left = 822.0
+offset_top = 505.0
+offset_right = 995.0
+offset_bottom = 609.0
+theme_override_fonts/font = ExtResource("4_0ibop")
+theme_override_font_sizes/font_size = 100
+text = "Lorem"
 
-[node name="CollisionPolygon2D" parent="LeaveAreaHotspot2" index="0"]
+[node name="LeaveAreaHotspot2" type="Area2D" parent="."]
+position = Vector2(568, -394)
+script = ExtResource("2_8e1dm")
+room_name = "dong"
+metadata/_edit_group_ = true
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="LeaveAreaHotspot2"]
 polygon = PackedVector2Array(771, 589, 647, 843, 1164, 801, 1071, 587, 916, 485)
 
-[node name="ClickableArea" parent="." instance=ExtResource("5_0lot3")]
-position = Vector2(1545, 449)
+[node name="RoomName" type="Label" parent="LeaveAreaHotspot2"]
+offset_left = 822.0
+offset_top = 505.0
+offset_right = 995.0
+offset_bottom = 609.0
+theme_override_fonts/font = ExtResource("4_0ibop")
+theme_override_font_sizes/font_size = 100
+text = "Lorem"
 
-[node name="CollisionShape2D" parent="ClickableArea" index="0"]
+[node name="ClickableArea" type="Area2D" parent="."]
+position = Vector2(1545, 449)
+script = ExtResource("5_efs5a")
+item_name = "dings"
+metadata/_edit_group_ = true
+
+[node name="CollisionShape2D" type="CollisionPolygon2D" parent="ClickableArea"]
+modulate = Color(0, 1, 1, 1)
 polygon = PackedVector2Array(-58, 22, -153, 109, -43, 183, 30, 92)
 
-[editable path="LeaveAreaHotspot"]
-[editable path="LeaveAreaHotspot2"]
-[editable path="ClickableArea"]
+[node name="Description" type="Label" parent="ClickableArea"]
+offset_top = -0.5
+offset_right = 185.0
+offset_bottom = 51.5
+theme_override_fonts/font = ExtResource("4_0ibop")
+theme_override_font_sizes/font_size = 50
+text = "Lorem Ipsum"
+
+[connection signal="body_entered" from="LeaveAreaHotspot" to="LeaveAreaHotspot" method="_on_player_body_entered" flags=18]
+[connection signal="input_event" from="LeaveAreaHotspot" to="LeaveAreaHotspot" method="_on_input_event" flags=18]
+[connection signal="body_entered" from="LeaveAreaHotspot2" to="LeaveAreaHotspot2" method="_on_player_body_entered" flags=18]
+[connection signal="input_event" from="LeaveAreaHotspot2" to="LeaveAreaHotspot2" method="_on_input_event" flags=18]
+[connection signal="mouse_entered" from="ClickableArea" to="ClickableArea" method="_on_mouse_entered" flags=18]
+[connection signal="mouse_exited" from="ClickableArea" to="ClickableArea" method="_on_mouse_exited" flags=18]
