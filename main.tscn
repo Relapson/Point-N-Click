@@ -1,9 +1,8 @@
-[gd_scene load_steps=7 format=3 uid="uid://cj4j0saa5edb7"]
+[gd_scene load_steps=6 format=3 uid="uid://cj4j0saa5edb7"]
 
 [ext_resource type="PackedScene" uid="uid://b38h7cepxykak" path="res://Characters/Player.tscn" id="1_ge7eo"]
 [ext_resource type="PackedScene" uid="uid://bjng1m2u6rpc2" path="res://Control/leave_area_hotspot.tscn" id="2_mbrql"]
 [ext_resource type="PackedScene" uid="uid://b7giusivf3uo6" path="res://scene_2.tscn" id="3_ajpyp"]
-[ext_resource type="PackedScene" uid="uid://d3k5goecj0g4g" path="res://scene_3.tscn" id="4_krcuc"]
 [ext_resource type="PackedScene" uid="uid://wprlbke24xqr" path="res://Control/clickable_area.tscn" id="5_0lot3"]
 
 [sub_resource type="NavigationPolygon" id="NavigationPolygon_0s3fd"]
@@ -30,7 +29,7 @@ polygon = PackedVector2Array(713, 515, 705, 849, 1164, 801, 1087, 509)
 
 [node name="LeaveAreaHotspot2" parent="." instance=ExtResource("2_mbrql")]
 position = Vector2(568, -394)
-next_room = ExtResource("4_krcuc")
+next_room = null
 room_name = "dong"
 
 [node name="CollisionPolygon2D" parent="LeaveAreaHotspot2" index="0"]
