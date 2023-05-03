@@ -49,7 +49,7 @@ position = Vector2(-492, -233)
 next_room = "res://scene_3.tscn"
 
 [node name="CollisionPolygon2D" parent="LeaveAreaHotspot2" index="0"]
-polygon = PackedVector2Array(676, 366, 690, 781, 1128, 675, 991, 495)
+polygon = PackedVector2Array(645, 391, 679, 718, 852, 700, 817, 377)
 
 [connection signal="mouse_entered" from="ClickableArea" to="ClickableArea" method="_on_mouse_entered" flags=18]
 [connection signal="mouse_exited" from="ClickableArea" to="ClickableArea" method="_on_mouse_exited" flags=18]
