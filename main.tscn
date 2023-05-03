@@ -1,8 +1,7 @@
-[gd_scene load_steps=7 format=3 uid="uid://cj4j0saa5edb7"]
+[gd_scene load_steps=6 format=3 uid="uid://cj4j0saa5edb7"]
 
 [ext_resource type="PackedScene" uid="uid://b38h7cepxykak" path="res://Characters/Player.tscn" id="1_ge7eo"]
 [ext_resource type="Script" path="res://Control/leave_area_hotspot.gd" id="2_8e1dm"]
-[ext_resource type="PackedScene" uid="uid://b7giusivf3uo6" path="res://scene_2.tscn" id="3_ajpyp"]
 [ext_resource type="FontFile" uid="uid://oqud717w80kb" path="res://Assets/Fonts/EastSeaDokdo-Regular.ttf" id="4_0ibop"]
 [ext_resource type="Script" path="res://Control/ClickableArea.gd" id="5_efs5a"]
 
@@ -23,8 +22,7 @@ scale = Vector2(0.5, 0.5)
 [node name="LeaveAreaHotspot" type="Area2D" parent="."]
 position = Vector2(-510, -292)
 script = ExtResource("2_8e1dm")
-next_room = ExtResource("3_ajpyp")
-room_name = "ding"
+next_room = "res://scene_2.tscn"
 metadata/_edit_group_ = true
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="LeaveAreaHotspot"]
@@ -42,7 +40,7 @@ text = "Lorem"
 [node name="LeaveAreaHotspot2" type="Area2D" parent="."]
 position = Vector2(568, -394)
 script = ExtResource("2_8e1dm")
-room_name = "dong"
+next_room = "res://scene_2.tscn"
 metadata/_edit_group_ = true
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="LeaveAreaHotspot2"]

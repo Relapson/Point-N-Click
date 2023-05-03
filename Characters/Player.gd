@@ -26,7 +26,7 @@ func _input(_event):
 		target = get_global_mouse_position()
 		set_movement_target(target)
 
-func _physics_process(delta):
+func _physics_process(_delta):
 	if navigation_agent.is_navigation_finished():
 		return
 	
