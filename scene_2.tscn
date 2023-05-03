@@ -39,6 +39,7 @@ text = "Lorem Ipsum"
 
 [node name="LeaveAreaHotspot" parent="." instance=ExtResource("4_tvvqn")]
 position = Vector2(9, -220)
+next_room = "res://main.tscn"
 
 [node name="CollisionPolygon2D" parent="LeaveAreaHotspot" index="0"]
 polygon = PackedVector2Array(811, 492, 683, 750, 1145, 768, 990, 480)

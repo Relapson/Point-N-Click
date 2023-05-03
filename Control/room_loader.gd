@@ -9,7 +9,7 @@ func _ready():
 func goto_scene(path):
 	call_deferred("_deferred_goto_scene", path)
 	
-func _deferred_goto_scene(path:String):
+func _deferred_goto_scene(path):
 	# free current scene
 	current_scene.free()
 	# load new scene
