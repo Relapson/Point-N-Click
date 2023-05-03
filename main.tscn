@@ -1,8 +1,8 @@
 [gd_scene load_steps=6 format=3 uid="uid://cj4j0saa5edb7"]
 
 [ext_resource type="PackedScene" uid="uid://b38h7cepxykak" path="res://Characters/Player.tscn" id="1_ge7eo"]
-[ext_resource type="Script" path="res://Control/leave_area_hotspot.gd" id="2_8e1dm"]
 [ext_resource type="FontFile" uid="uid://oqud717w80kb" path="res://Assets/Fonts/EastSeaDokdo-Regular.ttf" id="4_0ibop"]
+[ext_resource type="PackedScene" uid="uid://bjng1m2u6rpc2" path="res://Control/leave_area_hotspot.tscn" id="4_7qghl"]
 [ext_resource type="Script" path="res://Control/ClickableArea.gd" id="5_efs5a"]
 
 [sub_resource type="NavigationPolygon" id="NavigationPolygon_0s3fd"]
@@ -18,42 +18,6 @@ navigation_polygon = SubResource("NavigationPolygon_0s3fd")
 [node name="Player" parent="." instance=ExtResource("1_ge7eo")]
 position = Vector2(746, 584)
 scale = Vector2(0.5, 0.5)
-
-[node name="LeaveAreaHotspot" type="Area2D" parent="."]
-position = Vector2(-510, -292)
-script = ExtResource("2_8e1dm")
-next_room = "res://scene_2.tscn"
-metadata/_edit_group_ = true
-
-[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="LeaveAreaHotspot"]
-polygon = PackedVector2Array(713, 515, 705, 849, 1164, 801, 1087, 509)
-
-[node name="RoomName" type="Label" parent="LeaveAreaHotspot"]
-offset_left = 822.0
-offset_top = 505.0
-offset_right = 995.0
-offset_bottom = 609.0
-theme_override_fonts/font = ExtResource("4_0ibop")
-theme_override_font_sizes/font_size = 100
-text = "Lorem"
-
-[node name="LeaveAreaHotspot2" type="Area2D" parent="."]
-position = Vector2(568, -394)
-script = ExtResource("2_8e1dm")
-next_room = "res://scene_3.tscn"
-metadata/_edit_group_ = true
-
-[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="LeaveAreaHotspot2"]
-polygon = PackedVector2Array(771, 589, 647, 843, 1164, 801, 1071, 587, 916, 485)
-
-[node name="RoomName" type="Label" parent="LeaveAreaHotspot2"]
-offset_left = 822.0
-offset_top = 505.0
-offset_right = 995.0
-offset_bottom = 609.0
-theme_override_fonts/font = ExtResource("4_0ibop")
-theme_override_font_sizes/font_size = 100
-text = "Lorem"
 
 [node name="ClickableArea" type="Area2D" parent="."]
 position = Vector2(1545, 449)
@@ -73,9 +37,22 @@ theme_override_fonts/font = ExtResource("4_0ibop")
 theme_override_font_sizes/font_size = 50
 text = "Lorem Ipsum"
 
-[connection signal="body_entered" from="LeaveAreaHotspot" to="LeaveAreaHotspot" method="_on_player_body_entered" flags=18]
-[connection signal="input_event" from="LeaveAreaHotspot" to="LeaveAreaHotspot" method="_on_input_event" flags=18]
-[connection signal="body_entered" from="LeaveAreaHotspot2" to="LeaveAreaHotspot2" method="_on_player_body_entered" flags=18]
-[connection signal="input_event" from="LeaveAreaHotspot2" to="LeaveAreaHotspot2" method="_on_input_event" flags=18]
+[node name="LeaveAreaHotspot" parent="." instance=ExtResource("4_7qghl")]
+position = Vector2(563, -375)
+next_room = "res://scene_2.tscn"
+
+[node name="CollisionPolygon2D" parent="LeaveAreaHotspot" index="0"]
+polygon = PackedVector2Array(798, 657, 690, 781, 1164, 801, 1106, 502)
+
+[node name="LeaveAreaHotspot2" parent="." instance=ExtResource("4_7qghl")]
+position = Vector2(-492, -233)
+next_room = "res://scene_3.tscn"
+
+[node name="CollisionPolygon2D" parent="LeaveAreaHotspot2" index="0"]
+polygon = PackedVector2Array(676, 366, 690, 781, 1128, 675, 991, 495)
+
 [connection signal="mouse_entered" from="ClickableArea" to="ClickableArea" method="_on_mouse_entered" flags=18]
 [connection signal="mouse_exited" from="ClickableArea" to="ClickableArea" method="_on_mouse_exited" flags=18]
+
+[editable path="LeaveAreaHotspot"]
+[editable path="LeaveAreaHotspot2"]
