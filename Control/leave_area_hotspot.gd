@@ -9,7 +9,7 @@ func _ready():
 	$RoomName.set_text(next_room if next_room != null else "")
 	$RoomName.hide()
 
-func _process(delta):
+func _process(_delta):
 	if clicked and body_in_area:
 		await get_tree().create_timer(0.2).timeout # TODO: kurz warten bevor szene gewechselt wird - evtl auch animation abspielen/abwarten dann
 		RoomLoader.goto_scene(next_room)
