@@ -40,7 +40,7 @@ text = "Lorem"
 [node name="LeaveAreaHotspot2" type="Area2D" parent="."]
 position = Vector2(568, -394)
 script = ExtResource("2_8e1dm")
-next_room = "res://scene_2.tscn"
+next_room = "res://scene_3.tscn"
 metadata/_edit_group_ = true
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="LeaveAreaHotspot2"]

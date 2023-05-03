@@ -6,7 +6,7 @@
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_5vaji"]
 size = Vector2(120, 120)
 
-[node name="Player" type="CharacterBody2D"]
+[node name="Player" type="CharacterBody2D" groups=["player"]]
 position = Vector2(865, 356)
 script = ExtResource("1_7xxd5")
 metadata/_edit_group_ = true

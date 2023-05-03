@@ -6,7 +6,7 @@ func _ready():
 	$Description.hide()
 	$Description.set_text(item_name)
 	
-func _process(delta):
+func _process(_delta):
 	var y_offset = -20
 	var x_offset = 10
 	var text_pos = get_local_mouse_position()
