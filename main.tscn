@@ -1,6 +1,7 @@
-[gd_scene load_steps=6 format=3 uid="uid://cj4j0saa5edb7"]
+[gd_scene load_steps=7 format=3 uid="uid://cj4j0saa5edb7"]
 
 [ext_resource type="PackedScene" uid="uid://b38h7cepxykak" path="res://Characters/Player.tscn" id="1_ge7eo"]
+[ext_resource type="Script" path="res://Control/roomControl/main.gd" id="1_t38j7"]
 [ext_resource type="FontFile" uid="uid://oqud717w80kb" path="res://Assets/Fonts/EastSeaDokdo-Regular.ttf" id="4_0ibop"]
 [ext_resource type="PackedScene" uid="uid://bjng1m2u6rpc2" path="res://Control/leave_area_hotspot.tscn" id="4_7qghl"]
 [ext_resource type="Script" path="res://Control/ClickableArea.gd" id="5_efs5a"]
@@ -11,6 +12,7 @@ polygons = Array[PackedInt32Array]([PackedInt32Array(0, 1, 2, 3), PackedInt32Arr
 outlines = Array[PackedVector2Array]([PackedVector2Array(186, 484, 929, 409, 1712, 343, 1778, 519, 1553, 689, 1256, 644, 1228, 821, 1691, 838, 1304, 1041, 899, 843, 378, 1011, 77, 824, 262, 695)])
 
 [node name="MainScene" type="Node"]
+script = ExtResource("1_t38j7")
 
 [node name="NavigationRegion2D" type="NavigationRegion2D" parent="."]
 navigation_polygon = SubResource("NavigationPolygon_0s3fd")
@@ -38,18 +40,17 @@ theme_override_font_sizes/font_size = 50
 text = "Lorem Ipsum"
 
 [node name="LeaveAreaHotspot" parent="." instance=ExtResource("4_7qghl")]
-position = Vector2(563, -375)
+position = Vector2(410, 484)
 next_room = "res://scene_2.tscn"
+room_name = "Room1"
 
 [node name="CollisionPolygon2D" parent="LeaveAreaHotspot" index="0"]
-polygon = PackedVector2Array(798, 657, 690, 781, 1164, 801, 1106, 502)
+polygon = PackedVector2Array(682.6, 417.4, 684.6, 781.4, 920.6, 756.4, 914.6, 422.4)
 
 [node name="LeaveAreaHotspot2" parent="." instance=ExtResource("4_7qghl")]
-position = Vector2(-492, -233)
+position = Vector2(1470, 361)
 next_room = "res://scene_3.tscn"
-
-[node name="CollisionPolygon2D" parent="LeaveAreaHotspot2" index="0"]
-polygon = PackedVector2Array(645, 391, 679, 718, 852, 700, 817, 377)
+room_name = "Room3"
 
 [connection signal="mouse_entered" from="ClickableArea" to="ClickableArea" method="_on_mouse_entered" flags=18]
 [connection signal="mouse_exited" from="ClickableArea" to="ClickableArea" method="_on_mouse_exited" flags=18]

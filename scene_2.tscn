@@ -1,5 +1,6 @@
-[gd_scene load_steps=6 format=3 uid="uid://b7giusivf3uo6"]
+[gd_scene load_steps=7 format=3 uid="uid://b7giusivf3uo6"]
 
+[ext_resource type="Script" path="res://Control/roomControl/scene_2.gd" id="1_noabo"]
 [ext_resource type="PackedScene" uid="uid://b38h7cepxykak" path="res://Characters/Player.tscn" id="1_twlcm"]
 [ext_resource type="Script" path="res://Control/ClickableArea.gd" id="2_da2sr"]
 [ext_resource type="FontFile" uid="uid://oqud717w80kb" path="res://Assets/Fonts/EastSeaDokdo-Regular.ttf" id="3_2qtwx"]
@@ -11,6 +12,7 @@ polygons = Array[PackedInt32Array]([PackedInt32Array(0, 1, 2, 3, 4, 5)])
 outlines = Array[PackedVector2Array]([PackedVector2Array(244, 628, 919, 498, 1749, 658, 1813, 847, 718, 941, 240, 786)])
 
 [node name="Scene2" type="Node"]
+script = ExtResource("1_noabo")
 
 [node name="NavigationRegion2D" type="NavigationRegion2D" parent="."]
 navigation_polygon = SubResource("NavigationPolygon_eb2dj")
@@ -38,8 +40,9 @@ theme_override_font_sizes/font_size = 50
 text = "Lorem Ipsum"
 
 [node name="LeaveAreaHotspot" parent="." instance=ExtResource("4_tvvqn")]
-position = Vector2(9, -220)
+position = Vector2(956, 561)
 next_room = "res://main.tscn"
+room_name = "Main"
 
 [node name="CollisionPolygon2D" parent="LeaveAreaHotspot" index="0"]
 polygon = PackedVector2Array(811, 492, 683, 750, 1145, 768, 990, 480)

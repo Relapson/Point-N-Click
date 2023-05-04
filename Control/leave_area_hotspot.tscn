@@ -4,17 +4,19 @@
 [ext_resource type="FontFile" uid="uid://oqud717w80kb" path="res://Assets/Fonts/EastSeaDokdo-Regular.ttf" id="2_4f7dp"]
 
 [node name="LeaveAreaHotspot" type="Area2D"]
+position = Vector2(1009, 737)
 script = ExtResource("1_taqcs")
 metadata/_edit_group_ = true
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="."]
-polygon = PackedVector2Array(676, 366, 690, 781, 1164, 801, 1107, 339)
+position = Vector2(-909.6, -780.4)
+polygon = PackedVector2Array(682.6, 417.4, 684.6, 781.4, 1147.6, 781.4, 1143.6, 426.4)
 
 [node name="RoomName" type="Label" parent="."]
-offset_left = 822.0
-offset_top = 505.0
-offset_right = 995.0
-offset_bottom = 609.0
+offset_left = -87.6
+offset_top = -275.4
+offset_right = 85.4
+offset_bottom = -171.4
 theme_override_fonts/font = ExtResource("2_4f7dp")
 theme_override_font_sizes/font_size = 100
 text = "Lorem"

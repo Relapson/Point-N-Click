@@ -1,6 +1,7 @@
-[gd_scene load_steps=4 format=3 uid="uid://d3k5goecj0g4g"]
+[gd_scene load_steps=5 format=3 uid="uid://d3k5goecj0g4g"]
 
 [ext_resource type="PackedScene" uid="uid://bjng1m2u6rpc2" path="res://Control/leave_area_hotspot.tscn" id="1_4phat"]
+[ext_resource type="Script" path="res://Control/roomControl/scene_3.gd" id="1_td2ol"]
 [ext_resource type="PackedScene" uid="uid://b38h7cepxykak" path="res://Characters/Player.tscn" id="2_44wxe"]
 
 [sub_resource type="NavigationPolygon" id="NavigationPolygon_x53dh"]
@@ -9,13 +10,15 @@ polygons = Array[PackedInt32Array]([PackedInt32Array(0, 1, 2, 3)])
 outlines = Array[PackedVector2Array]([PackedVector2Array(319, 616, 517, 793, 1713, 582, 381, 480)])
 
 [node name="Scene3" type="Node"]
+script = ExtResource("1_td2ol")
 
 [node name="NavigationRegion2D" type="NavigationRegion2D" parent="."]
 navigation_polygon = SubResource("NavigationPolygon_x53dh")
 
 [node name="LeaveAreaHotspot" parent="." instance=ExtResource("1_4phat")]
-position = Vector2(379, -203)
+position = Vector2(1353, 571)
 next_room = "res://main.tscn"
+room_name = "Main"
 
 [node name="CollisionPolygon2D" parent="LeaveAreaHotspot" index="0"]
 polygon = PackedVector2Array(875, 438, 690, 781, 1164, 801, 1078, 667)

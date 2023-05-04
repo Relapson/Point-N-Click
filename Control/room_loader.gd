@@ -1,6 +1,8 @@
 extends Node
 
 var current_scene = null
+var player_pos = null # spieler position um diese bei wiedereintritt zu setzen
+var room_name = null # raum namen merken um entsprechenden knoten wieder zu finden
 
 func _ready():
 	var root = get_tree().root
