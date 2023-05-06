@@ -18,7 +18,7 @@ script = ExtResource("1_t38j7")
 navigation_polygon = SubResource("NavigationPolygon_0s3fd")
 
 [node name="Player" parent="." instance=ExtResource("1_ge7eo")]
-position = Vector2(746, 584)
+position = Vector2(891, 609)
 scale = Vector2(0.5, 0.5)
 
 [node name="ClickableArea" type="Area2D" parent="."]
@@ -39,21 +39,25 @@ theme_override_fonts/font = ExtResource("4_0ibop")
 theme_override_font_sizes/font_size = 50
 text = "Lorem Ipsum"
 
-[node name="LeaveAreaHotspot" parent="." instance=ExtResource("4_7qghl")]
+[node name="Area2" parent="." instance=ExtResource("4_7qghl")]
 position = Vector2(410, 484)
 next_room = "res://scene_2.tscn"
-room_name = "Room1"
 
-[node name="CollisionPolygon2D" parent="LeaveAreaHotspot" index="0"]
+[node name="CollisionPolygon2D" parent="Area2" index="0"]
 polygon = PackedVector2Array(682.6, 417.4, 684.6, 781.4, 920.6, 756.4, 914.6, 422.4)
 
-[node name="LeaveAreaHotspot2" parent="." instance=ExtResource("4_7qghl")]
+[node name="PlayerSpawnPoint" parent="Area2" index="2"]
+position = Vector2(-105, -33)
+
+[node name="Area3" parent="." instance=ExtResource("4_7qghl")]
 position = Vector2(1470, 361)
 next_room = "res://scene_3.tscn"
-room_name = "Room3"
+
+[node name="PlayerSpawnPoint" parent="Area3" index="2"]
+position = Vector2(12, -10)
 
 [connection signal="mouse_entered" from="ClickableArea" to="ClickableArea" method="_on_mouse_entered" flags=18]
 [connection signal="mouse_exited" from="ClickableArea" to="ClickableArea" method="_on_mouse_exited" flags=18]
 
-[editable path="LeaveAreaHotspot"]
-[editable path="LeaveAreaHotspot2"]
+[editable path="Area2"]
+[editable path="Area3"]

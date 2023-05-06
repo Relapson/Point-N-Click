@@ -15,16 +15,18 @@ script = ExtResource("1_td2ol")
 [node name="NavigationRegion2D" type="NavigationRegion2D" parent="."]
 navigation_polygon = SubResource("NavigationPolygon_x53dh")
 
-[node name="LeaveAreaHotspot" parent="." instance=ExtResource("1_4phat")]
+[node name="Area1" parent="." instance=ExtResource("1_4phat")]
 position = Vector2(1353, 571)
 next_room = "res://main.tscn"
-room_name = "Main"
 
-[node name="CollisionPolygon2D" parent="LeaveAreaHotspot" index="0"]
+[node name="CollisionPolygon2D" parent="Area1" index="0"]
 polygon = PackedVector2Array(875, 438, 690, 781, 1164, 801, 1078, 667)
 
+[node name="PlayerSpawnPoint" parent="Area1" index="2"]
+position = Vector2(-9, -1)
+
 [node name="Player" parent="." instance=ExtResource("2_44wxe")]
-position = Vector2(515, 591)
+position = Vector2(1327, 566)
 scale = Vector2(0.5, 0.5)
 
-[editable path="LeaveAreaHotspot"]
+[editable path="Area1"]

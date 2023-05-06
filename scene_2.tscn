@@ -18,7 +18,7 @@ script = ExtResource("1_noabo")
 navigation_polygon = SubResource("NavigationPolygon_eb2dj")
 
 [node name="Player" parent="." instance=ExtResource("1_twlcm")]
-position = Vector2(943, 686)
+position = Vector2(951, 531)
 scale = Vector2(0.5, 0.5)
 
 [node name="ClickableArea" type="Area2D" parent="."]
@@ -39,15 +39,14 @@ theme_override_fonts/font = ExtResource("3_2qtwx")
 theme_override_font_sizes/font_size = 50
 text = "Lorem Ipsum"
 
-[node name="LeaveAreaHotspot" parent="." instance=ExtResource("4_tvvqn")]
+[node name="Area1" parent="." instance=ExtResource("4_tvvqn")]
 position = Vector2(956, 561)
 next_room = "res://main.tscn"
-room_name = "Main"
 
-[node name="CollisionPolygon2D" parent="LeaveAreaHotspot" index="0"]
+[node name="CollisionPolygon2D" parent="Area1" index="0"]
 polygon = PackedVector2Array(811, 492, 683, 750, 1145, 768, 990, 480)
 
 [connection signal="mouse_entered" from="ClickableArea" to="ClickableArea" method="_on_mouse_entered" flags=18]
 [connection signal="mouse_exited" from="ClickableArea" to="ClickableArea" method="_on_mouse_exited" flags=18]
 
-[editable path="LeaveAreaHotspot"]
+[editable path="Area1"]

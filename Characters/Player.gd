@@ -7,7 +7,7 @@ var target = position
 @onready var navigation_agent: NavigationAgent2D = $NavigationAgent2D
 
 func _ready():
-	set_movement_target(position if RoomLoader.player_pos == null else RoomLoader.player_pos)
+	set_movement_target(position) # if RoomLoader.player_pos_last_screen == null else RoomLoader.player_pos_last_screen)
 	call_deferred("actor_setup")
 	
 func actor_setup():
