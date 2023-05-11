@@ -34,3 +34,9 @@ func _physics_process(_delta):
 	navigation_agent.set_velocity(velocity)
 	if position.distance_to(target) > 10:
 		move_and_slide()
+
+func save_pos():
+	RoomLoader.player_pos_last_screen = position
+	
+func load_pos():
+	position = RoomLoader.player_pos_last_screen

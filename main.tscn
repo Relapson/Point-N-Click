@@ -1,63 +1,9 @@
-[gd_scene load_steps=7 format=3 uid="uid://cj4j0saa5edb7"]
+[gd_scene load_steps=3 format=3 uid="uid://cj4j0saa5edb7"]
 
-[ext_resource type="PackedScene" uid="uid://b38h7cepxykak" path="res://Characters/Player.tscn" id="1_ge7eo"]
 [ext_resource type="Script" path="res://Control/roomControl/main.gd" id="1_t38j7"]
-[ext_resource type="FontFile" uid="uid://oqud717w80kb" path="res://Assets/Fonts/EastSeaDokdo-Regular.ttf" id="4_0ibop"]
-[ext_resource type="PackedScene" uid="uid://bjng1m2u6rpc2" path="res://Control/leave_area_hotspot.tscn" id="4_7qghl"]
-[ext_resource type="Script" path="res://Control/ClickableArea.gd" id="5_efs5a"]
-
-[sub_resource type="NavigationPolygon" id="NavigationPolygon_0s3fd"]
-vertices = PackedVector2Array(1228, 821, 1691, 838, 1304, 1041, 899, 843, 378, 1011, 77, 824, 262, 695, 929, 409, 186, 484, 1256, 644, 1553, 689, 1712, 343, 1778, 519)
-polygons = Array[PackedInt32Array]([PackedInt32Array(0, 1, 2, 3), PackedInt32Array(3, 4, 5, 6, 7), PackedInt32Array(6, 8, 7), PackedInt32Array(0, 3, 7, 9), PackedInt32Array(10, 9, 7, 11, 12)])
-outlines = Array[PackedVector2Array]([PackedVector2Array(186, 484, 929, 409, 1712, 343, 1778, 519, 1553, 689, 1256, 644, 1228, 821, 1691, 838, 1304, 1041, 899, 843, 378, 1011, 77, 824, 262, 695)])
+[ext_resource type="PackedScene" uid="uid://u2r5qtlprn73" path="res://scene_01.tscn" id="2_ipjqq"]
 
 [node name="MainScene" type="Node"]
 script = ExtResource("1_t38j7")
 
-[node name="NavigationRegion2D" type="NavigationRegion2D" parent="."]
-navigation_polygon = SubResource("NavigationPolygon_0s3fd")
-
-[node name="Player" parent="." instance=ExtResource("1_ge7eo")]
-position = Vector2(891, 609)
-scale = Vector2(0.5, 0.5)
-
-[node name="ClickableArea" type="Area2D" parent="."]
-position = Vector2(1545, 449)
-script = ExtResource("5_efs5a")
-item_name = "dings"
-metadata/_edit_group_ = true
-
-[node name="CollisionShape2D" type="CollisionPolygon2D" parent="ClickableArea"]
-modulate = Color(0, 1, 1, 1)
-polygon = PackedVector2Array(-58, 22, -153, 109, -43, 183, 30, 92)
-
-[node name="Description" type="Label" parent="ClickableArea"]
-offset_top = -0.5
-offset_right = 185.0
-offset_bottom = 51.5
-theme_override_fonts/font = ExtResource("4_0ibop")
-theme_override_font_sizes/font_size = 50
-text = "Lorem Ipsum"
-
-[node name="Area2" parent="." instance=ExtResource("4_7qghl")]
-position = Vector2(410, 484)
-next_room = "res://scene_2.tscn"
-
-[node name="CollisionPolygon2D" parent="Area2" index="0"]
-polygon = PackedVector2Array(682.6, 417.4, 684.6, 781.4, 920.6, 756.4, 914.6, 422.4)
-
-[node name="PlayerSpawnPoint" parent="Area2" index="2"]
-position = Vector2(-105, -33)
-
-[node name="Area3" parent="." instance=ExtResource("4_7qghl")]
-position = Vector2(1470, 361)
-next_room = "res://scene_3.tscn"
-
-[node name="PlayerSpawnPoint" parent="Area3" index="2"]
-position = Vector2(12, -10)
-
-[connection signal="mouse_entered" from="ClickableArea" to="ClickableArea" method="_on_mouse_entered" flags=18]
-[connection signal="mouse_exited" from="ClickableArea" to="ClickableArea" method="_on_mouse_exited" flags=18]
-
-[editable path="Area2"]
-[editable path="Area3"]
+[node name="Scene01" parent="." instance=ExtResource("2_ipjqq")]
