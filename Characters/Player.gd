@@ -7,7 +7,7 @@ var target = position
 @onready var navigation_agent: NavigationAgent2D = $NavigationAgent2D
 
 func _ready():
-	set_movement_target(position) # if RoomLoader.player_pos_last_screen == null else RoomLoader.player_pos_last_screen)
+	#set_movement_target(position if RoomLoader.area_positions else RoomLoader.player_pos_last_screen)
 	call_deferred("actor_setup")
 	
 func actor_setup():
@@ -35,8 +35,15 @@ func _physics_process(_delta):
 	if position.distance_to(target) > 10:
 		move_and_slide()
 
-func save_pos():
-	RoomLoader.player_pos_last_screen = position
+func save_pos(area_id, area_pos):
+	print("DEBUG:")
+	print("SAVING " + str(area_id) + " | " + str(area_pos))
+	RoomLoader.area_positions[area_id] = area_pos
 	
-func load_pos():
-	position = RoomLoader.player_pos_last_screen
+func load_pos(area_id):
+	print("DEBUG:")
+	print("CHECKING FOR: " + str(area_id))
+	if area_id in RoomLoader.area_positions:
+		print("FOUND!")
+		print("SETTING TO: " + str(RoomLoader.area_positions[area_id]))
+		position = RoomLoader.area_positions[area_id]
