@@ -7,7 +7,8 @@ var room_name = null # raum namen merken um entsprechenden knoten wieder zu find
 # testing
 var area_positions = {
 	1:Vector2(955, 533),
-	2:Vector2(1344, 570)}
+	2:Vector2(1344, 570)
+	}
 
 func _ready():
 	var root = get_tree().root
@@ -25,6 +26,7 @@ func _deferred_goto_scene(path, area_id):
 	current_scene = s.instantiate()
 	# call the function to set the area
 	current_scene.call("set_scene_id", area_id)
+	current_scene.call("invert_player_entered_area")
 	# add to active scene
 	get_tree().root.add_child(current_scene)
 	

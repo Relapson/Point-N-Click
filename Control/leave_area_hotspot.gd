@@ -7,6 +7,8 @@ var body_in_area = false
 var clicked = false # TODO: geht vielleicht besser, funktioniert aber
 var polygon_enter_point: Vector2 # punkt auf den der spieler beim betreten gesetzt wird
 
+var area_newly_left = false
+
 func _ready():
 	$RoomName.set_text(next_room if next_room != null else "")
 	$RoomName.hide()
@@ -15,7 +17,9 @@ func _ready():
 func _process(_delta): 
 	if clicked and body_in_area:
 		RoomLoader.room_name = name
-		get_node("../Player").save_pos(area_id, $PlayerSpawnPoint.global_position)
+		if area_newly_left:
+			get_node("../Player").save_pos(area_id, $PlayerSpawnPoint.global_position)
+		area_newly_left = !area_newly_left
 		await get_tree().create_timer(0.2).timeout # TODO: kurz warten bevor szene gewechselt wird - evtl auch animation abspielen/abwarten dann
 		RoomLoader.goto_scene(next_room, area_id)
 		return
@@ -28,7 +32,9 @@ func _on_input_event(_viewport, event, _shape_idx):
 		if event.double_click:
 			clicked = false
 			RoomLoader.room_name = name
-			get_node("../Player").save_pos(area_id, $PlayerSpawnPoint.global_position)
+			if area_newly_left:
+				get_node("../Player").save_pos(area_id, $PlayerSpawnPoint.global_position)
+			area_newly_left = !area_newly_left
 			RoomLoader.goto_scene(next_room, area_id)
 			return
 		if event.get_button_index() == 1 and body_in_area:
