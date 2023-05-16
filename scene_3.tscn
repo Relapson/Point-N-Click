@@ -1,8 +1,9 @@
-[gd_scene load_steps=5 format=3 uid="uid://d3k5goecj0g4g"]
+[gd_scene load_steps=6 format=3 uid="uid://d3k5goecj0g4g"]
 
 [ext_resource type="PackedScene" uid="uid://bjng1m2u6rpc2" path="res://Control/leave_area_hotspot.tscn" id="1_4phat"]
 [ext_resource type="Script" path="res://Control/roomControl/scene_3.gd" id="1_td2ol"]
 [ext_resource type="PackedScene" uid="uid://b38h7cepxykak" path="res://Characters/Player.tscn" id="2_44wxe"]
+[ext_resource type="PackedScene" uid="uid://wprlbke24xqr" path="res://Control/clickable_area.tscn" id="4_njsvn"]
 
 [sub_resource type="NavigationPolygon" id="NavigationPolygon_x53dh"]
 vertices = PackedVector2Array(381, 480, 1713, 582, 517, 793, 319, 616)
@@ -30,4 +31,11 @@ position = Vector2(-9, -1)
 position = Vector2(873, 614)
 scale = Vector2(0.5, 0.5)
 
+[node name="ClickableArea" parent="." instance=ExtResource("4_njsvn")]
+position = Vector2(525, 484)
+
+[node name="CollisionShape2D" parent="ClickableArea" index="0"]
+polygon = PackedVector2Array(-115, 61, -124, 133, -54, 165, -4, 77)
+
 [editable path="Area1"]
+[editable path="ClickableArea"]

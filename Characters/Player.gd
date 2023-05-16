@@ -17,6 +17,12 @@ func set_movement_target(movement_target: Vector2):
 	navigation_agent.set_target_position(movement_target)
 
 func _input(_event):
+	
+	# alle items auf nicht-pickup setzen
+	for child in get_tree().root.get_children():
+		if child.is_in_group("items"):
+			child.is_clicked_on = false
+	
 	if Input.is_action_just_pressed("mouse_left"):
 		target = get_global_mouse_position()
 		set_movement_target(target)
@@ -26,8 +32,11 @@ func _input(_event):
 		target = get_global_mouse_position()
 		set_movement_target(target)
 
+func is_arrived():
+	return navigation_agent.is_navigation_finished()
+
 func _physics_process(_delta):
-	if navigation_agent.is_navigation_finished():
+	if is_arrived():
 		return
 	
 	velocity = position.direction_to(navigation_agent.get_next_path_position()) * move_speed

@@ -1,10 +1,9 @@
-[gd_scene load_steps=7 format=3 uid="uid://u2r5qtlprn73"]
+[gd_scene load_steps=6 format=3 uid="uid://u2r5qtlprn73"]
 
 [ext_resource type="Script" path="res://Control/roomControl/scene_1.gd" id="1_bd4gc"]
 [ext_resource type="PackedScene" uid="uid://b38h7cepxykak" path="res://Characters/Player.tscn" id="1_gpj7y"]
-[ext_resource type="Script" path="res://Control/ClickableArea.gd" id="2_awim4"]
-[ext_resource type="FontFile" uid="uid://oqud717w80kb" path="res://Assets/Fonts/EastSeaDokdo-Regular.ttf" id="3_exge3"]
 [ext_resource type="PackedScene" uid="uid://bjng1m2u6rpc2" path="res://Control/leave_area_hotspot.tscn" id="4_jx7g5"]
+[ext_resource type="PackedScene" uid="uid://wprlbke24xqr" path="res://Control/clickable_area.tscn" id="4_oontw"]
 
 [sub_resource type="NavigationPolygon" id="NavigationPolygon_6mx3b"]
 vertices = PackedVector2Array(1228, 821, 1691, 838, 1304, 1041, 899, 843, 378, 1011, 77, 824, 262, 695, 929, 409, 186, 484, 1256, 644, 1553, 689, 1712, 343, 1778, 519)
@@ -16,24 +15,6 @@ script = ExtResource("1_bd4gc")
 
 [node name="NavigationRegion2D" type="NavigationRegion2D" parent="."]
 navigation_polygon = SubResource("NavigationPolygon_6mx3b")
-
-[node name="ClickableArea" type="Area2D" parent="."]
-position = Vector2(1545, 449)
-script = ExtResource("2_awim4")
-item_name = "dings"
-metadata/_edit_group_ = true
-
-[node name="CollisionShape2D" type="CollisionPolygon2D" parent="ClickableArea"]
-modulate = Color(0, 1, 1, 1)
-polygon = PackedVector2Array(-58, 22, -153, 109, -43, 183, 30, 92)
-
-[node name="Description" type="Label" parent="ClickableArea"]
-offset_top = -0.5
-offset_right = 185.0
-offset_bottom = 51.5
-theme_override_fonts/font = ExtResource("3_exge3")
-theme_override_font_sizes/font_size = 50
-text = "Lorem Ipsum"
 
 [node name="Area2" parent="." instance=ExtResource("4_jx7g5")]
 position = Vector2(410, 484)
@@ -58,8 +39,12 @@ position = Vector2(12, -10)
 position = Vector2(877, 606)
 scale = Vector2(0.5, 0.5)
 
-[connection signal="mouse_entered" from="ClickableArea" to="ClickableArea" method="_on_mouse_entered" flags=18]
-[connection signal="mouse_exited" from="ClickableArea" to="ClickableArea" method="_on_mouse_exited" flags=18]
+[node name="ClickableArea" parent="." instance=ExtResource("4_oontw")]
+position = Vector2(1261, 467)
+
+[node name="CollisionShape2D" parent="ClickableArea" index="0"]
+polygon = PackedVector2Array(42, 46, -24, 139, 147, 145, 114, 45)
 
 [editable path="Area2"]
 [editable path="Area3"]
+[editable path="ClickableArea"]

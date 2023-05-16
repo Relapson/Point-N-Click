@@ -11,8 +11,11 @@ func _ready():
 func set_scene_id(id):
 	scene_id = id
 
-func invert_player_entered_area(val):
-	if val != null:
-		player_entered_area = val
-	else:
-		player_entered_area = !player_entered_area
+func invert_player_entered_area():
+	player_entered_area = !player_entered_area
+
+#func invert_player_entered_area(val):
+#	if val != null:
+#		player_entered_area = val
+#	else:
+#		player_entered_area = !player_entered_area

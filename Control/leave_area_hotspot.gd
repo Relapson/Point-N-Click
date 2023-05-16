@@ -16,12 +16,7 @@ func _ready():
 
 func _process(_delta): 
 	if clicked and body_in_area:
-		RoomLoader.room_name = name
-		if area_newly_left:
-			get_node("../Player").save_pos(area_id, $PlayerSpawnPoint.global_position)
-		area_newly_left = !area_newly_left
-		await get_tree().create_timer(0.2).timeout # TODO: kurz warten bevor szene gewechselt wird - evtl auch animation abspielen/abwarten dann
-		RoomLoader.goto_scene(next_room, area_id)
+		_room_switch()
 		return
 
 # wenn im bereich geklickt wurde -> true
@@ -30,13 +25,7 @@ func _on_input_event(_viewport, event, _shape_idx):
 		clicked = true
 		# check for doubleclick for instant scene transition
 		if event.double_click:
-			clicked = false
-			RoomLoader.room_name = name
-			if area_newly_left:
-				get_node("../Player").save_pos(area_id, $PlayerSpawnPoint.global_position)
-			area_newly_left = !area_newly_left
-			RoomLoader.goto_scene(next_room, area_id)
-			return
+			_room_switch()
 		if event.get_button_index() == 1 and body_in_area:
 			clicked = true
 
@@ -47,3 +36,12 @@ func _on_player_body_entered(body):
 func _on_player_body_exited(body):
 	if body.name == "Player":
 		body_in_area = false
+
+func _room_switch():
+	clicked = false
+	RoomLoader.room_name = name
+	if area_newly_left:
+		get_node("../Player").save_pos(area_id, $PlayerSpawnPoint.global_position)
+	area_newly_left = !area_newly_left
+	RoomLoader.goto_scene(next_room, area_id)
+	return
