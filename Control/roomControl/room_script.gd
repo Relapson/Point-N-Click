@@ -18,6 +18,13 @@ func get_scene_id():
 
 func invert_player_entered_area():
 	player_entered_area = !player_entered_area
+	
+func get_leavable_areas():
+	var doors = []
+	for door in get_tree().root.get_children():
+		if door.is_in_group("door"):
+			doors.append([scene_id, door])
+	return doors
 
 #func invert_player_entered_area(val):
 #	if val != null:

@@ -6,7 +6,7 @@
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_cpa5d"]
 size = Vector2(54, 51)
 
-[node name="LeaveAreaHotspot" type="Area2D"]
+[node name="LeaveAreaHotspot" type="Area2D" groups=["door"]]
 position = Vector2(994, 775)
 script = ExtResource("1_taqcs")
 metadata/_edit_group_ = true

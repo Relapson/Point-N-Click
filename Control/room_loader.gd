@@ -26,7 +26,8 @@ func _deferred_goto_scene(path, area_id):
 	current_scene = s.instantiate()
 	# call the function to set the area
 	
-	find_scene_area(current_scene.get_scene_id())
+	# function call to find all doors in the newly loaded scene
+	var possible_doors = _find_scene_area(current_scene)
 	
 	current_scene.call("set_area_id", area_id)
 	current_scene.call("invert_player_entered_area")
@@ -35,9 +36,14 @@ func _deferred_goto_scene(path, area_id):
 	
 	print("CALLED WITH AREA ID: " + str(area_id))
 
-func find_scene_area(scene_id:int):
+func _find_scene_area(new_scene:Node):
 	# TODO: liefert alle bereiche zum verlassen in der szene
-	pass
+	# gruppe 'door'
+	var doors = []
+	for door in new_scene.get_children():
+		if door.is_in_group("door"):
+			doors.append([new_scene.call("get_scene_id"), door])
+	return doors
 
 # funktion um area pos zu bekommen
 func get_area_pos(area_id):
