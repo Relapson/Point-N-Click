@@ -16,6 +16,7 @@ position = Vector2(-909.6, -780.4)
 polygon = PackedVector2Array(682.6, 417.4, 684.6, 781.4, 1147.6, 781.4, 1143.6, 426.4)
 
 [node name="RoomName" type="Label" parent="."]
+visible = false
 offset_left = -87.6
 offset_top = -275.4
 offset_right = 85.4

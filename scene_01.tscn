@@ -12,6 +12,7 @@ outlines = Array[PackedVector2Array]([PackedVector2Array(186, 484, 929, 409, 171
 
 [node name="Scene01" type="Node"]
 script = ExtResource("1_bd4gc")
+scene_id = 1
 
 [node name="NavigationRegion2D" type="NavigationRegion2D" parent="."]
 navigation_polygon = SubResource("NavigationPolygon_6mx3b")
@@ -43,7 +44,7 @@ scale = Vector2(0.5, 0.5)
 position = Vector2(1261, 467)
 
 [node name="CollisionShape2D" parent="ClickableArea" index="0"]
-polygon = PackedVector2Array(42, 46, -24, 139, 147, 145, 114, 45)
+polygon = PackedVector2Array(21, 61, -24, 139, 147, 145, 114, 45)
 
 [editable path="Area2"]
 [editable path="Area3"]

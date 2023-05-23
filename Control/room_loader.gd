@@ -25,12 +25,19 @@ func _deferred_goto_scene(path, area_id):
 	# instanciate new scene
 	current_scene = s.instantiate()
 	# call the function to set the area
-	current_scene.call("set_scene_id", area_id)
+	
+	find_scene_area(current_scene.get_scene_id())
+	
+	current_scene.call("set_area_id", area_id)
 	current_scene.call("invert_player_entered_area")
 	# add to active scene
 	get_tree().root.add_child(current_scene)
 	
 	print("CALLED WITH AREA ID: " + str(area_id))
+
+func find_scene_area(scene_id:int):
+	# TODO: liefert alle bereiche zum verlassen in der szene
+	pass
 
 # funktion um area pos zu bekommen
 func get_area_pos(area_id):
