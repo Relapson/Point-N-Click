@@ -1,12 +1,9 @@
 [gd_scene load_steps=3 format=3 uid="uid://cj4j0saa5edb7"]
 
-[ext_resource type="Script" path="res://MainScene.gd" id="1_6nden"]
-[ext_resource type="PackedScene" uid="uid://b38h7cepxykak" path="res://Characters/Player.tscn" id="1_ge7eo"]
+[ext_resource type="Script" path="res://Control/roomControl/main.gd" id="1_t38j7"]
+[ext_resource type="PackedScene" uid="uid://u2r5qtlprn73" path="res://scene_01.tscn" id="2_ipjqq"]
 
 [node name="MainScene" type="Node"]
-script = ExtResource("1_6nden")
+script = ExtResource("1_t38j7")
 
-[node name="NavigationRegion2D" type="NavigationRegion2D" parent="."]
-
-[node name="Player" parent="." instance=ExtResource("1_ge7eo")]
-scale = Vector2(0.5, 0.5)
+[node name="Scene01" parent="." instance=ExtResource("2_ipjqq")]

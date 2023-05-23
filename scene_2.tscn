@@ -1,0 +1,40 @@
+[gd_scene load_steps=6 format=3 uid="uid://b7giusivf3uo6"]
+
+[ext_resource type="Script" path="res://Control/roomControl/scene_2.gd" id="1_noabo"]
+[ext_resource type="PackedScene" uid="uid://b38h7cepxykak" path="res://Characters/Player.tscn" id="1_twlcm"]
+[ext_resource type="PackedScene" uid="uid://wprlbke24xqr" path="res://Control/clickable_area.tscn" id="4_gp38t"]
+[ext_resource type="PackedScene" uid="uid://bjng1m2u6rpc2" path="res://Control/leave_area_hotspot.tscn" id="4_tvvqn"]
+
+[sub_resource type="NavigationPolygon" id="NavigationPolygon_eb2dj"]
+vertices = PackedVector2Array(244, 628, 919, 498, 1749, 658, 1813, 847, 718, 941, 240, 786)
+polygons = Array[PackedInt32Array]([PackedInt32Array(0, 1, 2, 3, 4, 5)])
+outlines = Array[PackedVector2Array]([PackedVector2Array(244, 628, 919, 498, 1749, 658, 1813, 847, 718, 941, 240, 786)])
+
+[node name="Scene2" type="Node"]
+script = ExtResource("1_noabo")
+scene_id = 2
+
+[node name="NavigationRegion2D" type="NavigationRegion2D" parent="."]
+navigation_polygon = SubResource("NavigationPolygon_eb2dj")
+
+[node name="Player" parent="." instance=ExtResource("1_twlcm")]
+position = Vector2(715, 666)
+scale = Vector2(0.5, 0.5)
+
+[node name="Area1" parent="." instance=ExtResource("4_tvvqn")]
+position = Vector2(956, 561)
+next_room = "res://scene_01.tscn"
+next_area_id = 1
+this_area_id = 1
+
+[node name="CollisionPolygon2D" parent="Area1" index="0"]
+polygon = PackedVector2Array(811, 492, 683, 750, 1145, 768, 990, 480)
+
+[node name="ClickableArea" parent="." instance=ExtResource("4_gp38t")]
+position = Vector2(1620, 669)
+
+[node name="CollisionShape2D" parent="ClickableArea" index="0"]
+polygon = PackedVector2Array(-60, 39, -139, 170, 74, 160, 55, 57)
+
+[editable path="Area1"]
+[editable path="ClickableArea"]

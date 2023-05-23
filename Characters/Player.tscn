@@ -6,14 +6,16 @@
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_5vaji"]
 size = Vector2(120, 120)
 
-[node name="Player" type="CharacterBody2D"]
-position = Vector2(821, 339)
+[node name="Player" type="CharacterBody2D" groups=["player"]]
+position = Vector2(865, 356)
 script = ExtResource("1_7xxd5")
 metadata/_edit_group_ = true
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("1_77i3w")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(0, -1)
 shape = SubResource("RectangleShape2D_5vaji")
 
-[node name="Sprite2D" type="Sprite2D" parent="."]
-texture = ExtResource("1_77i3w")
+[node name="NavigationAgent2D" type="NavigationAgent2D" parent="."]
