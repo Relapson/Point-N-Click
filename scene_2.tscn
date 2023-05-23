@@ -24,7 +24,8 @@ scale = Vector2(0.5, 0.5)
 [node name="Area1" parent="." instance=ExtResource("4_tvvqn")]
 position = Vector2(956, 561)
 next_room = "res://scene_01.tscn"
-area_id = 1
+next_area_id = 1
+this_area_id = 1
 
 [node name="CollisionPolygon2D" parent="Area1" index="0"]
 polygon = PackedVector2Array(811, 492, 683, 750, 1145, 768, 990, 480)

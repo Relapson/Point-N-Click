@@ -1,14 +1,6 @@
 extends Node
 
 var current_scene = null
-var player_pos_last_screen = null # spieler position um diese bei wiedereintritt zu setzen
-var room_name = null # raum namen merken um entsprechenden knoten wieder zu finden
-
-# testing
-var area_positions = {
-	1:Vector2(955, 533),
-	2:Vector2(1344, 570)
-	}
 
 func _ready():
 	var root = get_tree().root
@@ -24,30 +16,27 @@ func _deferred_goto_scene(path, area_id):
 	var s = ResourceLoader.load(path)
 	# instanciate new scene
 	current_scene = s.instantiate()
-	# call the function to set the area
-	
 	# function call to find all doors in the newly loaded scene
-	var possible_doors = _find_scene_area(current_scene)
-	
-	current_scene.call("set_area_id", area_id)
-	current_scene.call("invert_player_entered_area")
+	var possible_doors:Array = _find_all_scene_areas(current_scene)
+	# set the player position in the new scene to the position
+	# of the door the player wants to enter the newly instantiated room
+	var door_pos = _find_scene_area_spawn_point(possible_doors, area_id)
+	current_scene.get_node("Player").position = door_pos
 	# add to active scene
 	get_tree().root.add_child(current_scene)
-	
-	print("CALLED WITH AREA ID: " + str(area_id))
 
-func _find_scene_area(new_scene:Node):
-	# TODO: liefert alle bereiche zum verlassen in der szene
-	# gruppe 'door'
+# finds and returns the one specific door
+func _find_scene_area_spawn_point(scene_areas:Array, area_id:int):
+	for entry in scene_areas:
+		if entry[1].this_area_id == area_id:
+			#[0] scene_id [1] leavearea
+			return entry[1].get_node("PlayerSpawnPoint").global_position
+
+# finds all leaveable areas in the new scene
+func _find_all_scene_areas(new_scene:Node):
 	var doors = []
 	for door in new_scene.get_children():
 		if door.is_in_group("door"):
+			# scene id hinzuzufügen fast schon überflussig, vorerst mal drinne lassen
 			doors.append([new_scene.call("get_scene_id"), door])
 	return doors
-
-# funktion um area pos zu bekommen
-func get_area_pos(area_id):
-	if area_id in area_positions:
-		return area_positions[area_id]
-	else:
-		return null

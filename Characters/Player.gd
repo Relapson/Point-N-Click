@@ -43,16 +43,3 @@ func _physics_process(_delta):
 	navigation_agent.set_velocity(velocity)
 	if position.distance_to(target) > 10:
 		move_and_slide()
-
-func save_pos(area_id, area_pos):
-	print("DEBUG:")
-	print("SAVING " + str(area_id) + " | " + str(area_pos))
-	RoomLoader.area_positions[area_id] = area_pos
-	
-func load_pos(area_id):
-	print("DEBUG:")
-	print("CHECKING FOR: " + str(area_id))
-	if area_id in RoomLoader.area_positions:
-		print("FOUND!")
-		print("SETTING TO: " + str(RoomLoader.area_positions[area_id]))
-		position = RoomLoader.area_positions[area_id]

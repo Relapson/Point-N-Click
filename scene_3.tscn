@@ -20,7 +20,8 @@ navigation_polygon = SubResource("NavigationPolygon_x53dh")
 [node name="Area1" parent="." instance=ExtResource("1_4phat")]
 position = Vector2(1353, 571)
 next_room = "res://scene_01.tscn"
-area_id = 2
+next_area_id = 2
+this_area_id = 1
 
 [node name="CollisionPolygon2D" parent="Area1" index="0"]
 polygon = PackedVector2Array(875, 438, 690, 781, 1164, 801, 1078, 667)
