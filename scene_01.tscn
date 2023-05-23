@@ -6,9 +6,9 @@
 [ext_resource type="PackedScene" uid="uid://wprlbke24xqr" path="res://Control/clickable_area.tscn" id="4_oontw"]
 
 [sub_resource type="NavigationPolygon" id="NavigationPolygon_6mx3b"]
-vertices = PackedVector2Array(1228, 821, 1691, 838, 1304, 1041, 899, 843, 378, 1011, 77, 824, 262, 695, 929, 409, 186, 484, 1256, 644, 1553, 689, 1712, 343, 1778, 519)
-polygons = Array[PackedInt32Array]([PackedInt32Array(0, 1, 2, 3), PackedInt32Array(3, 4, 5, 6, 7), PackedInt32Array(6, 8, 7), PackedInt32Array(0, 3, 7, 9), PackedInt32Array(10, 9, 7, 11, 12)])
-outlines = Array[PackedVector2Array]([PackedVector2Array(186, 484, 929, 409, 1712, 343, 1778, 519, 1553, 689, 1256, 644, 1228, 821, 1691, 838, 1304, 1041, 899, 843, 378, 1011, 77, 824, 262, 695)])
+vertices = PackedVector2Array(1712, 343, 1778, 519, 1553, 689, 1411, 615, 1382, 504, 1256, 644, 1237, 606, 1228, 821, 1691, 838, 1304, 1041, 899, 843, 378, 1011, 77, 824, 262, 695, 929, 409, 1288, 517, 186, 484)
+polygons = Array[PackedInt32Array]([PackedInt32Array(0, 1, 2, 3, 4), PackedInt32Array(3, 2, 5, 6), PackedInt32Array(7, 8, 9, 10), PackedInt32Array(6, 10, 11, 12, 13, 14, 15), PackedInt32Array(13, 16, 14), PackedInt32Array(14, 0, 4, 15), PackedInt32Array(7, 10, 6, 5)])
+outlines = Array[PackedVector2Array]([PackedVector2Array(186, 484, 929, 409, 1712, 343, 1778, 519, 1553, 689, 1256, 644, 1228, 821, 1691, 838, 1304, 1041, 899, 843, 378, 1011, 77, 824, 262, 695), PackedVector2Array(1288, 517, 1237, 606, 1411, 615, 1382, 504)])
 
 [node name="Scene01" type="Node"]
 script = ExtResource("1_bd4gc")
@@ -48,6 +48,19 @@ position = Vector2(1261, 467)
 [node name="CollisionShape2D" parent="ClickableArea" index="0"]
 polygon = PackedVector2Array(21, 61, -24, 139, 147, 145, 114, 45)
 
+[node name="LeaveAreaHotspot" parent="." instance=ExtResource("4_jx7g5")]
+position = Vector2(849, 417)
+next_room = "res://scene_labyrinth.tscn"
+next_area_id = 1
+this_area_id = 3
+
+[node name="CollisionPolygon2D" parent="LeaveAreaHotspot" index="0"]
+polygon = PackedVector2Array(841.6, 616.4, 701.6, 806.4, 1135.6, 774.4, 941.6, 614.4)
+
+[node name="PlayerSpawnPoint" parent="LeaveAreaHotspot" index="2"]
+position = Vector2(83, -10)
+
 [editable path="Area2"]
 [editable path="Area3"]
 [editable path="ClickableArea"]
+[editable path="LeaveAreaHotspot"]

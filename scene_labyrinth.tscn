@@ -1,0 +1,35 @@
+[gd_scene load_steps=5 format=3 uid="uid://fo7eld2mcy0v"]
+
+[ext_resource type="Script" path="res://Control/roomControl/scene_3.gd" id="1_j0ilo"]
+[ext_resource type="PackedScene" uid="uid://bjng1m2u6rpc2" path="res://Control/leave_area_hotspot.tscn" id="2_wewfw"]
+[ext_resource type="PackedScene" uid="uid://b38h7cepxykak" path="res://Characters/Player.tscn" id="3_6n44c"]
+
+[sub_resource type="NavigationPolygon" id="NavigationPolygon_x53dh"]
+vertices = PackedVector2Array(968, 807, 1776, 1007, 1343, 936, 957, 821, 517, 997, 907, 893, 802, 667, 1377, 313, 1309, 415, 1195, 305, 1288, 129, 1197, 597, 1388, 726, 1267, 487, 1015, 394, 792, 447, 474, 375, 341, 436, 373, 184, 449, 313, 479, 133, 538, 269, 563, 328, 932, 161, 951, 201, 1108, 72, 1752, 89, 1576, 353, 1676, 207, 1854, 254, 1767, 326, 1602, 466, 1824, 419, 1449, 599, 1447, 483)
+polygons = Array[PackedInt32Array]([PackedInt32Array(0, 1, 2, 3), PackedInt32Array(2, 1, 4, 5), PackedInt32Array(5, 4, 6, 3), PackedInt32Array(7, 8, 9, 10), PackedInt32Array(0, 3, 6), PackedInt32Array(0, 6, 11, 12), PackedInt32Array(13, 12, 11, 14), PackedInt32Array(14, 11, 15), PackedInt32Array(16, 14, 15, 17), PackedInt32Array(16, 17, 18, 19), PackedInt32Array(19, 18, 20, 21, 22), PackedInt32Array(22, 21, 23, 24), PackedInt32Array(24, 23, 25, 10), PackedInt32Array(10, 25, 26), PackedInt32Array(27, 7, 10, 26, 28), PackedInt32Array(28, 26, 29, 30), PackedInt32Array(31, 30, 29, 32, 33), PackedInt32Array(31, 33, 34)])
+outlines = Array[PackedVector2Array]([PackedVector2Array(517, 997, 802, 667, 1197, 597, 792, 447, 341, 436, 373, 184, 479, 133, 538, 269, 932, 161, 1108, 72, 1752, 89, 1854, 254, 1824, 419, 1449, 599, 1447, 483, 1602, 466, 1767, 326, 1676, 207, 1576, 353, 1377, 313, 1309, 415, 1195, 305, 1288, 129, 951, 201, 563, 328, 449, 313, 474, 375, 1015, 394, 1267, 487, 1388, 726, 968, 807, 1776, 1007), PackedVector2Array(1343, 936, 907, 893, 957, 821)])
+
+[node name="Scene3" type="Node"]
+script = ExtResource("1_j0ilo")
+scene_id = 3
+
+[node name="NavigationRegion2D" type="NavigationRegion2D" parent="."]
+navigation_polygon = SubResource("NavigationPolygon_x53dh")
+
+[node name="Area1" parent="." instance=ExtResource("2_wewfw")]
+position = Vector2(1583, 989)
+next_room = "res://scene_01.tscn"
+next_area_id = 3
+this_area_id = 1
+
+[node name="CollisionPolygon2D" parent="Area1" index="0"]
+polygon = PackedVector2Array(895.6, 668.4, 871.6, 784.4, 1026.6, 784.4, 1018.6, 666.4)
+
+[node name="PlayerSpawnPoint" parent="Area1" index="2"]
+position = Vector2(39, -8)
+
+[node name="Player" parent="." instance=ExtResource("3_6n44c")]
+position = Vector2(1833, 712)
+scale = Vector2(0.5, 0.5)
+
+[editable path="Area1"]
