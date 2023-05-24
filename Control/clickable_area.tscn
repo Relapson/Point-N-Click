@@ -14,7 +14,7 @@ metadata/_edit_group_ = true
 modulate = Color(0, 1, 1, 1)
 polygon = PackedVector2Array(-130, -101, -139, 170, 265, 163, 226, -115)
 
-[node name="ItemSprite" type="Sprite2D" parent="."]
+[node name="ItemSprite" type="Sprite2D" parent="." groups=["item"]]
 position = Vector2(49, 21)
 texture = ExtResource("3_fcs2n")
 
