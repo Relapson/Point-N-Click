@@ -46,7 +46,11 @@ scale = Vector2(0.5, 0.5)
 position = Vector2(1261, 467)
 
 [node name="CollisionShape2D" parent="ClickableArea" index="0"]
-polygon = PackedVector2Array(21, 61, -24, 139, 147, 145, 114, 45)
+polygon = PackedVector2Array(33, 46, 33, 105, 7, 147, 53, 127, 105, 124, 115, 114, 114, 46, 70.3724, 46)
+
+[node name="ItemSprite" parent="ClickableArea" index="1"]
+position = Vector2(62, 96)
+scale = Vector2(0.5, 0.5)
 
 [editable path="Area2"]
 [editable path="Area3"]
