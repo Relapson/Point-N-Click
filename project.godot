@@ -18,6 +18,7 @@ config/icon="res://Assets/icon.svg"
 [autoload]
 
 RoomLoader="*res://Control/room_loader.gd"
+GlobalInventory="*res://Control/itemControl/global_inventory.gd"
 
 [display]
 
