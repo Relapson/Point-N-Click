@@ -43,3 +43,7 @@ func _physics_process(_delta):
 	navigation_agent.set_velocity(velocity)
 	if position.distance_to(target) > 10:
 		move_and_slide()
+
+# TODO: idee die animation welche abgespielt werden soll reinzureichen und dann hier abzuspielen
+func handle_animation(animation_sequence):
+	pass
