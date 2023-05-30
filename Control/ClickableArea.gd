@@ -3,6 +3,8 @@ extends Area2D
 @export var item_name = "" # um den itemnamen zu setzen - später vielleicht anders setzbar
 @export var item_id: String
 
+@export var is_item_interactable:bool
+
 var is_clicked_on = false
 var body_in_area = false
 
@@ -24,7 +26,9 @@ func _process(_delta):
 	$Description.position.y = text_pos.y + y_offset
 	
 	if body_in_area and is_clicked_on and get_node("../Player").is_arrived():
-		_pickup_item()
+		if is_item_interactable:
+			_pickup_item()
+		# alternativ iwas dazu sagen oder so idk
 
 func _disable_item():
 	hide()

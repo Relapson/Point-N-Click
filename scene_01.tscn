@@ -45,6 +45,7 @@ scale = Vector2(0.5, 0.5)
 [node name="ClickableArea" parent="." instance=ExtResource("4_oontw")]
 position = Vector2(1261, 467)
 item_id = "Raum1Item02"
+is_item_interactable = true
 
 [node name="CollisionShape2D" parent="ClickableArea" index="0"]
 polygon = PackedVector2Array(33, 46, 33, 105, 7, 147, 53, 127, 105, 124, 115, 114, 114, 46, 70.3724, 46)
