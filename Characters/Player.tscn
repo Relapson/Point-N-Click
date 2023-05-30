@@ -9,7 +9,6 @@ size = Vector2(120, 120)
 [node name="Player" type="CharacterBody2D" groups=["player"]]
 position = Vector2(865, 356)
 script = ExtResource("1_7xxd5")
-move_speed = 300
 metadata/_edit_group_ = true
 
 [node name="Sprite2D" type="Sprite2D" parent="."]

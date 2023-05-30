@@ -7,6 +7,11 @@ var is_clicked_on = false
 var body_in_area = false
 
 func _ready():
+	# prüfen ob item in dict ist - wenn ja, nicht zeichnen
+	for item in get_tree().root.get_children():
+		# falls item in dict nicht nochmal zeichnen
+		if GlobalInventory.get_item_from_dict(item_id):
+			_disable_item()
 	$Description.hide()
 	$Description.set_text(item_name)
 	
@@ -21,13 +26,18 @@ func _process(_delta):
 	if body_in_area and is_clicked_on and get_node("../Player").is_arrived():
 		_pickup_item()
 
-# wird getriggert sobald der spieler geklickt hat und dann stehen bleibt
-func _pickup_item():
+func _disable_item():
 	hide()
-	# optional signal ans inventar emitten?
-	# signal an spieler zum animation abspielen senden bzw funktion aufrufen
 	$CollisionShape2D.set_deferred("disabled", true)
 	queue_free()
+
+# wird getriggert sobald der spieler geklickt hat und dann stehen bleibt
+func _pickup_item():
+	_disable_item()
+	# optional signal ans inventar emitten?
+	# TODO: aus item_name vlt noch item_id machen
+	GlobalInventory.add_item_to_dict(item_id, true)
+	# IDEE: signal an spieler zum animation abspielen senden bzw funktion aufrufen
 
 func _on_mouse_entered():
 	$Description.show()
