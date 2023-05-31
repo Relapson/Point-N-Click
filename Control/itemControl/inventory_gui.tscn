@@ -1,0 +1,16 @@
+[gd_scene load_steps=2 format=3 uid="uid://drn4f0x3nhv4h"]
+
+[ext_resource type="Script" path="res://Control/itemControl/inventory_gui.gd" id="1_1wokt"]
+
+[node name="inventory_gui" type="Node"]
+script = ExtResource("1_1wokt")
+
+[node name="Control" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="ItemList" type="ItemList" parent="Control"]
+offset_right = 40.0
+offset_bottom = 40.0

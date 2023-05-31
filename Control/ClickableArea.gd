@@ -5,6 +5,8 @@ extends Area2D
 
 @export var is_item_interactable:bool
 
+@onready var item_sprite:Sprite2D = $ItemSprite
+
 var is_clicked_on = false
 var body_in_area = false
 
