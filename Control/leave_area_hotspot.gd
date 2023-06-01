@@ -12,9 +12,10 @@ func _ready():
 	$RoomName.hide()
 
 func _process(_delta): 
-	if clicked and body_in_area:
+	if clicked and body_in_area and get_node("../Player").allow_movement:
 		_room_switch()
 		return
+	clicked = false
 
 # wenn im bereich geklickt wurde -> true
 func _on_input_event(_viewport, event, _shape_idx):
