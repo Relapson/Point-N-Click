@@ -42,7 +42,7 @@ func _pickup_item():
 	_disable_item()
 	# optional signal ans inventar emitten?
 	# TODO: aus item_name vlt noch item_id machen
-	GlobalInventory.add_item_to_dict(item_id, true)
+	GlobalInventory.add_item_to_dict(item_id, true, item_sprite)
 	# IDEE: signal an spieler zum animation abspielen senden bzw funktion aufrufen
 
 func _on_mouse_entered():

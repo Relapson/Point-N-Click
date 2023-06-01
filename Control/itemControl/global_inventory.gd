@@ -6,9 +6,9 @@ extends Node
 
 var picked_up_items = {}
 
-func add_item_to_dict(id:String, picked_up:bool):
+func add_item_to_dict(id:String, picked_up:bool, item_sprite:Sprite2D):
 	if id not in picked_up_items:
-		picked_up_items[id] = picked_up
+		picked_up_items[id] = {"isPickedUp":picked_up, "item_sprite":item_sprite}
 	#print(str(picked_up_items))
 	
 # returns boolean if item 
