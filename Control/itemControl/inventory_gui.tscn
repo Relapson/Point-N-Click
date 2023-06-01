@@ -1,11 +1,7 @@
-[gd_scene load_steps=4 format=3 uid="uid://drn4f0x3nhv4h"]
+[gd_scene load_steps=3 format=3 uid="uid://drn4f0x3nhv4h"]
 
 [ext_resource type="Script" path="res://Control/itemControl/inventory_gui.gd" id="1_1wokt"]
-
-[sub_resource type="PlaceholderTexture2D" id="PlaceholderTexture2D_eputj"]
-
-[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_eivb2"]
-texture = SubResource("PlaceholderTexture2D_eputj")
+[ext_resource type="PackedScene" uid="uid://chfbjhk6rluvd" path="res://Control/itemControl/InventoryItem.tscn" id="2_m8w6m"]
 
 [node name="inventory_gui" type="Node" groups=["inventory"]]
 script = ExtResource("1_1wokt")
@@ -25,152 +21,77 @@ theme_override_constants/v_separation = 40
 columns = 5
 metadata/_edit_group_ = true
 
-[node name="Panel" type="Panel" parent="CenterContainer/ItemGridContainer"]
-custom_minimum_size = Vector2(96, 96)
+[node name="InventoryItem" parent="CenterContainer/ItemGridContainer" instance=ExtResource("2_m8w6m")]
 layout_mode = 2
-mouse_default_cursor_shape = 2
-theme_override_styles/panel = SubResource("StyleBoxTexture_eivb2")
 
-[node name="Panel2" type="Panel" parent="CenterContainer/ItemGridContainer"]
-custom_minimum_size = Vector2(96, 96)
+[node name="InventoryItem2" parent="CenterContainer/ItemGridContainer" instance=ExtResource("2_m8w6m")]
 layout_mode = 2
-mouse_default_cursor_shape = 2
-theme_override_styles/panel = SubResource("StyleBoxTexture_eivb2")
 
-[node name="Panel3" type="Panel" parent="CenterContainer/ItemGridContainer"]
-custom_minimum_size = Vector2(96, 96)
+[node name="InventoryItem3" parent="CenterContainer/ItemGridContainer" instance=ExtResource("2_m8w6m")]
 layout_mode = 2
-mouse_default_cursor_shape = 2
-theme_override_styles/panel = SubResource("StyleBoxTexture_eivb2")
 
-[node name="Panel4" type="Panel" parent="CenterContainer/ItemGridContainer"]
-custom_minimum_size = Vector2(96, 96)
+[node name="InventoryItem4" parent="CenterContainer/ItemGridContainer" instance=ExtResource("2_m8w6m")]
 layout_mode = 2
-mouse_default_cursor_shape = 2
-theme_override_styles/panel = SubResource("StyleBoxTexture_eivb2")
 
-[node name="Panel5" type="Panel" parent="CenterContainer/ItemGridContainer"]
-custom_minimum_size = Vector2(96, 96)
+[node name="InventoryItem5" parent="CenterContainer/ItemGridContainer" instance=ExtResource("2_m8w6m")]
 layout_mode = 2
-mouse_default_cursor_shape = 2
-theme_override_styles/panel = SubResource("StyleBoxTexture_eivb2")
 
-[node name="Panel6" type="Panel" parent="CenterContainer/ItemGridContainer"]
-custom_minimum_size = Vector2(96, 96)
+[node name="InventoryItem6" parent="CenterContainer/ItemGridContainer" instance=ExtResource("2_m8w6m")]
 layout_mode = 2
-mouse_default_cursor_shape = 2
-theme_override_styles/panel = SubResource("StyleBoxTexture_eivb2")
 
-[node name="Panel7" type="Panel" parent="CenterContainer/ItemGridContainer"]
-custom_minimum_size = Vector2(96, 96)
+[node name="InventoryItem7" parent="CenterContainer/ItemGridContainer" instance=ExtResource("2_m8w6m")]
 layout_mode = 2
-mouse_default_cursor_shape = 2
-theme_override_styles/panel = SubResource("StyleBoxTexture_eivb2")
 
-[node name="Panel8" type="Panel" parent="CenterContainer/ItemGridContainer"]
-custom_minimum_size = Vector2(96, 96)
+[node name="InventoryItem8" parent="CenterContainer/ItemGridContainer" instance=ExtResource("2_m8w6m")]
 layout_mode = 2
-mouse_default_cursor_shape = 2
-theme_override_styles/panel = SubResource("StyleBoxTexture_eivb2")
 
-[node name="Panel9" type="Panel" parent="CenterContainer/ItemGridContainer"]
-custom_minimum_size = Vector2(96, 96)
+[node name="InventoryItem9" parent="CenterContainer/ItemGridContainer" instance=ExtResource("2_m8w6m")]
 layout_mode = 2
-mouse_default_cursor_shape = 2
-theme_override_styles/panel = SubResource("StyleBoxTexture_eivb2")
 
-[node name="Panel10" type="Panel" parent="CenterContainer/ItemGridContainer"]
-custom_minimum_size = Vector2(96, 96)
+[node name="InventoryItem10" parent="CenterContainer/ItemGridContainer" instance=ExtResource("2_m8w6m")]
 layout_mode = 2
-mouse_default_cursor_shape = 2
-theme_override_styles/panel = SubResource("StyleBoxTexture_eivb2")
 
-[node name="Panel11" type="Panel" parent="CenterContainer/ItemGridContainer"]
-custom_minimum_size = Vector2(96, 96)
+[node name="InventoryItem11" parent="CenterContainer/ItemGridContainer" instance=ExtResource("2_m8w6m")]
 layout_mode = 2
-mouse_default_cursor_shape = 2
-theme_override_styles/panel = SubResource("StyleBoxTexture_eivb2")
 
-[node name="Panel12" type="Panel" parent="CenterContainer/ItemGridContainer"]
-custom_minimum_size = Vector2(96, 96)
+[node name="InventoryItem12" parent="CenterContainer/ItemGridContainer" instance=ExtResource("2_m8w6m")]
 layout_mode = 2
-mouse_default_cursor_shape = 2
-theme_override_styles/panel = SubResource("StyleBoxTexture_eivb2")
 
-[node name="Panel13" type="Panel" parent="CenterContainer/ItemGridContainer"]
-custom_minimum_size = Vector2(96, 96)
+[node name="InventoryItem13" parent="CenterContainer/ItemGridContainer" instance=ExtResource("2_m8w6m")]
 layout_mode = 2
-mouse_default_cursor_shape = 2
-theme_override_styles/panel = SubResource("StyleBoxTexture_eivb2")
 
-[node name="Panel14" type="Panel" parent="CenterContainer/ItemGridContainer"]
-custom_minimum_size = Vector2(96, 96)
+[node name="InventoryItem14" parent="CenterContainer/ItemGridContainer" instance=ExtResource("2_m8w6m")]
 layout_mode = 2
-mouse_default_cursor_shape = 2
-theme_override_styles/panel = SubResource("StyleBoxTexture_eivb2")
 
-[node name="Panel15" type="Panel" parent="CenterContainer/ItemGridContainer"]
-custom_minimum_size = Vector2(96, 96)
+[node name="InventoryItem15" parent="CenterContainer/ItemGridContainer" instance=ExtResource("2_m8w6m")]
 layout_mode = 2
-mouse_default_cursor_shape = 2
-theme_override_styles/panel = SubResource("StyleBoxTexture_eivb2")
 
-[node name="Panel16" type="Panel" parent="CenterContainer/ItemGridContainer"]
-custom_minimum_size = Vector2(96, 96)
+[node name="InventoryItem16" parent="CenterContainer/ItemGridContainer" instance=ExtResource("2_m8w6m")]
 layout_mode = 2
-mouse_default_cursor_shape = 2
-theme_override_styles/panel = SubResource("StyleBoxTexture_eivb2")
 
-[node name="Panel17" type="Panel" parent="CenterContainer/ItemGridContainer"]
-custom_minimum_size = Vector2(96, 96)
+[node name="InventoryItem17" parent="CenterContainer/ItemGridContainer" instance=ExtResource("2_m8w6m")]
 layout_mode = 2
-mouse_default_cursor_shape = 2
-theme_override_styles/panel = SubResource("StyleBoxTexture_eivb2")
 
-[node name="Panel18" type="Panel" parent="CenterContainer/ItemGridContainer"]
-custom_minimum_size = Vector2(96, 96)
+[node name="InventoryItem18" parent="CenterContainer/ItemGridContainer" instance=ExtResource("2_m8w6m")]
 layout_mode = 2
-mouse_default_cursor_shape = 2
-theme_override_styles/panel = SubResource("StyleBoxTexture_eivb2")
 
-[node name="Panel19" type="Panel" parent="CenterContainer/ItemGridContainer"]
-custom_minimum_size = Vector2(96, 96)
+[node name="InventoryItem19" parent="CenterContainer/ItemGridContainer" instance=ExtResource("2_m8w6m")]
 layout_mode = 2
-mouse_default_cursor_shape = 2
-theme_override_styles/panel = SubResource("StyleBoxTexture_eivb2")
 
-[node name="Panel20" type="Panel" parent="CenterContainer/ItemGridContainer"]
-custom_minimum_size = Vector2(96, 96)
+[node name="InventoryItem20" parent="CenterContainer/ItemGridContainer" instance=ExtResource("2_m8w6m")]
 layout_mode = 2
-mouse_default_cursor_shape = 2
-theme_override_styles/panel = SubResource("StyleBoxTexture_eivb2")
 
-[node name="Panel21" type="Panel" parent="CenterContainer/ItemGridContainer"]
-custom_minimum_size = Vector2(96, 96)
+[node name="InventoryItem21" parent="CenterContainer/ItemGridContainer" instance=ExtResource("2_m8w6m")]
 layout_mode = 2
-mouse_default_cursor_shape = 2
-theme_override_styles/panel = SubResource("StyleBoxTexture_eivb2")
 
-[node name="Panel22" type="Panel" parent="CenterContainer/ItemGridContainer"]
-custom_minimum_size = Vector2(96, 96)
+[node name="InventoryItem22" parent="CenterContainer/ItemGridContainer" instance=ExtResource("2_m8w6m")]
 layout_mode = 2
-mouse_default_cursor_shape = 2
-theme_override_styles/panel = SubResource("StyleBoxTexture_eivb2")
 
-[node name="Panel23" type="Panel" parent="CenterContainer/ItemGridContainer"]
-custom_minimum_size = Vector2(96, 96)
+[node name="InventoryItem23" parent="CenterContainer/ItemGridContainer" instance=ExtResource("2_m8w6m")]
 layout_mode = 2
-mouse_default_cursor_shape = 2
-theme_override_styles/panel = SubResource("StyleBoxTexture_eivb2")
 
-[node name="Panel24" type="Panel" parent="CenterContainer/ItemGridContainer"]
-custom_minimum_size = Vector2(96, 96)
+[node name="InventoryItem24" parent="CenterContainer/ItemGridContainer" instance=ExtResource("2_m8w6m")]
 layout_mode = 2
-mouse_default_cursor_shape = 2
-theme_override_styles/panel = SubResource("StyleBoxTexture_eivb2")
 
-[node name="Panel25" type="Panel" parent="CenterContainer/ItemGridContainer"]
-custom_minimum_size = Vector2(96, 96)
+[node name="InventoryItem25" parent="CenterContainer/ItemGridContainer" instance=ExtResource("2_m8w6m")]
 layout_mode = 2
-mouse_default_cursor_shape = 2
-theme_override_styles/panel = SubResource("StyleBoxTexture_eivb2")

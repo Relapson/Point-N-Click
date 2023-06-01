@@ -1,0 +1,19 @@
+[gd_scene load_steps=5 format=3 uid="uid://chfbjhk6rluvd"]
+
+[ext_resource type="Texture2D" uid="uid://b7kl3nn7pm274" path="res://Assets/placeholder_item.png" id="1_wscbk"]
+[ext_resource type="Script" path="res://Control/itemControl/InventoryItem.gd" id="1_yfa55"]
+
+[sub_resource type="PlaceholderTexture2D" id="PlaceholderTexture2D_wsuyk"]
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_paw4s"]
+texture = SubResource("PlaceholderTexture2D_wsuyk")
+
+[node name="InventoryItem" type="Panel" groups=["inventory_item"]]
+custom_minimum_size = Vector2(96, 96)
+theme_override_styles/panel = SubResource("StyleBoxTexture_paw4s")
+script = ExtResource("1_yfa55")
+
+[node name="ItemImage" type="Sprite2D" parent="."]
+position = Vector2(47, 48)
+scale = Vector2(0.425, 0.425)
+texture = ExtResource("1_wscbk")
