@@ -8,6 +8,11 @@ func _input(_event):
 func _ready():
 	$CenterContainer.visible = false
 	
+	# TODO: jetzt schon funktion die das inventar serialisiert?
+	# oder einfach immer leeres inventar in dem dann die aufgehobenen
+	# items auftauchen?
+	
+	# testfunktion die einfach random die felder befüllt
 	for item_panel in $CenterContainer/ItemGridContainer.get_children():
 		if randi() % 2 == 0:
 			item_panel.get_node("ItemImage").visible = true
