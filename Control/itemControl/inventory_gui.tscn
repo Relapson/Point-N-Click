@@ -7,6 +7,7 @@
 script = ExtResource("1_1wokt")
 
 [node name="CenterContainer" type="CenterContainer" parent="."]
+z_index = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
@@ -15,7 +16,6 @@ grow_vertical = 2
 
 [node name="ItemGridContainer" type="GridContainer" parent="CenterContainer"]
 layout_mode = 2
-mouse_default_cursor_shape = 2
 theme_override_constants/h_separation = 40
 theme_override_constants/v_separation = 40
 columns = 5

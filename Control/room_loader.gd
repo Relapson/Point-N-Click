@@ -4,7 +4,7 @@ var current_scene = null
 
 func _ready():
 	var root = get_tree().root
-	current_scene = root.get_child(root.get_child_count() - 1)
+	current_scene = root.get_child(root.get_child_count() - 1).get_child(0)
 	
 func goto_scene(path, area_id):
 	call_deferred("_deferred_goto_scene", path, area_id)
@@ -28,6 +28,7 @@ func _deferred_goto_scene(path, area_id):
 # finds and returns the one specific door
 func _find_scene_area_spawn_point(scene_areas:Array, area_id:int):
 	for entry in scene_areas:
+		
 		if entry[1].this_area_id == area_id:
 			#[0] scene_id [1] leavearea
 			return entry[1].get_node("PlayerSpawnPoint").global_position
