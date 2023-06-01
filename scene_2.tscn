@@ -1,9 +1,10 @@
-[gd_scene load_steps=6 format=3 uid="uid://b7giusivf3uo6"]
+[gd_scene load_steps=7 format=3 uid="uid://b7giusivf3uo6"]
 
 [ext_resource type="Script" path="res://Control/roomControl/scene_2.gd" id="1_noabo"]
 [ext_resource type="PackedScene" uid="uid://b38h7cepxykak" path="res://Characters/Player.tscn" id="1_twlcm"]
 [ext_resource type="PackedScene" uid="uid://wprlbke24xqr" path="res://Control/clickable_area.tscn" id="4_gp38t"]
 [ext_resource type="PackedScene" uid="uid://bjng1m2u6rpc2" path="res://Control/leave_area_hotspot.tscn" id="4_tvvqn"]
+[ext_resource type="PackedScene" uid="uid://drn4f0x3nhv4h" path="res://Control/itemControl/inventory_gui.tscn" id="5_aka56"]
 
 [sub_resource type="NavigationPolygon" id="NavigationPolygon_eb2dj"]
 vertices = PackedVector2Array(244, 628, 919, 498, 1749, 658, 1813, 847, 718, 941, 240, 786)
@@ -36,6 +37,8 @@ item_id = "Raum2Item01"
 
 [node name="CollisionShape2D" parent="ClickableArea" index="0"]
 polygon = PackedVector2Array(-60, 39, -139, 170, 74, 160, 55, 57)
+
+[node name="inventory_gui" parent="." instance=ExtResource("5_aka56")]
 
 [editable path="Area1"]
 [editable path="ClickableArea"]
