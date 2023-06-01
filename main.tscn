@@ -7,6 +7,6 @@
 [node name="MainScene" type="Node"]
 script = ExtResource("1_t38j7")
 
-[node name="Scene01" parent="." instance=ExtResource("2_ipjqq")]
-
 [node name="inventory_gui" parent="." instance=ExtResource("3_shjk0")]
+
+[node name="Scene01" parent="." instance=ExtResource("2_ipjqq")]
