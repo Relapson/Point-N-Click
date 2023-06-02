@@ -2,9 +2,10 @@ extends Node
 
 signal item_selected
 
+var inventory_open = false
+
 func _input(_event):
 	if Input.is_action_just_pressed("open_inv"):
-#	if event is InputEventKey and event.keycode == KEY_I:
 		$CenterContainer.visible = !$CenterContainer.visible
 
 func _ready():
@@ -32,7 +33,8 @@ func _ready():
 #			item_panel.get_node("ItemImage").visible = false
 	
 func receive_item_selected_signal(item_sprite_path):
-	print("SIGNAL RECEIVED " + item_sprite_path if item_sprite_path else "meh")
+#	print("SIGNAL RECEIVED " + item_sprite_path if item_sprite_path else "meh")
+	item_selected.emit(item_sprite_path)
 
 func receive_item_picked_up_signal():
 	add_item_to_inventory()
