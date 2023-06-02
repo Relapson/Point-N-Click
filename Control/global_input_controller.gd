@@ -4,6 +4,8 @@ extends Node
 
 var inventory_open = false
 
+var item_pick_board # item beim aufheben hier zwischenlegen und danach wieder raus
+
 func _input(event):
 	pass
 #	print(event)

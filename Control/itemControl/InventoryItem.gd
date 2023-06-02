@@ -11,6 +11,10 @@ func _process(delta):
 	if item_in_place:
 		var text_pos = get_local_mouse_position()
 		$Label.position = text_pos
+		
+func _input(_event):
+	if Input.is_action_just_pressed("mouse_left"):
+		Input.set_custom_mouse_cursor($ItemImage.texture)
 
 func _on_mouse_entered():
 	$Label.show()
