@@ -8,6 +8,7 @@ func _input(_event):
 func _ready():
 	$CenterContainer.visible = false
 	
+	# IDEE: mit signal das item mitschicken und das dann speichern
 	# signal nur dann verbinden, wenn noch nicht verbunden
 	get_node("/root/GlobalInventory").dict_changed.connect(receive_item_picked_up_signal)
 	
