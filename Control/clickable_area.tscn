@@ -8,8 +8,6 @@
 position = Vector2(1045, 531)
 script = ExtResource("1_yelfs")
 item_name = "dings"
-item_id = null
-is_item_interactable = null
 metadata/_edit_group_ = true
 
 [node name="CollisionShape2D" type="CollisionPolygon2D" parent="."]

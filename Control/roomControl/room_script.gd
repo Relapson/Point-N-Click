@@ -9,7 +9,7 @@ class_name RoomScript
 var player_entered_area = false
 
 func _ready():
-	pass
+	add_to_group("scene")
 
 func get_scene_id():
 	return scene_id
