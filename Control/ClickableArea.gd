@@ -1,5 +1,6 @@
 extends Area2D
 
+# kommt noch nirgendwo an
 signal item_picked_up
 
 @export var item_name = "" # um den itemnamen zu setzen - später vielleicht anders setzbar

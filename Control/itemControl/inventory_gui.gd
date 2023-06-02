@@ -24,25 +24,33 @@ func _ready():
 #			item_panel.get_node("ItemImage").visible = false
 	
 func receive_item_picked_up_signal():
-	update_inventory()
+	add_item_to_inventory()
 
 func add_item_to_inventory():
 	# adds an item to the first free position in the inventory
-	pass
-	
-func update_inventory():
-	# updated every position in the inventory
 	# puts every item from the dict into a free spot (for now)
 	for item_id in GlobalInventory.picked_up_items:
+		var item_already_in_inventory = false
 		var entry = GlobalInventory.picked_up_items.get(item_id)
 		for slot in $CenterContainer/ItemGridContainer.get_children():
+			# abbruch bedingung wenn item mit gleicher id bereits existiert
+			if slot.item_id == item_id:
+				item_already_in_inventory = true
+				break
 			if !slot.item_in_place:
 				slot.item_in_place = true
+				slot.item_id = item_id
 				slot.get_node("ItemImage").texture = load(entry.get("item_sprite"))
 				slot.get_node("ItemImage").visible = true
 				slot.get_node("Label").set_text(entry.get("hover_name"))
 				break
+		if item_already_in_inventory:
+			continue
 		break
+	
+func update_inventory():
+	# updated every position in the inventory
+	pass
 
 func update_inventory_at_position(position:int):
 	# updates inventory at specific position

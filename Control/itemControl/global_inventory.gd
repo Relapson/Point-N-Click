@@ -11,7 +11,7 @@ var picked_up_items = {}
 func add_item_to_dict(id:String, picked_up:bool, item_sprite:Sprite2D, hover_name:String):
 	if id not in picked_up_items:
 		picked_up_items[id] = {
-			"isPickedUp":picked_up,
+			"is_picked_up":picked_up,
 			"item_sprite":item_sprite.texture.resource_path, # item wird beim aufheben zerstört -> referenz geht verloren
 			"hover_name":hover_name
 			}

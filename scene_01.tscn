@@ -1,9 +1,10 @@
-[gd_scene load_steps=6 format=3 uid="uid://u2r5qtlprn73"]
+[gd_scene load_steps=7 format=3 uid="uid://u2r5qtlprn73"]
 
 [ext_resource type="Script" path="res://Control/roomControl/scene_1.gd" id="1_bd4gc"]
 [ext_resource type="PackedScene" uid="uid://b38h7cepxykak" path="res://Characters/Player.tscn" id="1_gpj7y"]
 [ext_resource type="PackedScene" uid="uid://bjng1m2u6rpc2" path="res://Control/leave_area_hotspot.tscn" id="4_jx7g5"]
 [ext_resource type="PackedScene" uid="uid://wprlbke24xqr" path="res://Control/clickable_area.tscn" id="4_oontw"]
+[ext_resource type="Texture2D" uid="uid://b7kl3nn7pm274" path="res://Assets/placeholder_item.png" id="5_f6lex"]
 
 [sub_resource type="NavigationPolygon" id="NavigationPolygon_6mx3b"]
 vertices = PackedVector2Array(1228, 821, 1691, 838, 1304, 1041, 899, 843, 378, 1011, 77, 824, 262, 695, 929, 409, 186, 484, 1256, 644, 1553, 689, 1712, 343, 1778, 519)
@@ -44,6 +45,7 @@ scale = Vector2(0.5, 0.5)
 
 [node name="ClickableArea" parent="." instance=ExtResource("4_oontw")]
 position = Vector2(1261, 467)
+item_name = "Spitzhacke"
 item_id = "Raum1Item02"
 is_item_interactable = true
 
@@ -53,6 +55,7 @@ polygon = PackedVector2Array(33, 46, 33, 105, 7, 147, 53, 127, 105, 124, 115, 11
 [node name="ItemSprite" parent="ClickableArea" index="1"]
 position = Vector2(62, 96)
 scale = Vector2(0.5, 0.5)
+texture = ExtResource("5_f6lex")
 
 [node name="ClickableArea2" parent="." instance=ExtResource("4_oontw")]
 position = Vector2(502, 640)
@@ -64,6 +67,7 @@ polygon = PackedVector2Array(-8, -13, -13, 85, 98, 53, 96, -24)
 
 [node name="ItemSprite" parent="ClickableArea2" index="1"]
 scale = Vector2(0.5, 0.5)
+texture = ExtResource("5_f6lex")
 
 [editable path="Area2"]
 [editable path="Area3"]

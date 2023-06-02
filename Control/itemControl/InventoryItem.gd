@@ -2,6 +2,7 @@ extends Panel
 
 var item_in_place = false
 var item_description:String
+var item_id
 
 func _ready():
 	$Label.hide()
