@@ -51,9 +51,11 @@ func add_item_to_inventory():
 				item_already_in_inventory = true
 				break
 			if !slot.item_in_place:
+				# item properties setzen
 				slot.item_in_place = true
 				slot.item_id = item_id
 				slot.item_sprite_path = entry.get("item_sprite")
+				
 				slot.get_node("ItemImage").texture = load(entry.get("item_sprite"))
 				slot.get_node("ItemImage").visible = true
 				slot.get_node("Label").set_text(entry.get("hover_name"))

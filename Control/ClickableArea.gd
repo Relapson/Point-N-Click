@@ -3,8 +3,11 @@ extends Area2D
 # kommt noch nirgendwo an
 signal item_picked_up
 
+# variablen für items
 @export var item_name = "" # um den itemnamen zu setzen - später vielleicht anders setzbar
 @export var item_id: String
+@export var other_item_id: String # die id vom anderen item, mit dem man interagieren kann
+@export var destroyed_on_interaction: bool
 
 @export var is_item_interactable:bool
 
@@ -30,6 +33,11 @@ func _process(_delta):
 	$Description.position.x = text_pos.x + x_offset
 	$Description.position.y = text_pos.y + y_offset
 	
+	# prüfen ob im pickboard ein item liegt
+	if Input.is_action_just_pressed("mouse_left") and GlobalInputController.item_pick_board and body_in_area and is_clicked_on:
+		_interact_or_combine_item()
+		return
+	
 	if body_in_area and is_clicked_on and get_node("../Player").is_arrived():
 		if is_item_interactable:
 			_pickup_item()
@@ -40,13 +48,20 @@ func _disable_item():
 	$CollisionShape2D.set_deferred("disabled", true)
 	queue_free()
 
+func _interact_or_combine_item():
+	var other_item_id = GlobalInputController.item_pick_board.get("other_item_id")
+	if other_item_id == item_id:
+		print("INTERACT")
+	else:
+		print("NO INTERACT")
+
 # wird getriggert sobald der spieler geklickt hat und dann stehen bleibt
 func _pickup_item():
 	_disable_item()
 	# optional signal ans inventar emitten?
 	item_picked_up.emit()
 	# TODO: aus item_name vlt noch item_id machen
-	GlobalInventory.add_item_to_dict(item_id, true, item_sprite, item_name)
+	GlobalInventory.add_item_to_dict(item_id, true, item_sprite, item_name, other_item_id, destroyed_on_interaction)
 	# IDEE: signal an spieler zum animation abspielen senden bzw funktion aufrufen
 
 func _on_mouse_entered():

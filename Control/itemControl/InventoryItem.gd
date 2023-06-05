@@ -6,6 +6,7 @@ var item_in_place = false
 var item_description:String
 var item_id
 var item_sprite_path
+var other_item_id
 
 func _ready():
 	$Label.hide()

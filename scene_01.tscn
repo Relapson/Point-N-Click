@@ -46,7 +46,8 @@ scale = Vector2(0.5, 0.5)
 [node name="ClickableArea" parent="." instance=ExtResource("4_oontw")]
 position = Vector2(1261, 467)
 item_name = "Spitzhacke"
-item_id = "Raum1Item02"
+item_id = "Raum01Item02"
+other_item_id = "Raum01Item01"
 is_item_interactable = true
 
 [node name="CollisionShape2D" parent="ClickableArea" index="0"]
@@ -59,8 +60,9 @@ texture = ExtResource("5_f6lex")
 
 [node name="ClickableArea2" parent="." instance=ExtResource("4_oontw")]
 position = Vector2(502, 640)
-item_name = "dings2"
-item_id = "Raum1Item01"
+item_name = "Stein"
+item_id = "Raum01Item01"
+other_item_id = "Raum01Item02"
 
 [node name="CollisionShape2D" parent="ClickableArea2" index="0"]
 polygon = PackedVector2Array(-8, -13, -13, 85, 98, 53, 96, -24)

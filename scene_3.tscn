@@ -37,7 +37,7 @@ scale = Vector2(0.5, 0.5)
 [node name="ClickableArea" parent="." instance=ExtResource("4_njsvn")]
 position = Vector2(525, 484)
 item_name = "Schwert"
-item_id = "Raum3Item01"
+item_id = "Raum03Item01"
 is_item_interactable = true
 
 [node name="CollisionShape2D" parent="ClickableArea" index="0"]
