@@ -15,7 +15,8 @@ func _set_cursor_to_image(item_sprite_path, item_id):
 		item_pick_board = GlobalInventory.get_item_from_dict(item_id)
 		# TODO: bild vor dem setzen noch anpassen (skalierung etc.)
 		if item_pick_board:
-			Input.set_custom_mouse_cursor(load(item_pick_board.get("item_sprite")))
+			var item_sprite = load(item_pick_board.get("item_sprite"))
+			Input.set_custom_mouse_cursor(item_sprite, 0, Vector2(100,100))
 
 func _input(event):
 	
