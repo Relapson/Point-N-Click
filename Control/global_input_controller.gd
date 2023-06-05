@@ -7,7 +7,7 @@ var inventory_open = false
 var item_pick_board # item beim aufheben hier zwischenlegen und danach wieder raus
 
 func _ready():
-	get_tree().root.get_node("MainScene/inventory_gui").item_selected.connect(_set_cursor_to_image)
+	get_tree().root.get_node("MainScene/GUI/inventory_gui").item_selected.connect(_set_cursor_to_image)
 	print()
 
 func _set_cursor_to_image(item_sprite_path):
@@ -17,6 +17,16 @@ func _set_cursor_to_image(item_sprite_path):
 		Input.set_custom_mouse_cursor(load(item_sprite_path))
 
 func _input(event):
+	
+	if Input.is_action_just_pressed("open_inv"):
+		var gui_node = get_tree().root.get_node("MainScene/GUI")
+		gui_node.visible = !gui_node.visible
+		if !gui_node.visible:
+			gui_node.process_mode = Node.PROCESS_MODE_DISABLED
+		else:
+			gui_node.process_mode = Node.PROCESS_MODE_INHERIT
+			
+	
 	if Input.is_action_just_pressed("mouse_right"):
 		print(Input.get_current_cursor_shape())
 	pass

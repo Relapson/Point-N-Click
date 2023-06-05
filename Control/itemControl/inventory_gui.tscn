@@ -3,11 +3,18 @@
 [ext_resource type="Script" path="res://Control/itemControl/inventory_gui.gd" id="1_1wokt"]
 [ext_resource type="PackedScene" uid="uid://chfbjhk6rluvd" path="res://Control/itemControl/InventoryItem.tscn" id="2_m8w6m"]
 
-[node name="inventory_gui" type="Node" groups=["inventory"]]
+[node name="inventory_gui" type="Control" groups=["inventory"]]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
 script = ExtResource("1_1wokt")
 
 [node name="CenterContainer" type="CenterContainer" parent="."]
 z_index = 1
+layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0

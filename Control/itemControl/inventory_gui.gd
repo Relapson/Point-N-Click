@@ -6,10 +6,12 @@ var inventory_open = false
 
 func _input(_event):
 	if Input.is_action_just_pressed("open_inv"):
-		$CenterContainer.visible = !$CenterContainer.visible
+		pass
+#		$CenterContainer.visible = !$CenterContainer.visible
+#		_activate() if $CenterContainer.visible else _deactivate()
 
 func _ready():
-	$CenterContainer.visible = false
+#	$CenterContainer.visible = false
 	
 	# IDEE: mit signal das item mitschicken und das dann speichern
 	# signal nur dann verbinden, wenn noch nicht verbunden
@@ -69,3 +71,15 @@ func update_inventory():
 func update_inventory_at_position(position:int):
 	# updates inventory at specific position
 	pass
+
+func _deactivate():
+	set_process(false)
+	set_physics_process(false)
+	set_process_unhandled_input(false)
+	set_process_input(false)
+	
+func _activate():
+	set_process(true)
+	set_physics_process(true)
+	set_process_unhandled_input(true)
+	set_process_input(true)
