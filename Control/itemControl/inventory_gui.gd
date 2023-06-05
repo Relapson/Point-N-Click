@@ -31,9 +31,10 @@ func _ready():
 #		else:
 #			item_panel.get_node("ItemImage").visible = false
 	
-func receive_item_selected_signal(item_sprite_path):
+func receive_item_selected_signal(item_sprite_path, item_id):
 #	print("SIGNAL RECEIVED " + item_sprite_path if item_sprite_path else "meh")
-	item_selected.emit(item_sprite_path)
+	item_selected.emit(item_sprite_path, item_id)
+	print(item_id)
 
 func receive_item_picked_up_signal():
 	add_item_to_inventory()

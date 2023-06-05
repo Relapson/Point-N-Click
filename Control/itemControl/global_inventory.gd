@@ -23,7 +23,7 @@ func get_item_from_dict(id:String):
 	if id in picked_up_items:
 		return picked_up_items.get(id)
 	else:
-		return false
+		return null
 		
 func remove_item_from_dict(id:String):
 	# possible to emit signal here

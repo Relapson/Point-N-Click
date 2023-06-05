@@ -4,17 +4,18 @@ extends Node
 
 var inventory_open = false
 
-var item_pick_board # item beim aufheben hier zwischenlegen und danach wieder raus
+var item_pick_board = null # item beim aufheben hier zwischenlegen und danach wieder raus
 
 func _ready():
 	get_tree().root.get_node("MainScene/GUI/inventory_gui").item_selected.connect(_set_cursor_to_image)
-	print()
 
-func _set_cursor_to_image(item_sprite_path):
+func _set_cursor_to_image(item_sprite_path, item_id):
 	if item_sprite_path:
-		print("SETTING CURSOR IMAGE TO: " + item_sprite_path)
+		print("SETTING CURSOR IMAGE TO: " + item_sprite_path + " " + item_id)
+		item_pick_board = GlobalInventory.get_item_from_dict(item_id)
 		# TODO: bild vor dem setzen noch anpassen (skalierung etc.)
-		Input.set_custom_mouse_cursor(load(item_sprite_path))
+		if item_pick_board:
+			Input.set_custom_mouse_cursor(load(item_pick_board.get("item_sprite")))
 
 func _input(event):
 	
@@ -25,11 +26,12 @@ func _input(event):
 			gui_node.process_mode = Node.PROCESS_MODE_DISABLED
 		else:
 			gui_node.process_mode = Node.PROCESS_MODE_INHERIT
-			
-	
+		
+	# reset cursor image
 	if Input.is_action_just_pressed("mouse_right"):
-		print(Input.get_current_cursor_shape())
-	pass
+		Input.set_custom_mouse_cursor(null)
+		item_pick_board = null
+	
 #	print(event)
 #	if event is InputEventKey and event.keycode == KEY_I:
 #		open_and_close_inventory()

@@ -1,6 +1,6 @@
 extends Panel
 
-signal item_slot_clicked(sprite_path)
+signal item_slot_clicked(sprite_path, item_id)
 
 var item_in_place = false
 var item_description:String
@@ -18,7 +18,7 @@ func _process(delta):
 func _input(_event):
 	if Input.is_action_just_pressed("mouse_left") and Rect2(Vector2(), size).has_point(get_local_mouse_position()):
 		print(name)
-		item_slot_clicked.emit(item_sprite_path)
+		item_slot_clicked.emit(item_sprite_path, item_id)
 	#if Input.is_action_just_pressed("mouse_left"):
 #		Input.set_custom_mouse_cursor($ItemImage.texture)
 
