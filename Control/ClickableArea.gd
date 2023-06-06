@@ -54,6 +54,7 @@ func _interact_or_combine_item():
 		print("INTERACT")
 	else:
 		print("NO INTERACT")
+	is_clicked_on = false
 
 # wird getriggert sobald der spieler geklickt hat und dann stehen bleibt
 func _pickup_item():
@@ -63,6 +64,7 @@ func _pickup_item():
 	# TODO: aus item_name vlt noch item_id machen
 	GlobalInventory.add_item_to_dict(item_id, true, item_sprite, item_name, other_item_id, destroyed_on_interaction)
 	# IDEE: signal an spieler zum animation abspielen senden bzw funktion aufrufen
+	is_clicked_on = false
 
 func _on_mouse_entered():
 	$Description.show()
