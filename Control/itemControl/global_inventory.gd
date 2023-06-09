@@ -17,7 +17,7 @@ func add_item_to_dict(id:String, picked_up:bool, item_sprite:Sprite2D, hover_nam
 			"other_item_id":other_item_id,
 			"destroyed_on_interaction":destroyed_on_interaction
 			}
-	dict_changed.emit()
+		dict_changed.emit()
 	#print(str(picked_up_items))
 	
 # returns item, else null
