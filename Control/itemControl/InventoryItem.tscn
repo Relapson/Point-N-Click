@@ -1,0 +1,32 @@
+[gd_scene load_steps=5 format=3 uid="uid://chfbjhk6rluvd"]
+
+[ext_resource type="Script" path="res://Control/itemControl/InventoryItem.gd" id="1_yfa55"]
+[ext_resource type="FontFile" uid="uid://oqud717w80kb" path="res://Assets/Fonts/EastSeaDokdo-Regular.ttf" id="3_vdq1q"]
+
+[sub_resource type="PlaceholderTexture2D" id="PlaceholderTexture2D_wsuyk"]
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_paw4s"]
+texture = SubResource("PlaceholderTexture2D_wsuyk")
+
+[node name="InventoryItem" type="Panel" groups=["inventory_item"]]
+custom_minimum_size = Vector2(96, 96)
+mouse_default_cursor_shape = 2
+theme_override_styles/panel = SubResource("StyleBoxTexture_paw4s")
+script = ExtResource("1_yfa55")
+
+[node name="ItemImage" type="Sprite2D" parent="."]
+position = Vector2(47, 48)
+scale = Vector2(0.425, 0.425)
+
+[node name="Label" type="Label" parent="."]
+z_index = 1
+layout_mode = 0
+offset_left = 95.0
+offset_top = 16.0
+offset_right = 135.0
+offset_bottom = 63.0
+theme_override_fonts/font = ExtResource("3_vdq1q")
+theme_override_font_sizes/font_size = 46
+
+[connection signal="mouse_entered" from="." to="." method="_on_mouse_entered"]
+[connection signal="mouse_exited" from="." to="." method="_on_mouse_exited"]

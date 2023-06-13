@@ -6,21 +6,25 @@
 [node name="ClickableArea" type="Area2D" groups=["items"]]
 position = Vector2(1045, 531)
 script = ExtResource("1_yelfs")
-item_name = "dings"
 metadata/_edit_group_ = true
 
 [node name="CollisionShape2D" type="CollisionPolygon2D" parent="."]
 modulate = Color(0, 1, 1, 1)
 polygon = PackedVector2Array(-130, -101, -139, 170, 265, 163, 226, -115)
 
+[node name="ItemSprite" type="Sprite2D" parent="."]
+position = Vector2(49, 21)
+
 [node name="Description" type="Label" parent="."]
 offset_top = -0.5
-offset_right = 185.0
-offset_bottom = 51.5
+offset_right = 194.0
+offset_bottom = 53.5
 theme_override_fonts/font = ExtResource("2_cglds")
 theme_override_font_sizes/font_size = 50
 text = "Lorem Ipsum"
 
+[connection signal="body_entered" from="." to="." method="_on_player_body_entered"]
+[connection signal="body_exited" from="." to="." method="_on_player_body_exited"]
 [connection signal="input_event" from="." to="." method="_on_input_event"]
 [connection signal="mouse_entered" from="." to="." method="_on_mouse_entered"]
 [connection signal="mouse_exited" from="." to="." method="_on_mouse_exited"]

@@ -1,0 +1,104 @@
+[gd_scene load_steps=3 format=3 uid="uid://drn4f0x3nhv4h"]
+
+[ext_resource type="Script" path="res://Control/itemControl/inventory_gui.gd" id="1_1wokt"]
+[ext_resource type="PackedScene" uid="uid://chfbjhk6rluvd" path="res://Control/itemControl/InventoryItem.tscn" id="2_m8w6m"]
+
+[node name="inventory_gui" type="Control" groups=["inventory"]]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_1wokt")
+
+[node name="CenterContainer" type="CenterContainer" parent="."]
+z_index = 1
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="ItemGridContainer" type="GridContainer" parent="CenterContainer"]
+layout_mode = 2
+theme_override_constants/h_separation = 40
+theme_override_constants/v_separation = 40
+columns = 5
+metadata/_edit_group_ = true
+
+[node name="InventoryItem" parent="CenterContainer/ItemGridContainer" instance=ExtResource("2_m8w6m")]
+layout_mode = 2
+
+[node name="InventoryItem2" parent="CenterContainer/ItemGridContainer" instance=ExtResource("2_m8w6m")]
+layout_mode = 2
+
+[node name="InventoryItem3" parent="CenterContainer/ItemGridContainer" instance=ExtResource("2_m8w6m")]
+layout_mode = 2
+
+[node name="InventoryItem4" parent="CenterContainer/ItemGridContainer" instance=ExtResource("2_m8w6m")]
+layout_mode = 2
+
+[node name="InventoryItem5" parent="CenterContainer/ItemGridContainer" instance=ExtResource("2_m8w6m")]
+layout_mode = 2
+
+[node name="InventoryItem6" parent="CenterContainer/ItemGridContainer" instance=ExtResource("2_m8w6m")]
+layout_mode = 2
+
+[node name="InventoryItem7" parent="CenterContainer/ItemGridContainer" instance=ExtResource("2_m8w6m")]
+layout_mode = 2
+
+[node name="InventoryItem8" parent="CenterContainer/ItemGridContainer" instance=ExtResource("2_m8w6m")]
+layout_mode = 2
+
+[node name="InventoryItem9" parent="CenterContainer/ItemGridContainer" instance=ExtResource("2_m8w6m")]
+layout_mode = 2
+
+[node name="InventoryItem10" parent="CenterContainer/ItemGridContainer" instance=ExtResource("2_m8w6m")]
+layout_mode = 2
+
+[node name="InventoryItem11" parent="CenterContainer/ItemGridContainer" instance=ExtResource("2_m8w6m")]
+layout_mode = 2
+
+[node name="InventoryItem12" parent="CenterContainer/ItemGridContainer" instance=ExtResource("2_m8w6m")]
+layout_mode = 2
+
+[node name="InventoryItem13" parent="CenterContainer/ItemGridContainer" instance=ExtResource("2_m8w6m")]
+layout_mode = 2
+
+[node name="InventoryItem14" parent="CenterContainer/ItemGridContainer" instance=ExtResource("2_m8w6m")]
+layout_mode = 2
+
+[node name="InventoryItem15" parent="CenterContainer/ItemGridContainer" instance=ExtResource("2_m8w6m")]
+layout_mode = 2
+
+[node name="InventoryItem16" parent="CenterContainer/ItemGridContainer" instance=ExtResource("2_m8w6m")]
+layout_mode = 2
+
+[node name="InventoryItem17" parent="CenterContainer/ItemGridContainer" instance=ExtResource("2_m8w6m")]
+layout_mode = 2
+
+[node name="InventoryItem18" parent="CenterContainer/ItemGridContainer" instance=ExtResource("2_m8w6m")]
+layout_mode = 2
+
+[node name="InventoryItem19" parent="CenterContainer/ItemGridContainer" instance=ExtResource("2_m8w6m")]
+layout_mode = 2
+
+[node name="InventoryItem20" parent="CenterContainer/ItemGridContainer" instance=ExtResource("2_m8w6m")]
+layout_mode = 2
+
+[node name="InventoryItem21" parent="CenterContainer/ItemGridContainer" instance=ExtResource("2_m8w6m")]
+layout_mode = 2
+
+[node name="InventoryItem22" parent="CenterContainer/ItemGridContainer" instance=ExtResource("2_m8w6m")]
+layout_mode = 2
+
+[node name="InventoryItem23" parent="CenterContainer/ItemGridContainer" instance=ExtResource("2_m8w6m")]
+layout_mode = 2
+
+[node name="InventoryItem24" parent="CenterContainer/ItemGridContainer" instance=ExtResource("2_m8w6m")]
+layout_mode = 2
+
+[node name="InventoryItem25" parent="CenterContainer/ItemGridContainer" instance=ExtResource("2_m8w6m")]
+layout_mode = 2
