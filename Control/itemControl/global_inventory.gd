@@ -8,7 +8,10 @@ signal dict_changed
 
 var picked_up_items = {}
 
-func add_item_to_dict(id:String, picked_up:bool, item_sprite:Sprite2D, hover_name:String, other_item_id:String, destroyed_on_interaction:bool):
+func add_item_to_dict(id:String, picked_up:bool, item_sprite:Sprite2D, 
+						hover_name:String, 
+						other_item_id:String, 
+						destroyed_on_interaction:bool):
 	if id not in picked_up_items:
 		picked_up_items[id] = {
 			"is_picked_up":picked_up,

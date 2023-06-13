@@ -35,7 +35,6 @@ polygon = PackedVector2Array(811, 492, 683, 750, 1145, 768, 990, 480)
 position = Vector2(1620, 669)
 item_name = "Dings"
 item_id = "Raum02Item01"
-other_item_id = "Raum03Item01"
 
 [node name="CollisionShape2D" parent="ClickableArea" index="0"]
 polygon = PackedVector2Array(-60, 39, -139, 170, 74, 160, 55, 57)

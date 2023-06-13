@@ -32,15 +32,7 @@ func _input(event):
 	if Input.is_action_just_pressed("mouse_right"):
 		Input.set_custom_mouse_cursor(null)
 		item_pick_board = null
-	
-#	print(event)
-#	if event is InputEventKey and event.keycode == KEY_I:
-#		open_and_close_inventory()
-#
-#func _process(_delta):
-#	if Input.is_action_just_pressed("open_inv"):
-#		open_and_close_inventory()
-		
+
 func open_and_close_inventory():
 	pass
 #	if !inventory_open:

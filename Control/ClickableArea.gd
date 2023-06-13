@@ -8,6 +8,8 @@ signal item_picked_up
 @export var item_id: String
 @export var other_item_id: String # die id vom anderen item, mit dem man interagieren kann
 @export var destroyed_on_interaction: bool
+# item, welches der spieler nach erfolgreicher interaktion erhält
+@export var item_received_on_interaction: String
 
 @export var is_item_interactable:bool
 
@@ -33,13 +35,8 @@ func _process(_delta):
 	$Description.position.x = text_pos.x + x_offset
 	$Description.position.y = text_pos.y + y_offset
 	
-	# prüfen ob im pickboard ein item liegt
-	if Input.is_action_just_pressed("mouse_left") and GlobalInputController.item_pick_board and body_in_area and is_clicked_on:
-		_interact_or_combine_item()
-		return
-	
 	if body_in_area and is_clicked_on and get_node("../Player").is_arrived():
-		if is_item_interactable:
+		if is_item_interactable or GlobalInputController.item_pick_board:
 			_pickup_item()
 		# alternativ iwas dazu sagen oder so idk
 
@@ -52,12 +49,18 @@ func _interact_or_combine_item():
 	var other_item_id = GlobalInputController.item_pick_board.get("other_item_id")
 	if other_item_id == item_id:
 		print("INTERACT")
+		if destroyed_on_interaction:
+			_disable_item()
+			# TODO: hier spieler neues item geben etc
 	else:
 		print("NO INTERACT")
 	is_clicked_on = false
 
 # wird getriggert sobald der spieler geklickt hat und dann stehen bleibt
 func _pickup_item():
+	if GlobalInputController.item_pick_board:
+		_interact_or_combine_item()
+		return
 	_disable_item()
 	# optional signal ans inventar emitten?
 	item_picked_up.emit()
