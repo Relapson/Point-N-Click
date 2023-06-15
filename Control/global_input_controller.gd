@@ -37,6 +37,7 @@ func _input(event):
 		Input.set_custom_mouse_cursor(game_cursor, 0, Vector2(50,50))
 		item_pick_board = null
 
+# TODO: nur vielleicht jeglichen input über den controller regeln
 func open_and_close_inventory():
 	pass
 #	if !inventory_open:

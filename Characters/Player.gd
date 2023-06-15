@@ -1,5 +1,7 @@
 extends CharacterBody2D
 
+signal player_arrived
+
 @export var move_speed = 500
 var target = position
 
@@ -45,6 +47,7 @@ func is_arrived():
 
 func _physics_process(_delta):
 	if is_arrived():
+		player_arrived.emit()
 		return
 	
 	velocity = position.direction_to(navigation_agent.get_next_path_position()) * move_speed
