@@ -7,6 +7,7 @@ signal dict_changed
 # dict anhand von csv oder so initialisieren? lieber nicht denk ich
 
 var picked_up_items = {}
+var interacted_items = []
 
 func add_item_to_dict(id:String, picked_up:bool, item_sprite:Sprite2D, 
 						hover_name:String, 
