@@ -49,6 +49,7 @@ position = Vector2(1261, 467)
 item_name = "Spitzhacke"
 item_id = "Raum01Item02"
 other_item_id = "Raum01Item01"
+destroyed_on_interaction = true
 is_item_interactable = true
 
 [node name="CollisionShape2D" parent="ClickableArea" index="0"]

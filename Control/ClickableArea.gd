@@ -20,10 +20,9 @@ var body_in_area = false
 
 func _ready():
 	# prüfen ob item in dict ist - wenn ja, nicht zeichnen
-	for item in get_tree().root.get_children():
-		# falls item in dict nicht nochmal zeichnen
-		if GlobalInventory.get_item_from_dict(item_id):
-			_disable_item()
+	# falls item bei interaktion zerstört wurde auch nicht zeichnen
+	if GlobalInventory.get_item_from_dict(item_id) or GlobalInventory.interacted_items.has(item_id):
+		_disable_item()
 	$Description.hide()
 	$Description.set_text(item_name)
 	
@@ -51,6 +50,7 @@ func _interact_or_combine_item():
 		print("INTERACT")
 		if destroyed_on_interaction:
 			_disable_item()
+			GlobalInventory.interacted_items.append(item_id)
 			# TODO: hier spieler neues item geben etc
 	else:
 		print("NO INTERACT")
