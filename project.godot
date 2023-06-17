@@ -17,6 +17,7 @@ config/icon="res://Assets/icon.svg"
 
 [autoload]
 
+EventHandler="*res://Globals/event_handler.gd"
 RoomLoader="*res://Control/room_loader.gd"
 GlobalInventory="*res://Control/itemControl/global_inventory.gd"
 GlobalInputController="*res://Control/global_input_controller.gd"

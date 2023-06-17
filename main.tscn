@@ -1,7 +1,8 @@
-[gd_scene load_steps=4 format=3 uid="uid://cj4j0saa5edb7"]
+[gd_scene load_steps=5 format=3 uid="uid://cj4j0saa5edb7"]
 
 [ext_resource type="Script" path="res://Control/roomControl/main.gd" id="1_t38j7"]
 [ext_resource type="PackedScene" uid="uid://u2r5qtlprn73" path="res://scene_01.tscn" id="2_ipjqq"]
+[ext_resource type="PackedScene" uid="uid://c0oroo6krotit" path="res://Characters/Dialogue/dialogue_scene.tscn" id="3_ovmga"]
 [ext_resource type="PackedScene" uid="uid://drn4f0x3nhv4h" path="res://Control/itemControl/inventory_gui.tscn" id="3_shjk0"]
 
 [node name="MainScene" type="Node"]
@@ -13,3 +14,8 @@ visible = false
 [node name="inventory_gui" parent="GUI" instance=ExtResource("3_shjk0")]
 
 [node name="Scene01" parent="." instance=ExtResource("2_ipjqq")]
+
+[node name="Dialog_GUI" type="CanvasLayer" parent="."]
+visible = false
+
+[node name="DialogueScene" parent="Dialog_GUI" instance=ExtResource("3_ovmga")]
