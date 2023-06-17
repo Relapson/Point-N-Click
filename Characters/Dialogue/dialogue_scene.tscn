@@ -1,6 +1,7 @@
-[gd_scene load_steps=2 format=3 uid="uid://c0oroo6krotit"]
+[gd_scene load_steps=3 format=3 uid="uid://c0oroo6krotit"]
 
 [ext_resource type="Script" path="res://Characters/Dialogue/dialogue_scene_manager.gd" id="1_wj82r"]
+[ext_resource type="FontFile" uid="uid://oqud717w80kb" path="res://Assets/Fonts/EastSeaDokdo-Regular.ttf" id="2_28hye"]
 
 [node name="DialogueScene" type="Control"]
 layout_mode = 3
@@ -20,10 +21,11 @@ grow_horizontal = 2
 grow_vertical = 2
 
 [node name="ColorRect" type="ColorRect" parent="Bars"]
-custom_minimum_size = Vector2(0, 150)
+custom_minimum_size = Vector2(0, 100)
 layout_mode = 1
 anchors_preset = 10
 anchor_right = 1.0
+offset_bottom = 100.0
 grow_horizontal = 2
 color = Color(0, 0, 0, 1)
 
@@ -34,6 +36,66 @@ anchors_preset = 12
 anchor_top = 1.0
 anchor_right = 1.0
 anchor_bottom = 1.0
+offset_top = -385.0
 grow_horizontal = 2
 grow_vertical = 0
-color = Color(0, 0, 0, 1)
+color = Color(0, 0, 0, 0.784314)
+
+[node name="ScrollContainer" type="ScrollContainer" parent="."]
+layout_mode = 1
+anchors_preset = 12
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 425.0
+offset_top = -384.0
+offset_right = -425.0
+grow_horizontal = 2
+grow_vertical = 0
+
+[node name="VBoxContainer" type="VBoxContainer" parent="ScrollContainer"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="ScrollContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("2_28hye")
+theme_override_font_sizes/font_size = 100
+text = "peepee poopoo aaaaaaaaaaaaaaaaaaaaaaaaaaaa"
+visible_characters = 1143
+visible_ratio = 27.2143
+
+[node name="Label2" type="Label" parent="ScrollContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("2_28hye")
+theme_override_font_sizes/font_size = 100
+text = "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa"
+
+[node name="Label3" type="Label" parent="ScrollContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("2_28hye")
+theme_override_font_sizes/font_size = 100
+text = "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa"
+
+[node name="Label4" type="Label" parent="ScrollContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("2_28hye")
+theme_override_font_sizes/font_size = 100
+text = "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa"
+
+[node name="Label5" type="Label" parent="ScrollContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("2_28hye")
+theme_override_font_sizes/font_size = 100
+text = "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa"
+
+[node name="Label6" type="Label" parent="ScrollContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("2_28hye")
+theme_override_font_sizes/font_size = 100
+text = "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa"
+
+[node name="Label7" type="Label" parent="ScrollContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("2_28hye")
+theme_override_font_sizes/font_size = 100
+text = "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa"
