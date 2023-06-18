@@ -1,10 +1,15 @@
 extends Control
 
+@export var dialogue_resource: Dialogue
+
 var test_dialogue_options
 
 func _ready():
 	
-	test_dialogue_options = _load_dialogue()
+	# resource setup
+	dialogue_resource.setup()
+	
+	test_dialogue_options = dialogue_resource.dialogue_options
 	
 	# gamevent bus verbinden
 	EventHandler.connect("dialogue_started_event", _start_dialogue)
@@ -17,11 +22,6 @@ func _start_dialogue():
 func _end_dialogue():
 	_reset_dialogue_options()
 	get_parent().hide()
-
-func _load_dialogue():
-	var file = FileAccess.open("res://Characters/Dialogue/Dialogue_Data/DialogNpc01.json", FileAccess.READ)
-	var text = file.get_as_text()
-	return JSON.parse_string(file.get_as_text())
 
 func _instantiate_dialogue_options(options:Array):
 	var num = 1
