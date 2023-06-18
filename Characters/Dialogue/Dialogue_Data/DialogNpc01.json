@@ -1,0 +1,35 @@
+[
+  {
+    "id": "NPC01_D01",
+    "text": "Das ist leider deine Meinung."
+  },
+  {
+    "id": "NPC01_D02",
+    "text": "Hier ganz viel filler aaaaaaaaaaaaaaaaaaaaaaaaa"
+  },
+  {
+    "id": "NPC01_D03",
+    "text": "hmhmhmhm"
+  },
+  {
+    "id": "NPC01_D04",
+    "text": "also naja"
+  },
+  {
+    "id": "NPC01_D05",
+    "text": "hier, dings,,"
+  },
+  {
+    "id": "NPC01_D06",
+    "text": "brauchst du eventuell einen hinweis?"
+  },
+  {
+    "id": "NPC01_D07",
+    "text": "hast du spitzhacke + stein schon probiert?"
+  },
+  {
+    "id": "NPC01_D08",
+    "text": "naja, is ja auch egal ne.",
+    "function": "end_dialogue"
+  }
+]
