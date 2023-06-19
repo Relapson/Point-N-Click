@@ -1,22 +1,12 @@
 extends Control
 
-@export var dialogue_resource: Dialogue
-
-var test_dialogue_options
-
 func _ready():
-	
-	# resource setup
-	dialogue_resource.setup()
-	
-	test_dialogue_options = dialogue_resource.dialogue_options
-	
 	# gamevent bus verbinden
 	EventHandler.connect("dialogue_started_event", _start_dialogue)
 	EventHandler.connect("dialogue_ended_event", _end_dialogue)
 
-func _start_dialogue():
-	_instantiate_dialogue_options(test_dialogue_options)
+func _start_dialogue(npc_dialogue:Dialogue):
+	_instantiate_dialogue_options(npc_dialogue.dialogue_options)
 	get_parent().show()
 	
 func _end_dialogue():

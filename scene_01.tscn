@@ -1,4 +1,4 @@
-[gd_scene load_steps=8 format=3 uid="uid://u2r5qtlprn73"]
+[gd_scene load_steps=10 format=3 uid="uid://u2r5qtlprn73"]
 
 [ext_resource type="Script" path="res://Control/roomControl/scene_1.gd" id="1_bd4gc"]
 [ext_resource type="PackedScene" uid="uid://b38h7cepxykak" path="res://Characters/Player.tscn" id="1_gpj7y"]
@@ -6,6 +6,8 @@
 [ext_resource type="PackedScene" uid="uid://wprlbke24xqr" path="res://Control/clickable_area.tscn" id="4_oontw"]
 [ext_resource type="Texture2D" uid="uid://b7kl3nn7pm274" path="res://Assets/placeholder_item.png" id="5_f6lex"]
 [ext_resource type="PackedScene" uid="uid://bfiagg1ry4ybr" path="res://Characters/NPC/npc.tscn" id="6_mb2j6"]
+[ext_resource type="Resource" uid="uid://dihx1j01u8s0m" path="res://Characters/Dialogue/Dialogues/npc_01.tres" id="7_3g14h"]
+[ext_resource type="Resource" uid="uid://xwawtaa6pbc1" path="res://Characters/Dialogue/Dialogues/npc_02.tres" id="8_ar3l4"]
 
 [sub_resource type="NavigationPolygon" id="NavigationPolygon_6mx3b"]
 vertices = PackedVector2Array(1228, 821, 1691, 838, 1304, 1041, 899, 843, 378, 1011, 77, 824, 262, 695, 929, 409, 186, 484, 1256, 644, 1553, 689, 1712, 343, 1778, 519)
@@ -77,6 +79,13 @@ texture = ExtResource("5_f6lex")
 [node name="npc" parent="." instance=ExtResource("6_mb2j6")]
 position = Vector2(725, 412)
 scale = Vector2(0.5, 0.5)
+npc_dialogue = ExtResource("7_3g14h")
+
+[node name="npc2" parent="." instance=ExtResource("6_mb2j6")]
+modulate = Color(1, 0.533333, 1, 1)
+position = Vector2(1078, 381)
+scale = Vector2(0.5, 0.5)
+npc_dialogue = ExtResource("8_ar3l4")
 
 [editable path="Area2"]
 [editable path="Area3"]

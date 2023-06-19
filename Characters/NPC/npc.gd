@@ -2,9 +2,12 @@ extends Node2D
 
 signal dialogue_begin
 
+@export var npc_dialogue: Dialogue
+
 var clicked = false
 
 func _ready():
+	npc_dialogue.setup()
 	pass
 	# signal, ob spieler am ziel angekommen ist, verbinden?
 
@@ -17,7 +20,7 @@ func _on_input_event(_viewport, _event, _shape_idx):
 
 func _on_playerbody_entered(body):
 	if body.is_in_group("player") and clicked:
-		EventHandler.emit_signal("dialogue_started_event")
+		EventHandler.emit_signal("dialogue_started_event", npc_dialogue)
 		clicked = false
 
 func _on_playerbody_exited(body):

@@ -1,7 +1,6 @@
-[gd_scene load_steps=3 format=3 uid="uid://c0oroo6krotit"]
+[gd_scene load_steps=2 format=3 uid="uid://c0oroo6krotit"]
 
 [ext_resource type="Script" path="res://Characters/Dialogue/dialogue_scene_manager.gd" id="1_wj82r"]
-[ext_resource type="Resource" uid="uid://dihx1j01u8s0m" path="res://Characters/Dialogue/Dialogues/npc_01.tres" id="2_6lvv1"]
 
 [node name="DialogueScene" type="Control"]
 layout_mode = 3
@@ -11,7 +10,6 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_wj82r")
-dialogue_resource = ExtResource("2_6lvv1")
 
 [node name="Bars" type="Control" parent="."]
 layout_mode = 2
