@@ -3,4 +3,4 @@ extends Node
 signal dialogue_started_event
 signal dialogue_ended_event
 
-signal allow_player_movement
+signal set_player_movement

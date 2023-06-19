@@ -9,6 +9,7 @@
   },
   {
 	"id": "NPC01_D03",
-	"text": "hmhmhmhm"
+	"text": "hmhmhmhm",
+	"function": "end_dialogue"
   }
 ]

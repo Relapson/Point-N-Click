@@ -6,10 +6,12 @@ func _ready():
 	EventHandler.connect("dialogue_ended_event", _end_dialogue)
 
 func _start_dialogue(npc_dialogue:Dialogue):
+	EventHandler.emit_signal("set_player_movement", false)
 	_instantiate_dialogue_options(npc_dialogue.dialogue_options)
 	get_parent().show()
 	
 func _end_dialogue():
+	EventHandler.emit_signal("set_player_movement", true)
 	_reset_dialogue_options()
 	get_parent().hide()
 
@@ -21,6 +23,10 @@ func _instantiate_dialogue_options(options:Array):
 		var new_dia_opt = dia_opt.instantiate()
 		new_dia_opt.get_node("DialogueNumber").text = str(num) + ". "
 		new_dia_opt.get_node("DialogueOption").text = text
+		if opt.has("function"):
+			new_dia_opt.end_function = true
+			new_dia_opt.end_dialogue.connect(_end_dialogue)
+		
 		$ScrollContainer/AspectRatioContainer/VBoxContainer.add_child(new_dia_opt)
 		num += 1
 

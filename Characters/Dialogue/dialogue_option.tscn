@@ -20,3 +20,5 @@ theme_override_fonts/font = ExtResource("1_q72nr")
 theme_override_font_sizes/font_size = 85
 text = "Lorem Ipsum"
 flat = true
+
+[connection signal="pressed" from="DialogueOption" to="." method="_on_dialogue_option_pressed"]
