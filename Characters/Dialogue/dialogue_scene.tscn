@@ -11,7 +11,7 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_wj82r")
-dialogue_timer = 2
+dialogue_timer = 2.0
 
 [node name="DialogueOverlay" type="Control" parent="."]
 layout_mode = 2

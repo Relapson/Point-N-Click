@@ -1,6 +1,6 @@
 extends Control
 
-@export var dialogue_timer: int
+@export var dialogue_timer: float
 
 var dialogue_participants = {
 	"player": load("res://Assets/Dialogue Icons/icon_player.svg")
@@ -67,6 +67,7 @@ func _reset_dialogue_options():
 		opt.queue_free()
 
 func _play_dialogue(text:String, npc_answer:String, player_answer:String):
+	# TODO: mit schleife über alle möglichen optionen itarieren wär nett
 	_set_talking(dialogue_participants["player"], "Player", text)
 	await get_tree().create_timer(dialogue_timer).timeout
 	_set_talking(dialogue_participants["npc"], "NPC (placeholder)", npc_answer)
@@ -76,5 +77,5 @@ func _play_dialogue(text:String, npc_answer:String, player_answer:String):
 
 func _set_talking(avatar:Texture, talking:String, text:String):
 	$DialogueOverlay/AvatarImage.texture = avatar
-	$DialogueOverlay/CharacterName.text = talking + ":"
-	$DialogueOverlay/Text.text = "\"" + text + "\"" if talking != "" else "\"...\""
+	$DialogueOverlay/CharacterName.text = talking + ":" 
+	$DialogueOverlay/Text.text = "\"" + text + "\"" if text != "" else "\"...\""
