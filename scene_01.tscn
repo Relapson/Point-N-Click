@@ -77,7 +77,7 @@ scale = Vector2(0.5, 0.5)
 texture = ExtResource("5_f6lex")
 
 [node name="npc" parent="." instance=ExtResource("6_mb2j6")]
-position = Vector2(725, 412)
+position = Vector2(507, 447)
 scale = Vector2(0.5, 0.5)
 npc_dialogue = ExtResource("7_3g14h")
 

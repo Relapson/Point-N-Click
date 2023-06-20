@@ -16,4 +16,5 @@ func _on_dialogue_option_pressed():
 	if end_function:
 		print("END DIALOGUE")
 		await get_tree().create_timer(2.0).timeout
-		end_dialogue.emit()
+#		end_dialogue.emit()
+		EventHandler.emit_signal("dialogue_ended_event")
