@@ -1,9 +1,9 @@
 [gd_resource type="Resource" script_class="Dialogue" load_steps=3 format=3 uid="uid://xwawtaa6pbc1"]
 
-[ext_resource type="Texture2D" uid="uid://csgxfroob3nv0" path="res://Assets/icon.svg" id="1_6vwu0"]
+[ext_resource type="Texture2D" uid="uid://ccm44544xxykb" path="res://Assets/Dialogue Icons/icon_npc02.svg" id="1_3pnmp"]
 [ext_resource type="Script" path="res://Characters/Dialogue/dialogue.gd" id="2_y62ty"]
 
 [resource]
 script = ExtResource("2_y62ty")
-avatar_texture = ExtResource("1_6vwu0")
-dialogue_file = "res://Characters/Dialogue/Dialogue_Data/DialogNpc02.json"
+avatar_texture = ExtResource("1_3pnmp")
+dialogue_file = "res://Characters/Dialogue/Dialogue_Data/Dialogue_NPC02.json"

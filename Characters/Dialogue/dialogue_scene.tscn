@@ -1,6 +1,7 @@
-[gd_scene load_steps=2 format=3 uid="uid://c0oroo6krotit"]
+[gd_scene load_steps=3 format=3 uid="uid://c0oroo6krotit"]
 
 [ext_resource type="Script" path="res://Characters/Dialogue/dialogue_scene_manager.gd" id="1_wj82r"]
+[ext_resource type="FontFile" uid="uid://oqud717w80kb" path="res://Assets/Fonts/EastSeaDokdo-Regular.ttf" id="2_xsdcd"]
 
 [node name="DialogueScene" type="Control"]
 layout_mode = 3
@@ -11,7 +12,7 @@ grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_wj82r")
 
-[node name="Bars" type="Control" parent="."]
+[node name="DialogueOverlay" type="Control" parent="."]
 layout_mode = 2
 anchors_preset = 0
 anchor_right = 1.0
@@ -19,16 +20,16 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="ColorRect" type="ColorRect" parent="Bars"]
+[node name="ColorRect" type="ColorRect" parent="DialogueOverlay"]
 custom_minimum_size = Vector2(0, 100)
 layout_mode = 1
 anchors_preset = 10
 anchor_right = 1.0
-offset_bottom = 100.0
+offset_bottom = 400.0
 grow_horizontal = 2
-color = Color(0, 0, 0, 1)
+color = Color(0, 0, 0, 0.784314)
 
-[node name="ColorRect2" type="ColorRect" parent="Bars"]
+[node name="ColorRect2" type="ColorRect" parent="DialogueOverlay"]
 custom_minimum_size = Vector2(0, 150)
 layout_mode = 1
 anchors_preset = 12
@@ -39,6 +40,40 @@ offset_top = -385.0
 grow_horizontal = 2
 grow_vertical = 0
 color = Color(0, 0, 0, 0.784314)
+
+[node name="AvatarImage" type="TextureRect" parent="DialogueOverlay"]
+custom_minimum_size = Vector2(400, 400)
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="Text" type="Label" parent="DialogueOverlay"]
+layout_mode = 1
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -1472.0
+offset_top = 131.0
+offset_bottom = 384.0
+grow_horizontal = 0
+theme_override_fonts/font = ExtResource("2_xsdcd")
+theme_override_font_sizes/font_size = 100
+text = "Lorem Ipsum dolor sit amet"
+autowrap_mode = 2
+
+[node name="CharacterName" type="Label" parent="DialogueOverlay"]
+layout_mode = 1
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -1472.0
+offset_top = 30.0
+offset_bottom = 134.0
+grow_horizontal = 0
+theme_override_fonts/font = ExtResource("2_xsdcd")
+theme_override_font_sizes/font_size = 100
+text = "Lorem:"
+autowrap_mode = 2
 
 [node name="ScrollContainer" type="ScrollContainer" parent="."]
 custom_minimum_size = Vector2(1158, 327)

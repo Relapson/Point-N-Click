@@ -1,0 +1,32 @@
+[
+  {
+	"id": "NPC02_D01",
+	"display_name": "Frenk",
+	"welcome_text": "Whaddaya want.",
+	"avatar": "npc"
+  },
+  {
+	"id": "NPC02_D01",
+	"display_name": "Frenk",
+	"option": "Why so rude :(",
+	"text": "Got shit to do.",
+	"answer": "I'll be going then",
+	"function": "end_dialogue",
+	"avatar": ["player", "npc", "player"]
+  },
+  {
+	"id": "NPC02_D01",
+	"display_name": "Frenk",
+	"option": "Got anything interesting going on?",
+	"text": "No.",
+	"avatar": ["player", "npc"]
+  },
+  {
+	"id": "NPC02_D01",
+	"display_name": "Frenk",
+	"option": "I'll leave you alone.",
+	"text": "Thank you.",
+	"function": "end_dialogue",
+	"avatar": ["player", "npc"]
+  }
+]
