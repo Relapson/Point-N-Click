@@ -1,5 +1,7 @@
 extends Control
 
+@export var dialogue_timer: int
+
 var dialogue_participants = {
 	"player": load("res://Assets/Dialogue Icons/icon_player.svg")
 }
@@ -33,6 +35,10 @@ func _instantiate_dialogue_options(options:Array):
 			text_option = opt["option"]
 			new_dia_opt.get_node("DialogueOption").text = text_option
 			new_dia_opt.get_node("DialogueNumber").text = str(num) + ". "
+			new_dia_opt.npc_answer = opt["text"]
+			if opt.has("answer"):
+				new_dia_opt.player_answer = opt["answer"]
+			new_dia_opt.selected_option.connect(_play_dialogue)
 			$ScrollContainer/AspectRatioContainer/VBoxContainer.add_child(new_dia_opt)
 			num += 1
 			
@@ -59,3 +65,16 @@ func _reset_dialogue_options():
 		return
 	for opt in $ScrollContainer/AspectRatioContainer/VBoxContainer.get_children():
 		opt.queue_free()
+
+func _play_dialogue(text:String, npc_answer:String, player_answer:String):
+	_set_talking(dialogue_participants["player"], "Player", text)
+	await get_tree().create_timer(dialogue_timer).timeout
+	_set_talking(dialogue_participants["npc"], "NPC (placeholder)", npc_answer)
+	await get_tree().create_timer(dialogue_timer).timeout
+	_set_talking(dialogue_participants["player"], "Player", player_answer)
+	await get_tree().create_timer(dialogue_timer).timeout
+
+func _set_talking(avatar:Texture, talking:String, text:String):
+	$DialogueOverlay/AvatarImage.texture = avatar
+	$DialogueOverlay/CharacterName.text = talking + ":"
+	$DialogueOverlay/Text.text = "\"" + text + "\"" if talking != "" else "\"...\""

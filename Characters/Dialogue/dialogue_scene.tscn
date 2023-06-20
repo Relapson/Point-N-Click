@@ -11,6 +11,7 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_wj82r")
+dialogue_timer = 2
 
 [node name="DialogueOverlay" type="Control" parent="."]
 layout_mode = 2
@@ -98,3 +99,6 @@ ratio = 0.001
 layout_mode = 2
 size_flags_vertical = 8
 alignment = 1
+
+[node name="DialogueTimer" type="Timer" parent="."]
+one_shot = true
