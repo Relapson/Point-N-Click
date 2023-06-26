@@ -67,14 +67,19 @@ func _reset_dialogue_options():
 		opt.queue_free()
 
 func _play_dialogue(text:String, npc_answer:String, player_answer:String):
+	_set_container_visibility(false)
 	# TODO: mit schleife über alle möglichen optionen itarieren wär nett
 	_set_talking(dialogue_participants["player"], "Player", text)
 	await get_tree().create_timer(dialogue_timer).timeout
 	_set_talking(dialogue_participants["npc"], "NPC (placeholder)", npc_answer)
 	await get_tree().create_timer(dialogue_timer).timeout
 	_set_talking(dialogue_participants["player"], "Player", player_answer)
+	_set_container_visibility(true)
 
 func _set_talking(avatar:Texture, talking:String, text:String):
 	$DialogueOverlay/AvatarImage.texture = avatar
 	$DialogueOverlay/CharacterName.text = talking + ":" 
 	$DialogueOverlay/Text.text = "\"" + text + "\"" if text != "" else "\"...\""
+
+func _set_container_visibility(visibility:bool):
+	$ScrollContainer.visible = visibility
