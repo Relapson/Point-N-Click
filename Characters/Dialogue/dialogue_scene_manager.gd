@@ -66,15 +66,18 @@ func _reset_dialogue_options():
 	for opt in $ScrollContainer/AspectRatioContainer/VBoxContainer.get_children():
 		opt.queue_free()
 
-func _play_dialogue(text:String, npc_answer:String, player_answer:String):
-	_set_container_visibility(false)
+func _play_dialogue(text:String, npc_answer:String, player_answer:String, end_function:bool):
+	_set_container_visibility(false) # falls ichs schaffe, das in ne schleife auszulagern nur ein aufruf nötig
 	# TODO: mit schleife über alle möglichen optionen itarieren wär nett
 	_set_talking(dialogue_participants["player"], "Player", text)
 	await get_tree().create_timer(dialogue_timer).timeout
 	_set_talking(dialogue_participants["npc"], "NPC (placeholder)", npc_answer)
 	await get_tree().create_timer(dialogue_timer).timeout
 	_set_talking(dialogue_participants["player"], "Player", player_answer)
+	await get_tree().create_timer(dialogue_timer).timeout
 	_set_container_visibility(true)
+	if end_function:
+		EventHandler.emit_signal("dialogue_ended_event")
 
 func _set_talking(avatar:Texture, talking:String, text:String):
 	$DialogueOverlay/AvatarImage.texture = avatar
