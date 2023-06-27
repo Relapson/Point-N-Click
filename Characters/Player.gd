@@ -1,5 +1,7 @@
 extends CharacterBody2D
 
+signal player_arrived
+
 @export var move_speed = 500
 var target = position
 
@@ -9,6 +11,7 @@ var allow_movement = true
 @onready var navigation_agent: NavigationAgent2D = $NavigationAgent2D
 
 func _ready():
+	EventHandler.connect("set_player_movement", _set_movement)
 	#set_movement_target(position if RoomLoader.area_positions else RoomLoader.player_pos_last_screen)
 	call_deferred("actor_setup")
 	
@@ -45,6 +48,7 @@ func is_arrived():
 
 func _physics_process(_delta):
 	if is_arrived():
+		player_arrived.emit()
 		return
 	
 	velocity = position.direction_to(navigation_agent.get_next_path_position()) * move_speed
@@ -55,3 +59,6 @@ func _physics_process(_delta):
 # TODO: idee die animation welche abgespielt werden soll reinzureichen und dann hier abzuspielen
 func handle_animation(animation_sequence):
 	pass
+
+func _set_movement(val):
+	allow_movement = val

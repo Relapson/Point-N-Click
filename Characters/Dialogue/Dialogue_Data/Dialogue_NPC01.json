@@ -1,0 +1,32 @@
+[
+  {
+	"id": "NPC01_D01",
+	"display_name": "Ben",
+	"welcome_text": "Hello! My name is Ben.",
+	"avatar": ["npc"]
+  },
+  {
+	"id": "NPC01_D01",
+	"display_name": "Ben",
+	"option": "Got any hints?",
+	"text": "Sure! Have you tried using the pickaxe on the rock over there?",
+	"answer": "Perhaps..",
+	"avatar": ["player", "npc", "player"]
+  },
+  {
+	"id": "NPC01_D01",
+	"display_name": "Ben",
+	"option": "What're you doing over here?",
+	"text": "Me? Huh! Nothing. Just hanging around...",
+	"answer": "...",
+	"avatar": ["player", "npc", "player"]
+  },
+  {
+	"id": "NPC01_D01",
+	"display_name": "Ben",
+	"option": "Aite, I'll see you around!",
+	"text": "Sure thing.",
+	"avatar": ["player", "npc"],
+	"function": "end_dialogue"
+  }
+]

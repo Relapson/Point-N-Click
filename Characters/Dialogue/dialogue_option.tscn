@@ -1,0 +1,24 @@
+[gd_scene load_steps=3 format=3 uid="uid://5a1vta2jo4sd"]
+
+[ext_resource type="Script" path="res://Characters/Dialogue/dialogue_option.gd" id="1_me064"]
+[ext_resource type="FontFile" uid="uid://oqud717w80kb" path="res://Assets/Fonts/EastSeaDokdo-Regular.ttf" id="1_q72nr"]
+
+[node name="DialogueOption" type="HBoxContainer"]
+offset_right = 40.0
+offset_bottom = 40.0
+script = ExtResource("1_me064")
+
+[node name="DialogueNumber" type="Label" parent="."]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("1_q72nr")
+theme_override_font_sizes/font_size = 85
+text = "1."
+
+[node name="DialogueOption" type="Button" parent="."]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("1_q72nr")
+theme_override_font_sizes/font_size = 85
+text = "Lorem Ipsum"
+flat = true
+
+[connection signal="pressed" from="DialogueOption" to="." method="_on_dialogue_option_pressed"]

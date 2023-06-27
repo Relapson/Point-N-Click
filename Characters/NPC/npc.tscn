@@ -1,0 +1,40 @@
+[gd_scene load_steps=5 format=3 uid="uid://bfiagg1ry4ybr"]
+
+[ext_resource type="Texture2D" uid="uid://csgxfroob3nv0" path="res://Assets/icon.svg" id="1_rvxhj"]
+[ext_resource type="Script" path="res://Characters/NPC/npc.gd" id="1_y730v"]
+[ext_resource type="FontFile" uid="uid://oqud717w80kb" path="res://Assets/Fonts/EastSeaDokdo-Regular.ttf" id="3_38nyu"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_c1h60"]
+radius = 22.6318
+
+[node name="npc" type="Area2D" groups=["npcs"]]
+script = ExtResource("1_y730v")
+metadata/_edit_group_ = true
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+modulate = Color(1, 1, 0, 1)
+texture = ExtResource("1_rvxhj")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+scale = Vector2(5, 5)
+shape = SubResource("CircleShape2D_c1h60")
+
+[node name="Speech" type="Label" parent="."]
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -77.5
+offset_top = -173.0
+offset_right = 77.5
+offset_bottom = -79.0
+grow_horizontal = 2
+grow_vertical = 0
+theme_override_fonts/font = ExtResource("3_38nyu")
+theme_override_font_sizes/font_size = 90
+text = "Lorem"
+
+[connection signal="body_entered" from="." to="." method="_on_playerbody_entered"]
+[connection signal="body_exited" from="." to="." method="_on_playerbody_exited"]
+[connection signal="input_event" from="." to="." method="_on_input_event"]

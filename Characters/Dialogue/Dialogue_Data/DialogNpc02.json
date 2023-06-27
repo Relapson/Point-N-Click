@@ -1,0 +1,15 @@
+[
+  {
+	"id": "NPC01_D01",
+	"text": "Das ist leider deine Meinung."
+  },
+  {
+	"id": "NPC01_D02",
+	"text": "Hier ganz viel filler aaaaa"
+  },
+  {
+	"id": "NPC01_D03",
+	"text": "hmhmhmhm",
+	"function": "end_dialogue"
+  }
+]
