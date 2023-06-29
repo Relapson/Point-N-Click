@@ -17,7 +17,7 @@ func _load_dialogue_file():
 
 func _init_dialogue(dia_opt:Array) -> void:
 	for opt in dia_opt:
-		var talk_resource = load("res://Characters/Dialogue/talk_res.tres") as DialogueOption
+		var talk_resource = DialogueOption.new()
 		
 		talk_resource.id = opt.get("id")
 		talk_resource.welcome = opt.get("welcome_text")
@@ -27,8 +27,7 @@ func _init_dialogue(dia_opt:Array) -> void:
 			var talk = {}
 			var t = o.get("talk")
 			
-			talk_resource.option_text = o.get("option_text")
-			
+			talk["option_text"] = t.get("option_text")
 			talk["npc"] = t.get("npc")
 			talk["player"] = t.get("player")
 			talk["signal"] = t.get("signal")

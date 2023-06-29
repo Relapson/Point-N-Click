@@ -6,9 +6,9 @@
 
 		"options": [
 			{
-				"option_text": "What are you doing here?",
 				"talk": 
 				{
+					"option_text": "What are you doing here?",
 					"npc": ["nothing", "jo", "no way"],
 					"player": ["for real?", "same here"],
 					"signal": "test_signal",
@@ -19,9 +19,9 @@
 				}
 			},
 			{
-				"option_text": "What are you doing here?2",
 				"talk": 
 				{
+					"option_text": "What are you doing here?2",
 					"npc": ["nothing2", "jo2", "no way2"],
 					"player": ["for real?2", "same here2"],
 					"signal": "test_signal2",
@@ -42,9 +42,9 @@
 
 		"options": [
 			{
-				"option_text": "uwu",
 				"talk": 
 				{
+					"option_text": "uwu",
 					"npc": ["nothing", "jo", "no way"],
 					"player": ["for real?", "same here"],
 					"signal": "test_signal",

@@ -13,7 +13,7 @@ func _ready():
 
 func _start_dialogue(npc_dialogue:Dialogue):
 	EventHandler.emit_signal("set_player_movement", false)
-	_instantiate_dialogue_options(npc_dialogue.dialogue_options)
+	_instantiate_dialogue_options(npc_dialogue.dialogue)
 	_instantiate_dialogue(npc_dialogue)
 	get_parent().show()
 	
@@ -22,7 +22,7 @@ func _end_dialogue():
 	_reset_dialogue_options()
 	get_parent().hide()
 
-func _instantiate_dialogue_options(options:Array):
+func _instantiate_dialogue_options(options:Dictionary):
 	var num = 1
 	for opt in options:
 		var text_option
