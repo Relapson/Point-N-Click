@@ -13,6 +13,7 @@ func _ready():
 
 func _start_dialogue(npc_dialogue:Dialogue):
 	EventHandler.emit_signal("set_player_movement", false)
+	_run_dialogue(npc_dialogue.dialogue)
 	_instantiate_dialogue_options(npc_dialogue.dialogue)
 	_instantiate_dialogue(npc_dialogue)
 	get_parent().show()
@@ -22,6 +23,12 @@ func _end_dialogue():
 	_reset_dialogue_options()
 	get_parent().hide()
 
+# TODO: hier den dialog abspielen
+func _run_dialogue(dialogue:Dictionary):
+	var current_id = dialogue.keys()[0] # an erster stelle immer der dialog start
+	print()
+
+# TODO: dialogoptionen hier instanziieren
 func _instantiate_dialogue_options(options:Dictionary):
 	var num = 1
 	for opt in options:
