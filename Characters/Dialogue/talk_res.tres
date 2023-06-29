@@ -1,0 +1,6 @@
+[gd_resource type="Resource" script_class="DialogueOption" load_steps=2 format=3 uid="uid://d12lsukxkmlao"]
+
+[ext_resource type="Script" path="res://Characters/Dialogue/talk_res.gd" id="1_b1b64"]
+
+[resource]
+script = ExtResource("1_b1b64")

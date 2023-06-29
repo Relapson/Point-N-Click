@@ -1,0 +1,59 @@
+[
+	{
+		"id": "NPC01_D01",
+		"welcome_text": "Hey there!",
+		"npc_name": "Neb",
+
+		"options": [
+			{
+				"option_text": "What are you doing here?",
+				"talk": 
+				{
+					"npc": ["nothing", "jo", "no way"],
+					"player": ["for real?", "same here"],
+					"signal": "test_signal",
+					"timer": 2,
+					"is_talking": ["npc", "player", "npc", "player", "npc"],
+					"ends_dialogue": false,
+					"goto_next": "NPC01_D02"
+				}
+			},
+			{
+				"option_text": "What are you doing here?2",
+				"talk": 
+				{
+					"npc": ["nothing2", "jo2", "no way2"],
+					"player": ["for real?2", "same here2"],
+					"signal": "test_signal2",
+					"timer": 2,
+					"is_talking": ["npc", "player", "npc", "player", "npc"],
+					"ends_dialogue": true,
+					"goto_next": null
+				}
+			}
+		] 
+
+	},
+
+	{
+		"id": "NPC01_D02",
+		"welcome_text": "owo!",
+		"npc_name": "Neb",
+
+		"options": [
+			{
+				"option_text": "uwu",
+				"talk": 
+				{
+					"npc": ["nothing", "jo", "no way"],
+					"player": ["for real?", "same here"],
+					"signal": "test_signal",
+					"timer": 2,
+					"is_talking": ["npc", "player", "npc", "player", "npc"],
+					"ends_dialogue": false,
+					"goto_next": "NPC01_D01"
+				}
+			}
+		]
+	}
+]
