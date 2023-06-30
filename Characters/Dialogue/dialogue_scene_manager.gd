@@ -2,6 +2,8 @@ extends Control
 
 @export var dialogue_timer: float
 
+var npc_dialogue: Dialogue
+
 var dialogue_participants = {
 	"player": load("res://Assets/Dialogue Icons/icon_player.svg")
 }
@@ -12,8 +14,9 @@ func _ready():
 	EventHandler.connect("dialogue_ended_event", _end_dialogue)
 
 func _start_dialogue(npc_dialogue:Dialogue):
+	self.npc_dialogue = npc_dialogue
 	EventHandler.emit_signal("set_player_movement", false)
-	_instantiate_dialogue_options(npc_dialogue)
+	_instantiate_dialogue_options(self.npc_dialogue)
 	get_parent().show()
 	
 func _end_dialogue():
@@ -48,15 +51,21 @@ func _run_dialogue(talk_option:Dictionary, npc_name:String):
 		if talking == "player": player_counter += 1
 		await get_tree().create_timer(timeout).timeout
 		
+	if goto_next:
+		_reset_dialogue_options()
+		_instantiate_dialogue_options(self.npc_dialogue, goto_next)
+		await get_tree().create_timer(1).timeout # kurz warten damit zeit is den dialog zu laden
+	
 	_set_container_visibility(true)
 	
 	if ends_dialogue: EventHandler.emit_signal("dialogue_ended_event")
 
 # TODO: dialogoptionen hier instanziieren
-func _instantiate_dialogue_options(dia:Dialogue):
+func _instantiate_dialogue_options(dia:Dialogue, dialogue_key = null):
 	var num = 1
-	var current_id = dia.dialogue.keys()[0]
-	var current_dialogue = dia.dialogue.get(current_id) as DialogueOption
+	var current_id = dia.dialogue.keys()[0] 
+	var current_dialogue = dia.dialogue.get(current_id) as DialogueOption\
+						if dialogue_key == null else dia.dialogue.get(dialogue_key)
 	
 	var welcome = current_dialogue.welcome
 	var npc_name = current_dialogue.npc_name
