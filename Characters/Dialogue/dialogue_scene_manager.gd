@@ -41,7 +41,9 @@ func _run_dialogue(talk_option:Dictionary, npc_name:String):
 	for talking in talk_option.get("is_talking"):
 		_set_talking(dialogue_participants[talking], 
 				npc_name if talking == "npc" else "Player",
-				talk_option.get(talking)[npc_counter] if talking == "npc" else talk_option.get(talking)[player_counter])
+				talk_option.get(talking)[npc_counter]\
+				if talking == "npc" else\
+				talk_option.get(talking)[player_counter])
 		if talking == "npc": npc_counter += 1
 		if talking == "player": player_counter += 1
 		await get_tree().create_timer(timeout).timeout
