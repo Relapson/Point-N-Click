@@ -1,7 +1,11 @@
 extends HBoxContainer
+class_name DialogueOptionContainer
 
 signal end_dialogue
 signal selected_option
+
+var number: int
+var talk_option: Dictionary
 
 var end_function = false
 var npc_answer: String

@@ -14,8 +14,7 @@ func _ready():
 func _start_dialogue(npc_dialogue:Dialogue):
 	EventHandler.emit_signal("set_player_movement", false)
 	_run_dialogue(npc_dialogue.dialogue)
-	_instantiate_dialogue_options(npc_dialogue.dialogue)
-	_instantiate_dialogue(npc_dialogue)
+	_instantiate_dialogue_options(npc_dialogue)
 	get_parent().show()
 	
 func _end_dialogue():
@@ -29,32 +28,24 @@ func _run_dialogue(dialogue:Dictionary):
 	print()
 
 # TODO: dialogoptionen hier instanziieren
-func _instantiate_dialogue_options(options:Dictionary):
+func _instantiate_dialogue_options(dia:Dialogue):
 	var num = 1
-	for opt in options:
-		var text_option
-		var dia_opt 
-		var new_dia_opt 
+	var current_id = dia.dialogue.keys()[0]
+	var current_dialogue = dia.dialogue.get(current_id) as DialogueOption
+	
+	var welcome = current_dialogue.welcome
+	var npc_name = current_dialogue.npc_name
+	
+	for opt in current_dialogue.options:
+		var dia_opt = ResourceLoader.load("res://Characters/Dialogue/dialogue_option.tscn")
+		var new_dia_opt = dia_opt.instantiate() as DialogueOptionContainer
 		
-		if opt.has("option"):
-			dia_opt = ResourceLoader.load("res://Characters/Dialogue/dialogue_option.tscn")
-			new_dia_opt = dia_opt.instantiate()
-			text_option = opt["option"]
-			new_dia_opt.get_node("DialogueOption").text = text_option
-			new_dia_opt.get_node("DialogueNumber").text = str(num) + ". "
-			new_dia_opt.npc_answer = opt["text"]
-			if opt.has("answer"):
-				new_dia_opt.player_answer = opt["answer"]
-			new_dia_opt.selected_option.connect(_play_dialogue)
-			$ScrollContainer/AspectRatioContainer/VBoxContainer.add_child(new_dia_opt)
-			num += 1
-			
-		# check if theres an function entry in the JSON
-		# yes -> set the end function on the dialogue option
-		if opt.has("function"):
-			if opt.get("function") == "end_dialogue":
-				new_dia_opt.end_function = true
-				new_dia_opt.end_dialogue.connect(_end_dialogue)
+		new_dia_opt.talk_option = opt
+		new_dia_opt.number = num
+		$ScrollContainer/AspectRatioContainer/VBoxContainer.add_child(new_dia_opt)
+		num += 1
+		
+	_set_talking(dia.avatar_texture, npc_name, welcome)
 
 func _instantiate_dialogue(options: Dialogue):
 	# add the npc avatar to the dictionary
