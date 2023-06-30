@@ -6,4 +6,4 @@
 [resource]
 script = ExtResource("1_tiwkd")
 avatar_texture = ExtResource("1_5gpyv")
-dialogue_file = "res://Characters/Dialogue/Dialogue_Data/dialogue_template.json"
+dialogue_file = "res://Characters/Dialogue/Dialogue_Data/Dialogue_NPC01_R01.json"
