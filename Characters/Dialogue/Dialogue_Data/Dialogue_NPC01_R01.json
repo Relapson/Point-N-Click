@@ -11,7 +11,7 @@
 					"option_text": "What are you doing here?",
 					"npc": ["Oh, thanks for asking!", "I'm just vibing :)"],
 					"player": ["Just out of interest ofc.."],
-					"signal": "test_signal",
+					"signal": null,
 					"timer": 2,
 					"is_talking": ["player", "npc", "npc"],
 					"ends_dialogue": false,
@@ -24,7 +24,7 @@
 					"option_text": "Got any hints for me?",
 					"npc": ["Sure thing!", "What do you want to know?"],
 					"player": [],
-					"signal": "test_signal2",
+					"signal": null,
 					"timer": 2,
 					"is_talking": ["npc", "npc"],
 					"ends_dialogue": false,
@@ -34,10 +34,23 @@
 			{
 				"talk": 
 				{
+					"option_text": "Got any relevant items for me?",
+					"npc": ["Sure thing!", "Here you go!"],
+					"player": ["Thank you!"],
+					"signal": ["give_item", "item_id"],
+					"timer": 2,
+					"is_talking": ["npc", "npc", "player"],
+					"ends_dialogue": false,
+					"goto_next": null
+				}
+			},
+			{
+				"talk": 
+				{
 					"option_text": "Thanks for your time",
 					"npc": [":)"],
 					"player": [":))"],
-					"signal": "test_signal2",
+					"signal": null,
 					"timer": 2,
 					"is_talking": ["npc", "player"],
 					"ends_dialogue": true,
@@ -60,7 +73,7 @@
 					"option_text": "What the other guys problem?",
 					"npc": ["Hes just a bit grumpy", "No idea.."],
 					"player": ["Why tho", "Ah well, ok", "Thanks."],
-					"signal": "test_signal",
+					"signal": null,
 					"timer": 2,
 					"is_talking": ["npc", "player", "npc", "player", "player"],
 					"ends_dialogue": false,
@@ -73,7 +86,7 @@
 					"option_text": "How do I destroy the rock?",
 					"npc": ["Have you tried using the pickaxe?"],
 					"player": ["Perhaps..."],
-					"signal": "test_signal",
+					"signal": null,
 					"timer": 2,
 					"is_talking": ["npc", "player"],
 					"ends_dialogue": false,

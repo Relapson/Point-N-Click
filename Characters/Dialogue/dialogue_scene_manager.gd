@@ -30,6 +30,7 @@ func _run_dialogue(talk_option:Dictionary, npc_name:String):
 	var player_option = talk_option.get("option_text")
 	var ends_dialogue = talk_option.get("ends_dialogue")
 	var goto_next = talk_option.get("goto_next")
+	var dialogue_signal = talk_option.get("signal")
 	
 	# counter to track the array position
 	var npc_counter = 0
@@ -50,7 +51,10 @@ func _run_dialogue(talk_option:Dictionary, npc_name:String):
 		if talking == "npc": npc_counter += 1
 		if talking == "player": player_counter += 1
 		await get_tree().create_timer(timeout).timeout
-		
+	
+	if dialogue_signal:
+		_trigger_dialogue_signal(dialogue_signal)
+	
 	if goto_next:
 		_reset_dialogue_options()
 		_instantiate_dialogue_options(self.npc_dialogue, goto_next)
@@ -99,3 +103,14 @@ func _set_talking(avatar:Texture, talking:String, text:String):
 
 func _set_container_visibility(visibility:bool):
 	$ScrollContainer.visible = visibility
+
+func _trigger_dialogue_signal(dialogue_signal:Array):
+	var dia_signal = dialogue_signal[0] as String # stelle 0 -> signal
+	var dia_param = dialogue_signal[1] # stelle 1 -> optionale parameter
+	
+	match dia_signal.to_upper():
+		"GIVE_ITEM":
+			print("GIVE ITEM")
+			# TODO: hier dann signal über eventhandler an item/spieler/inventar/etc senden
+		_:
+			print("NO MATCH FOUND")
