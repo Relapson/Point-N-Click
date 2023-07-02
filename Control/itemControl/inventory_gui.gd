@@ -15,6 +15,7 @@ func _ready():
 	get_node("/root/GlobalInventory").dict_changed.connect(receive_item_picked_up_signal)
 	
 	EventHandler.connect("give_item_to_player", add_item_to_inventory)
+	EventHandler.connect("item_interact", _add_item_to_inventory)
 	
 	# signal, falls ein item panel angeklickt wurde
 	# mit jedem slot verbinden
@@ -28,6 +29,10 @@ func receive_item_selected_signal(item_sprite_path, item_id):
 
 func receive_item_picked_up_signal():
 	add_item_to_inventory()
+
+func _add_item_to_inventory(item:Item):
+	# TODO: item resource dem panel hinzufügen und das picked up dictionary nur ums item mit der id erweitern
+	pass
 
 func add_item_to_inventory(item_dict = null):
 	# adds an item to the first free position in the inventory

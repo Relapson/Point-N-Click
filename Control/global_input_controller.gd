@@ -11,7 +11,7 @@ var item_pick_board = null # item beim aufheben hier zwischenlegen und danach wi
 
 func _ready():
 	Input.set_custom_mouse_cursor(game_cursor, 0, Vector2(50,50))
-	get_tree().root.get_node("MainScene/GUI/inventory_gui").item_selected.connect(_set_cursor_to_image)
+	EventHandler.connect("item_selected", _set_cursor_to_image)
 
 func _set_cursor_to_image(item_sprite_path, item_id):
 	if item_sprite_path:
