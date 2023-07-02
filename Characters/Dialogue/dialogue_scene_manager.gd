@@ -108,9 +108,11 @@ func _trigger_dialogue_signal(dialogue_signal:Array):
 	var dia_signal = dialogue_signal[0] as String # stelle 0 -> signal
 	var dia_param = dialogue_signal[1] # stelle 1 -> optionale parameter
 	
+	# möglich noch mehr signale wie MOVE_TO anzulegen
 	match dia_signal.to_upper():
 		"GIVE_ITEM":
 			print("GIVE ITEM")
 			# TODO: hier dann signal über eventhandler an item/spieler/inventar/etc senden
+			EventHandler.emit_signal("give_item_to_player", DemoItems.demo_items[dia_param])
 		_:
 			print("NO MATCH FOUND")

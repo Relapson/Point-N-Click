@@ -37,7 +37,7 @@
 					"option_text": "Got any relevant items for me?",
 					"npc": ["Sure thing!", "Here you go!"],
 					"player": ["Thank you!"],
-					"signal": ["give_item", "item_id"],
+					"signal": ["give_item", "Npc01_Item_Fish"],
 					"timer": 2,
 					"is_talking": ["npc", "npc", "player"],
 					"ends_dialogue": false,

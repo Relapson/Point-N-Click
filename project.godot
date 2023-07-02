@@ -21,6 +21,7 @@ EventHandler="*res://Globals/event_handler.gd"
 RoomLoader="*res://Control/room_loader.gd"
 GlobalInventory="*res://Control/itemControl/global_inventory.gd"
 GlobalInputController="*res://Control/global_input_controller.gd"
+DemoItems="*res://Globals/demo_items.gd"
 
 [display]
 

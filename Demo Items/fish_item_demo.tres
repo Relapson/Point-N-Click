@@ -1,0 +1,14 @@
+[gd_resource type="Resource" script_class="Item" load_steps=3 format=3 uid="uid://cn4mf76fsf1jd"]
+
+[ext_resource type="Texture2D" uid="uid://bvhmxqigae2et" path="res://Assets/fich.png" id="1_2eivs"]
+[ext_resource type="Script" path="res://Control/itemControl/item_res.gd" id="1_o751j"]
+
+[resource]
+script = ExtResource("1_o751j")
+item_name = "Fisch"
+item_id = "Npc01_Item_Fish"
+picked_up = true
+item_sprite = ExtResource("1_2eivs")
+hover_name = "Cool Fish"
+other_item_id = ""
+destroyed_on_interaction = false
