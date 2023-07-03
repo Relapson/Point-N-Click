@@ -34,4 +34,4 @@ func _on_mouse_exited():
 
 func set_item_information(item:Item):
 	$ItemImage.texture = item.item_sprite
-	$Label.text = item.item_name
+	$Label.text = item.hover_name
