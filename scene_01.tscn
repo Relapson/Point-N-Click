@@ -1,4 +1,4 @@
-[gd_scene load_steps=13 format=3 uid="uid://u2r5qtlprn73"]
+[gd_scene load_steps=14 format=3 uid="uid://u2r5qtlprn73"]
 
 [ext_resource type="Script" path="res://Control/roomControl/scene_1.gd" id="1_bd4gc"]
 [ext_resource type="PackedScene" uid="uid://b38h7cepxykak" path="res://Characters/Player.tscn" id="1_gpj7y"]
@@ -25,6 +25,18 @@ item_sprite = ExtResource("5_f6lex")
 hover_name = ""
 other_item_id = ""
 destroyed_on_interaction = false
+is_item_interactable = false
+
+[sub_resource type="Resource" id="Resource_px4o3"]
+script = ExtResource("10_scuh3")
+item_name = "Pickaxe"
+item_id = "Room01_Item_Pickaxe"
+picked_up = false
+item_sprite = ExtResource("5_f6lex")
+hover_name = ""
+other_item_id = "Room01_Item_Stone"
+destroyed_on_interaction = true
+is_item_interactable = true
 
 [node name="Scene01" type="Node"]
 script = ExtResource("1_bd4gc")
@@ -86,8 +98,19 @@ polygon = PackedVector2Array(730, 392, 700, 511, 872, 515, 837, 387)
 [node name="ItemSprite" parent="RoomItem" index="1"]
 scale = Vector2(0.5, 0.5)
 
+[node name="RoomItem2" parent="." instance=ExtResource("8_mpb0h")]
+position = Vector2(1153, 594)
+item = SubResource("Resource_px4o3")
+
+[node name="CollisionPolygon2D" parent="RoomItem2" index="0"]
+polygon = PackedVector2Array(718, 404, 721, 522, 887, 518, 852, 388)
+
+[node name="ItemSprite" parent="RoomItem2" index="1"]
+scale = Vector2(0.5, 0.5)
+
 [editable path="Area2"]
 [editable path="Area3"]
 [editable path="ClickableArea"]
 [editable path="ClickableArea2"]
 [editable path="RoomItem"]
+[editable path="RoomItem2"]

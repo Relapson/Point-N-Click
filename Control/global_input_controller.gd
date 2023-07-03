@@ -13,13 +13,13 @@ func _ready():
 	Input.set_custom_mouse_cursor(game_cursor, 0, Vector2(50,50))
 	EventHandler.connect("item_selected", _set_cursor_to_image)
 
-func _set_cursor_to_image(item_sprite_path, item_id):
-	if item_sprite_path:
-		print("SETTING CURSOR IMAGE TO: " + item_sprite_path + " " + item_id)
-		item_pick_board = GlobalInventory.get_item_from_dict(item_id)
+func _set_cursor_to_image(item:Item):
+	if item:
+#		print("SETTING CURSOR IMAGE TO: " + item_sprite_path + " " + item_id)
+		item_pick_board = item
 		# TODO: bild vor dem setzen noch anpassen (skalierung etc.)
 		if item_pick_board:
-			var item_sprite = load(item_pick_board.get("item_sprite"))
+			var item_sprite = item_pick_board.item_sprite
 			Input.set_custom_mouse_cursor(item_sprite, 0, Vector2(100,100))
 
 func _input(event):

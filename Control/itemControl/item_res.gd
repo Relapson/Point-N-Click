@@ -8,6 +8,7 @@ class_name Item
 @export var hover_name: String
 @export var other_item_id: String
 @export var destroyed_on_interaction: bool
+@export var is_item_interactable:bool
 
 func _init(i_name = "", i_id = "", i_pick = false, i_sprite = null, i_hover = "", i_other = "", i_destroy = false):
 	item_name = i_name
