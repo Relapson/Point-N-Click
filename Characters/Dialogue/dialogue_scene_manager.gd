@@ -16,11 +16,13 @@ func _ready():
 func _start_dialogue(npc_dialogue:Dialogue):
 	self.npc_dialogue = npc_dialogue
 	EventHandler.emit_signal("set_player_movement", false)
+	EventHandler.emit_signal("set_player_input", false)
 	_instantiate_dialogue_options(self.npc_dialogue)
 	get_parent().show()
 	
 func _end_dialogue():
 	EventHandler.emit_signal("set_player_movement", true)
+	EventHandler.emit_signal("set_player_input", true)
 	_reset_dialogue_options()
 	get_parent().hide()
 

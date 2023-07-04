@@ -6,6 +6,7 @@ signal dialogue_ended_event
 signal set_player_movement
 signal player_movement_finished
 signal item_interact
+signal set_player_input
 
 # signale die (hoffentlich) über dialog ausgelöst werden können
 signal give_item_to_player
