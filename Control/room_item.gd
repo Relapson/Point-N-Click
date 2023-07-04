@@ -52,4 +52,14 @@ func _item_interaction(other_item:Item):
 	if other_item.other_item_id == item.item_id:
 		# platz für mehr interaktionlogik
 		GlobalInventory.interacted_items.append(item)
+		# if there is an item to spawn availible
+		if item.spawned_item:
+			_set_new_item(item.spawned_item)
+			return
 		_disable_item()
+
+func _set_new_item(new_item:Item):
+	# die nodes setzen, nicht die felder
+	$ItemSprite.texture = new_item.item_sprite
+	$Description.text = new_item.item_name
+	item = new_item

@@ -1,4 +1,4 @@
-[gd_scene load_steps=14 format=3 uid="uid://u2r5qtlprn73"]
+[gd_scene load_steps=15 format=3 uid="uid://u2r5qtlprn73"]
 
 [ext_resource type="Script" path="res://Control/roomControl/scene_1.gd" id="1_bd4gc"]
 [ext_resource type="PackedScene" uid="uid://b38h7cepxykak" path="res://Characters/Player.tscn" id="1_gpj7y"]
@@ -10,6 +10,7 @@
 [ext_resource type="Resource" uid="uid://xwawtaa6pbc1" path="res://Characters/Dialogue/Dialogues/npc_02.tres" id="8_ar3l4"]
 [ext_resource type="PackedScene" uid="uid://dlopa26kgik0d" path="res://Control/room_item.tscn" id="8_mpb0h"]
 [ext_resource type="Script" path="res://Control/itemControl/item_res.gd" id="10_scuh3"]
+[ext_resource type="Resource" uid="uid://clso4u1bacneq" path="res://Demo Items/key_item_demo.tres" id="11_xs2x6"]
 
 [sub_resource type="NavigationPolygon" id="NavigationPolygon_6mx3b"]
 vertices = PackedVector2Array(1228, 821, 1691, 838, 1304, 1041, 899, 843, 378, 1011, 77, 824, 262, 695, 929, 409, 186, 484, 1256, 644, 1553, 689, 1712, 343, 1778, 519)
@@ -26,6 +27,7 @@ hover_name = ""
 other_item_id = ""
 destroyed_on_interaction = false
 is_item_interactable = false
+spawned_item = ExtResource("11_xs2x6")
 
 [sub_resource type="Resource" id="Resource_px4o3"]
 script = ExtResource("10_scuh3")
