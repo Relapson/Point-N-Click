@@ -48,6 +48,7 @@ func is_arrived():
 
 func _physics_process(_delta):
 	if is_arrived():
+		EventHandler.emit_signal("player_movement_finished")
 		player_arrived.emit()
 		return
 	
