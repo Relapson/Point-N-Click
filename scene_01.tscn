@@ -1,4 +1,4 @@
-[gd_scene load_steps=15 format=3 uid="uid://u2r5qtlprn73"]
+[gd_scene load_steps=16 format=3 uid="uid://u2r5qtlprn73"]
 
 [ext_resource type="Script" path="res://Control/roomControl/scene_1.gd" id="1_bd4gc"]
 [ext_resource type="PackedScene" uid="uid://b38h7cepxykak" path="res://Characters/Player.tscn" id="1_gpj7y"]
@@ -9,6 +9,7 @@
 [ext_resource type="Resource" uid="uid://dihx1j01u8s0m" path="res://Characters/Dialogue/Dialogues/npc_01.tres" id="7_3g14h"]
 [ext_resource type="Resource" uid="uid://xwawtaa6pbc1" path="res://Characters/Dialogue/Dialogues/npc_02.tres" id="8_ar3l4"]
 [ext_resource type="PackedScene" uid="uid://dlopa26kgik0d" path="res://Control/room_item.tscn" id="8_mpb0h"]
+[ext_resource type="Texture2D" uid="uid://2txhooohqo5v" path="res://Assets/stone.png" id="9_fobr3"]
 [ext_resource type="Script" path="res://Control/itemControl/item_res.gd" id="10_scuh3"]
 [ext_resource type="Resource" uid="uid://clso4u1bacneq" path="res://Demo Items/key_item_demo.tres" id="11_xs2x6"]
 
@@ -22,7 +23,7 @@ script = ExtResource("10_scuh3")
 item_name = "Stein"
 item_id = "Room01_Item_Stone"
 picked_up = false
-item_sprite = ExtResource("5_f6lex")
+item_sprite = ExtResource("9_fobr3")
 hover_name = ""
 other_item_id = ""
 destroyed_on_interaction = false
@@ -96,9 +97,6 @@ item = SubResource("Resource_7rs05")
 [node name="CollisionPolygon2D" parent="RoomItem" index="0"]
 position = Vector2(-782, -455)
 polygon = PackedVector2Array(730, 392, 700, 511, 872, 515, 837, 387)
-
-[node name="ItemSprite" parent="RoomItem" index="1"]
-scale = Vector2(0.5, 0.5)
 
 [node name="RoomItem2" parent="." instance=ExtResource("8_mpb0h")]
 position = Vector2(1153, 594)

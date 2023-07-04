@@ -45,6 +45,7 @@ func _disable_item():
 
 func _pickup_item(item:Item):
 	EventHandler.emit_signal("item_interact", item)
+	item.picked_up = true
 	GlobalInventory.interacted_items.append(item)
 	_disable_item()
 
@@ -55,6 +56,17 @@ func _item_interaction(other_item:Item):
 		# if there is an item to spawn availible
 		if item.spawned_item:
 			_set_new_item(item.spawned_item)
+			
+			# TEMPORÄRER WORKAROUND
+			EventHandler.emit_signal("set_player_input", false)
+			EventHandler.emit_signal("set_player_movement", false)
+			await get_tree().create_timer(2).timeout # TODO: hier dann warten bis animation abgespielt wurde
+			_pickup_item(item)
+			EventHandler.emit_signal("set_player_input", true)
+			EventHandler.emit_signal("set_player_movement", true)
+			
+			####################
+			
 			return
 		_disable_item()
 

@@ -12,7 +12,10 @@ var allow_movement = true
 
 func _ready():
 	EventHandler.connect("set_player_movement", _set_movement)
-	#set_movement_target(position if RoomLoader.area_positions else RoomLoader.player_pos_last_screen)
+	# falls der spieler auf irgendeinem wege ein item erhält -> plus zeichen anzeigen
+	EventHandler.connect("item_interact", _toggle_item_added_sprite)
+	EventHandler.connect("give_item_to_player", _toggle_item_added_sprite)
+	$ItemAddedSprite.hide()
 	call_deferred("actor_setup")
 	
 func actor_setup():
@@ -58,3 +61,8 @@ func handle_animation(animation_sequence):
 
 func _set_movement(val):
 	allow_movement = val
+
+func _toggle_item_added_sprite(_item:Item):
+	$ItemAddedSprite.show()
+	await get_tree().create_timer(1).timeout
+	$ItemAddedSprite.hide()
