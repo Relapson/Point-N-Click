@@ -29,6 +29,7 @@ func _input(event):
 	
 	if Input.is_action_just_pressed("open_inv") and allow_input:
 		var gui_node = get_tree().root.get_node("MainScene/GUI")
+		EventHandler.emit_signal("set_player_movement", gui_node.visible)
 		_open_and_close_inventory(gui_node)
 		
 	# reset cursor image

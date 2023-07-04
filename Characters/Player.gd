@@ -22,11 +22,6 @@ func set_movement_target(movement_target: Vector2):
 	navigation_agent.set_target_position(movement_target)
 
 func _input(_event):
-	
-	# wenn inventar offen ist kein movement erlauben
-	if Input.is_action_just_pressed("open_inv"):
-		allow_movement = !allow_movement
-	
 	# alle items auf nicht-pickup setzen
 	for child in get_tree().root.get_children():
 		if child.is_in_group("items"):

@@ -21,8 +21,8 @@ func _start_dialogue(npc_dialogue:Dialogue):
 	get_parent().show()
 	
 func _end_dialogue():
-	EventHandler.emit_signal("set_player_movement", true)
 	EventHandler.emit_signal("set_player_input", true)
+	EventHandler.emit_signal("set_player_movement", true)
 	_reset_dialogue_options()
 	get_parent().hide()
 
