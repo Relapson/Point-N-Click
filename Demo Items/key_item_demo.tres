@@ -1,0 +1,15 @@
+[gd_resource type="Resource" script_class="Item" load_steps=3 format=3 uid="uid://clso4u1bacneq"]
+
+[ext_resource type="Script" path="res://Control/itemControl/item_res.gd" id="1_d7oio"]
+[ext_resource type="Texture2D" uid="uid://dw7c88nfj2lsf" path="res://Assets/key.png" id="1_rdhlk"]
+
+[resource]
+script = ExtResource("1_d7oio")
+item_name = "Key"
+item_id = "Room01_Item_Key"
+picked_up = false
+item_sprite = ExtResource("1_rdhlk")
+hover_name = "Cool Key"
+other_item_id = ""
+destroyed_on_interaction = true
+is_item_interactable = true

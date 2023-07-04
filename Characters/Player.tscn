@@ -1,7 +1,8 @@
-[gd_scene load_steps=4 format=3 uid="uid://b38h7cepxykak"]
+[gd_scene load_steps=5 format=3 uid="uid://b38h7cepxykak"]
 
 [ext_resource type="Script" path="res://Characters/Player.gd" id="1_7xxd5"]
 [ext_resource type="Texture2D" uid="uid://csgxfroob3nv0" path="res://Assets/icon.svg" id="1_77i3w"]
+[ext_resource type="Texture2D" uid="uid://bfxpm1nf1b4g7" path="res://Assets/item_plus.png" id="3_1cl0c"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_5vaji"]
 size = Vector2(120, 120)
@@ -19,3 +20,7 @@ position = Vector2(0, -1)
 shape = SubResource("RectangleShape2D_5vaji")
 
 [node name="NavigationAgent2D" type="NavigationAgent2D" parent="."]
+
+[node name="ItemAddedSprite" type="Sprite2D" parent="."]
+position = Vector2(0, -112)
+texture = ExtResource("3_1cl0c")

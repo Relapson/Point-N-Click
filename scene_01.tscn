@@ -1,4 +1,4 @@
-[gd_scene load_steps=10 format=3 uid="uid://u2r5qtlprn73"]
+[gd_scene load_steps=16 format=3 uid="uid://u2r5qtlprn73"]
 
 [ext_resource type="Script" path="res://Control/roomControl/scene_1.gd" id="1_bd4gc"]
 [ext_resource type="PackedScene" uid="uid://b38h7cepxykak" path="res://Characters/Player.tscn" id="1_gpj7y"]
@@ -8,11 +8,38 @@
 [ext_resource type="PackedScene" uid="uid://bfiagg1ry4ybr" path="res://Characters/NPC/npc.tscn" id="6_mb2j6"]
 [ext_resource type="Resource" uid="uid://dihx1j01u8s0m" path="res://Characters/Dialogue/Dialogues/npc_01.tres" id="7_3g14h"]
 [ext_resource type="Resource" uid="uid://xwawtaa6pbc1" path="res://Characters/Dialogue/Dialogues/npc_02.tres" id="8_ar3l4"]
+[ext_resource type="PackedScene" uid="uid://dlopa26kgik0d" path="res://Control/room_item.tscn" id="8_mpb0h"]
+[ext_resource type="Texture2D" uid="uid://2txhooohqo5v" path="res://Assets/stone.png" id="9_fobr3"]
+[ext_resource type="Script" path="res://Control/itemControl/item_res.gd" id="10_scuh3"]
+[ext_resource type="Resource" uid="uid://clso4u1bacneq" path="res://Demo Items/key_item_demo.tres" id="11_xs2x6"]
 
 [sub_resource type="NavigationPolygon" id="NavigationPolygon_6mx3b"]
 vertices = PackedVector2Array(1228, 821, 1691, 838, 1304, 1041, 899, 843, 378, 1011, 77, 824, 262, 695, 929, 409, 186, 484, 1256, 644, 1553, 689, 1712, 343, 1778, 519)
 polygons = Array[PackedInt32Array]([PackedInt32Array(0, 1, 2, 3), PackedInt32Array(3, 4, 5, 6, 7), PackedInt32Array(6, 8, 7), PackedInt32Array(0, 3, 7, 9), PackedInt32Array(10, 9, 7, 11, 12)])
 outlines = Array[PackedVector2Array]([PackedVector2Array(186, 484, 929, 409, 1712, 343, 1778, 519, 1553, 689, 1256, 644, 1228, 821, 1691, 838, 1304, 1041, 899, 843, 378, 1011, 77, 824, 262, 695)])
+
+[sub_resource type="Resource" id="Resource_7rs05"]
+script = ExtResource("10_scuh3")
+item_name = "Stein"
+item_id = "Room01_Item_Stone"
+picked_up = false
+item_sprite = ExtResource("9_fobr3")
+hover_name = ""
+other_item_id = ""
+destroyed_on_interaction = false
+is_item_interactable = false
+spawned_item = ExtResource("11_xs2x6")
+
+[sub_resource type="Resource" id="Resource_px4o3"]
+script = ExtResource("10_scuh3")
+item_name = "Pickaxe"
+item_id = "Room01_Item_Pickaxe"
+picked_up = false
+item_sprite = ExtResource("5_f6lex")
+hover_name = "Spitzhacke"
+other_item_id = "Room01_Item_Stone"
+destroyed_on_interaction = true
+is_item_interactable = true
 
 [node name="Scene01" type="Node"]
 script = ExtResource("1_bd4gc")
@@ -48,33 +75,9 @@ scale = Vector2(0.5, 0.5)
 
 [node name="ClickableArea" parent="." instance=ExtResource("4_oontw")]
 position = Vector2(1261, 467)
-item_name = "Spitzhacke"
-item_id = "Raum01Item02"
-other_item_id = "Raum01Item01"
-destroyed_on_interaction = true
-is_item_interactable = true
-
-[node name="CollisionShape2D" parent="ClickableArea" index="0"]
-polygon = PackedVector2Array(33, 46, 33, 105, 7, 147, 53, 127, 105, 124, 115, 114, 114, 46, 70.3724, 46)
-
-[node name="ItemSprite" parent="ClickableArea" index="1"]
-position = Vector2(62, 96)
-scale = Vector2(0.5, 0.5)
-texture = ExtResource("5_f6lex")
 
 [node name="ClickableArea2" parent="." instance=ExtResource("4_oontw")]
 position = Vector2(502, 640)
-item_name = "Stein"
-item_id = "Raum01Item01"
-other_item_id = "Raum01Item02"
-destroyed_on_interaction = true
-
-[node name="CollisionShape2D" parent="ClickableArea2" index="0"]
-polygon = PackedVector2Array(-8, -13, -13, 85, 98, 53, 96, -24)
-
-[node name="ItemSprite" parent="ClickableArea2" index="1"]
-scale = Vector2(0.5, 0.5)
-texture = ExtResource("5_f6lex")
 
 [node name="npc" parent="." instance=ExtResource("6_mb2j6")]
 position = Vector2(507, 447)
@@ -87,7 +90,27 @@ position = Vector2(1078, 381)
 scale = Vector2(0.5, 0.5)
 npc_dialogue = ExtResource("8_ar3l4")
 
+[node name="RoomItem" parent="." instance=ExtResource("8_mpb0h")]
+position = Vector2(490, 715)
+item = SubResource("Resource_7rs05")
+
+[node name="CollisionPolygon2D" parent="RoomItem" index="0"]
+position = Vector2(-782, -455)
+polygon = PackedVector2Array(730, 392, 700, 511, 872, 515, 837, 387)
+
+[node name="RoomItem2" parent="." instance=ExtResource("8_mpb0h")]
+position = Vector2(1153, 594)
+item = SubResource("Resource_px4o3")
+
+[node name="CollisionPolygon2D" parent="RoomItem2" index="0"]
+polygon = PackedVector2Array(718, 404, 721, 522, 887, 518, 852, 388)
+
+[node name="ItemSprite" parent="RoomItem2" index="1"]
+scale = Vector2(0.5, 0.5)
+
 [editable path="Area2"]
 [editable path="Area3"]
 [editable path="ClickableArea"]
 [editable path="ClickableArea2"]
+[editable path="RoomItem"]
+[editable path="RoomItem2"]

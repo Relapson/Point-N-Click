@@ -1,0 +1,27 @@
+[gd_scene load_steps=3 format=3 uid="uid://dlopa26kgik0d"]
+
+[ext_resource type="Script" path="res://Control/room_item.gd" id="1_tdfgd"]
+[ext_resource type="FontFile" uid="uid://oqud717w80kb" path="res://Assets/Fonts/EastSeaDokdo-Regular.ttf" id="2_qaw4l"]
+
+[node name="RoomItem" type="Area2D"]
+script = ExtResource("1_tdfgd")
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="."]
+modulate = Color(0, 1, 1, 1)
+position = Vector2(-785, -435)
+polygon = PackedVector2Array(598, 343, 600, 602, 1038, 598, 1021, 309)
+
+[node name="ItemSprite" type="Sprite2D" parent="."]
+
+[node name="Description" type="Label" parent="."]
+offset_right = 40.0
+offset_bottom = 23.0
+theme_override_fonts/font = ExtResource("2_qaw4l")
+theme_override_font_sizes/font_size = 50
+text = "Lorem"
+
+[connection signal="body_entered" from="." to="." method="_on_player_body_entered"]
+[connection signal="body_exited" from="." to="." method="_on_player_body_exited"]
+[connection signal="input_event" from="." to="." method="_on_input_event"]
+[connection signal="mouse_entered" from="." to="." method="_on_mouse_entered"]
+[connection signal="mouse_exited" from="." to="." method="_on_mouse_exited"]
