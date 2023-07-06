@@ -1,9 +1,8 @@
-[gd_scene load_steps=16 format=3 uid="uid://u2r5qtlprn73"]
+[gd_scene load_steps=15 format=3 uid="uid://u2r5qtlprn73"]
 
 [ext_resource type="Script" path="res://Control/roomControl/scene_1.gd" id="1_bd4gc"]
 [ext_resource type="PackedScene" uid="uid://b38h7cepxykak" path="res://Characters/Player.tscn" id="1_gpj7y"]
 [ext_resource type="PackedScene" uid="uid://bjng1m2u6rpc2" path="res://Control/leave_area_hotspot.tscn" id="4_jx7g5"]
-[ext_resource type="PackedScene" uid="uid://wprlbke24xqr" path="res://Control/clickable_area.tscn" id="4_oontw"]
 [ext_resource type="Texture2D" uid="uid://b7kl3nn7pm274" path="res://Assets/placeholder_item.png" id="5_f6lex"]
 [ext_resource type="PackedScene" uid="uid://bfiagg1ry4ybr" path="res://Characters/NPC/npc.tscn" id="6_mb2j6"]
 [ext_resource type="Resource" uid="uid://dihx1j01u8s0m" path="res://Characters/Dialogue/Dialogues/npc_01.tres" id="7_3g14h"]
@@ -73,12 +72,6 @@ position = Vector2(12, -10)
 position = Vector2(877, 606)
 scale = Vector2(0.5, 0.5)
 
-[node name="ClickableArea" parent="." instance=ExtResource("4_oontw")]
-position = Vector2(1261, 467)
-
-[node name="ClickableArea2" parent="." instance=ExtResource("4_oontw")]
-position = Vector2(502, 640)
-
 [node name="npc" parent="." instance=ExtResource("6_mb2j6")]
 position = Vector2(507, 447)
 scale = Vector2(0.5, 0.5)
@@ -110,7 +103,5 @@ scale = Vector2(0.5, 0.5)
 
 [editable path="Area2"]
 [editable path="Area3"]
-[editable path="ClickableArea"]
-[editable path="ClickableArea2"]
 [editable path="RoomItem"]
 [editable path="RoomItem2"]
